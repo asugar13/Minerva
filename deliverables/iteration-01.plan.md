@@ -9,23 +9,24 @@
 
 Describe the different roles on the team and the responsibilities associated with each role.
 
-Role
-Responsibilities
-Front End Developer
-UI for picking courses and picking restrictions (e.g. Which semester)
-Display generated timetables
-Allow Course Picking / Adding restrictions
-Sort timetables by criteria
+Roles:
+  Front End Developer:
+    Responsibilities:
+      UI for picking courses and picking restrictions (e.g. Which semester)
+      Display generated timetables
+      Allow Course Picking / Adding restrictions
+      Sort timetables by criteria
 
-Back End Developer
-Create class to retrieve course offering data
-Create business objects to represent course and timetable data
-Design API
-Create methods to compare timetables to each other
-Generate all possible feasible timetables
+  Back End Developer:
+    Responsibilities:
+      Create class to retrieve course offering data
+      Create business objects to represent course and timetable data
+      Design API
+      Create methods to compare timetables to each other
+      Generate all possible feasible timetables
 
-Github Merger
-Manages pull requests and deals with merge conflicts
+  Github Merger:
+      Manages pull requests and deals with merge conflicts
 
 #### Events
 
