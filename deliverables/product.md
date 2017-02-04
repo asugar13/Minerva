@@ -30,8 +30,6 @@ YOUR ANSWER GOES HERE ...
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-YOUR ANSWER GOES HERE ...
-
 * Our yearly-time table generator will benefit many students to plan their academic years easy, and quick.
 * What puts us in a unique place compare to other products(Griddy.org or semester.ly)?
   * Our product saves users time greatly due to our two factors: managing yearly schedule, and automatic generator with filter options.
