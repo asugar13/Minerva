@@ -29,9 +29,6 @@ Manages pull requests and deals with merge conflicts
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
-
-
  * We will have weekly sync meetings during tutorials 
  * We will discuss:
 * What we’ve done
@@ -39,15 +36,6 @@ Describe meetings (and other events) you are planning to have:
 * Any problems or issues we’re facing
 
 #### Artifacts
-
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
-
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
 
 * We will set up a task board on Trello to keep track of what needs to be done.
 * Tasks will be prioritized based on the order they listed in. High priority goes to the top of the list and team members can rearrange tasks as they see fit.
