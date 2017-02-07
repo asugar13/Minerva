@@ -25,8 +25,75 @@ YOUR ANSWER GOES HERE ...
 
 * Short (1 - 2 min' read max)
 * Be specific (e.g. )
-* Feel free (but not obligated) to use personas.        
-  You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).
+User Personas:
+
+Adam (Commuter)
+Age: 20
+Occupation: UofT Student
+Status: Single
+Location: Markham
+Archetype: Commuting Student
+
+Goals: 	-Wake up early and get to class on time
+	      -Get home as soon as possible after finishing classes
+
+Frustration: -Delays on the TTC
+	           -Computer assignments pile up
+
+Bio:
+	Adam is a 3rd year computer science student at UofT St.George campus. Adam commutes 5 days a week averaging 
+  two and a half hours a day on the TTC because of this Adam doesn't prefer to have courses late at night or too
+	early in the morning. Adam belongs to New college and as such spends his mornings, and sometimes afternoons, 
+	at the NC lounge completing homework. Being a computer science/mathematics major, Adam spends much of his free 
+	time studying, taking the occasional break for coffee or meeting with friends to unwind. His hobbies include 
+	puzzles, video games, socializing and jogging during warm weather.
+
+_______________________________________________________________________________________________
+
+Stephen (Extracurriculars)
+Age: 18
+Occupation: UofT Student
+Status: Dating
+Location: Markham
+Archetype: Gym User
+
+Goals:	-Find time to train at the gym
+	      -Win at the dragon boating competition
+
+Frustrations:	-Poor commuting conditions
+		          -Difficult courses
+
+Bio: 
+	Stephen is a first year UofT student in Economics who attends St.Michaels college. Due to Stephen's
+	involvement in the Uoft Dragon boating team, he spends most of his free time before and after class
+	training himself and other team recruits at the UofT Athletic Centre. Because of this Stephen needs
+	a specific time-table that prevents conflicts between his duties with the dragon boating team and
+	his economic courses. Being an economic student, Stephen feel overwhelmed by the amount of courses 
+	needed to complete his major and often goes to the registrar to get guidance. Stephen's hobbies 
+	include spending time with his girlfriend,training at the gym and reading.
+
+______________________________________________________________________________________________________________
+
+Bruce (Full Time Employee)
+Age: 25
+Occupation: Intern at tech company & part time York Student
+Status: Married
+Location: North York
+Archetype: Full Timer
+
+Goals:	-Impress tech company
+	      -Complete degree during work term
+
+Frustrations:	-Conflicting work and school schedules
+		          -Too much work and not enough free time with family
+
+Bio:
+	Bruce is a fifth year part time York engineering student. At the same time Bruce also works as an unpaid
+	intern at a start up tech company full time, providing techinical support towards to clients about
+	defective company products. With such little time on his hands Bruce has trouble constructing a workable
+	time-table without conflicts. Bruce spends almost all of his time at work or at school and doesnt have
+	time for his hobbies that include volunteer work, biking and spending time with his family. 
+  
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
