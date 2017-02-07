@@ -24,6 +24,8 @@ YOUR ANSWER GOES HERE ...
 YOUR ANSWER GOES HERE ...
 
 * Short (1 - 2 min' read max)
+Our scheduling app is for those that are in need of a fast, efficient and easy to use tool for scheduling courses. This includes students that are heavily involved with extracurriculars, daily commuters, full/part-time workers and more types of people that require 
+a specialized time-table that wont conflict with their outside schedules. It is targeted at users that, for the first time, are creating their own course schedules at UofT and are overwhlemed by the amount of choice in courses, this app will serve as a smooth and easy transition from secondary school to University by providing automatic choices of yearly time-tables for them.
 * Be specific (e.g. )
 User Personas:
 
@@ -76,9 +78,9 @@ ________________________________________________________________________________
 
 Bruce (Full Time Employee)
 Age: 25
-Occupation: Intern at tech company & part time York Student
+Occupation: Intern at tech company & part time UofT Student
 Status: Married
-Location: North York
+Location: Toronto
 Archetype: Full Timer
 
 Goals:	-Impress tech company
@@ -88,7 +90,7 @@ Frustrations:	-Conflicting work and school schedules
 		 -Too much work and not enough free time with family
 
 Bio:
-	Bruce is a fifth year part time York engineering student. At the same time Bruce also works as an unpaid
+	Bruce is a fifth year part time UofT engineering student. At the same time Bruce also works as an unpaid
 	intern at a start up tech company full time, providing techinical support towards to clients about
 	defective company products. With such little time on his hands Bruce has trouble constructing a workable
 	time-table without conflicts. Bruce spends almost all of his time at work or at school and doesnt have
