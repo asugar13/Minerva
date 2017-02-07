@@ -35,14 +35,14 @@ Location: Markham
 Archetype: Commuting Student
 
 Goals: 	-Wake up early and get to class on time
-	      -Get home as soon as possible after finishing classes
+	-Get home as soon as possible after finishing classes
 
 Frustration: -Delays on the TTC
-	           -Computer assignments pile up
+	     -Computer assignments pile up
 
 Bio:
 	Adam is a 3rd year computer science student at UofT St.George campus. Adam commutes 5 days a week averaging 
-  two and a half hours a day on the TTC because of this Adam doesn't prefer to have courses late at night or too
+  	two and a half hours a day on the TTC because of this Adam doesn't prefer to have courses late at night or too
 	early in the morning. Adam belongs to New college and as such spends his mornings, and sometimes afternoons, 
 	at the NC lounge completing homework. Being a computer science/mathematics major, Adam spends much of his free 
 	time studying, taking the occasional break for coffee or meeting with friends to unwind. His hobbies include 
@@ -58,10 +58,10 @@ Location: Markham
 Archetype: Gym User
 
 Goals:	-Find time to train at the gym
-	      -Win at the dragon boating competition
+	-Win at the dragon boating competition
 
 Frustrations:	-Poor commuting conditions
-		          -Difficult courses
+		-Difficult courses
 
 Bio: 
 	Stephen is a first year UofT student in Economics who attends St.Michaels college. Due to Stephen's
@@ -82,10 +82,10 @@ Location: North York
 Archetype: Full Timer
 
 Goals:	-Impress tech company
-	      -Complete degree during work term
+	-Complete degree during work term
 
 Frustrations:	-Conflicting work and school schedules
-		          -Too much work and not enough free time with family
+		 -Too much work and not enough free time with family
 
 Bio:
 	Bruce is a fifth year part time York engineering student. At the same time Bruce also works as an unpaid
