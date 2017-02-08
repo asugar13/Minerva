@@ -38,17 +38,28 @@ transition from secondary school to University by providing automatic choices of
 User Personas:
 
 Adam (Commuter)
+
 Age: 20
+
 Occupation: UofT Student
+
 Status: Single
+
 Location: Markham
+
 Archetype: Commuting Student
 
-Goals: 	-Wake up early and get to class on time
+Goals: 	
+
+	-Wake up early and get to class on time
+
 	-Get home as soon as possible after finishing classes
 
-Frustration: -Delays on the TTC
-	     -Computer assignments pile up
+Frustration: 
+
+	-Delays on the TTC
+	
+	-Computer assignments pile up
 
 Bio:
 	Adam is a 3rd year computer science student at UofT St.George campus. Adam commutes 5 days a week averaging
@@ -61,19 +72,31 @@ Bio:
 _______________________________________________________________________________________________
 
 Stephen (Extracurriculars)
+
 Age: 18
+
 Occupation: UofT Student
+
 Status: Dating
+
 Location: Markham
+
 Archetype: Gym User
 
-Goals:	-Find time to train at the gym
+Goals:	
+
+	-Find time to train at the gym
+	
 	-Win at the dragon boating competition
 
-Frustrations:	-Poor commuting conditions
-		-Difficult courses
+Frustrations:	
+
+	-Poor commuting conditions
+	
+	-Difficult courses
 
 Bio:
+
 	Stephen is a first year UofT student in Economics who attends St.Michaels college. Due to Stephen's
 	involvement in the Uoft Dragon boating team, he spends most of his free time before and after class
 	training himself and other team recruits at the UofT Athletic Centre. Because of this Stephen needs
@@ -85,19 +108,31 @@ Bio:
 ______________________________________________________________________________________________________________
 
 Bruce (Full Time Employee)
+
 Age: 25
+
 Occupation: Intern at tech company & part time UofT Student
+
 Status: Married
+
 Location: Toronto
+
 Archetype: Full Timer
 
-Goals:	-Impress tech company
+Goals:	
+
+	-Impress tech company
+
 	-Complete degree during work term
 
-Frustrations:	-Conflicting work and school schedules
-		 -Too much work and not enough free time with family
+Frustrations:	
+
+	-Conflicting work and school schedules
+	
+	-Too much work and not enough free time with family
 
 Bio:
+
 	Bruce is a fifth year part time UofT engineering student. At the same time Bruce also works as an unpaid
 	intern at a start up tech company full time, providing techinical support towards to clients about
 	defective company products. With such little time on his hands Bruce has trouble constructing a workable
@@ -109,7 +144,7 @@ Bio:
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
 * Our yearly-time table generator will provide services to many students to plan their academic years easy, and quick.
-* What puts us in a unique place compare to other products(Griddy.org or semester.ly)?
+* **What puts us in a unique place compare to other products(Griddy.org or semester.ly)?**
   * Our product saves users time greatly due to the two factors: managing "yearly" schedule, and automatic generator with filter options.
   * We as a team saw the problem existed in Griddy.org like developers of semester.ly, but we also noticed a limitation in semester.ly's functionality.  Because our product can automatically generate "both" semesters' timetable at the same time, we believe that our product will function at least twice more efficient than other products out there.
   * We also realized that some users prefer "specific style" of time table, thus our filter option will be able to assist them better than ever.
