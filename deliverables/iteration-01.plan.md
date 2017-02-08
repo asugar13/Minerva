@@ -38,20 +38,20 @@ Roles:
 
 #### Artifacts
 
-* We will set up a task board on Trello to keep track of what needs to be done.
+* We will set up a task board on Trello to keep track of what needs to be done and any issues that come up.
 * Tasks will be prioritized based on the order they listed in. High priority goes to the top of the list and team members can rearrange tasks as they see fit.
 * Team members take whatever tasks they are most comfortable with and move them to the assigned/working on list.
 * Trello is integrated with Slack to provide notifications for updates to the board
 * We will use Slack to communicate throughout the week when we run into issues
-* If issues come up then process can vary slightly, for example if one feature is blocking somebody’s, then they can request for somebody to pick up that ticket or to pick it up themselves and finish it asap
+* If issues come up then process can vary slightly, for example if one feature is blocking somebody’s, then they can for somebody to pick up that ticket or to pick it up themselves and finish it asap
+* Github workflow:
+  * Every team member will fork the master repo.
+  * After someone finishes a feature, they can make a pull request.
+  * The Github Merger will be responsible for merging the pull request and handling conflicts.
 
 ## Product
 
 #### Goals and tasks
-
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
 
 * Complete iteration-01.plan.md
 * Fill in Trello board with tasks
