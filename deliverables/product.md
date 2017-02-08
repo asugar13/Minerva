@@ -62,7 +62,8 @@ Frustration:
 	-Computer assignments pile up
 
 Bio:
-	Adam is a 3rd year computer science student at UofT St.George campus. Adam commutes 5 days a week averaging
+
+		Adam is a 3rd year computer science student at UofT St.George campus. Adam commutes 5 days a week averaging
   	two and a half hours a day on the TTC, because of this Adam prefers not to have courses late at night or too
 	early in the morning. Adam belongs to New college and as such spends his mornings, and sometimes afternoons,
 	at the NC lounge completing homework. Being a computer science/mathematics major, Adam spends much of his free
@@ -97,7 +98,7 @@ Frustrations:
 
 Bio:
 
-	Stephen is a first year UofT student in Economics who attends St.Michaels college. Due to Stephen's
+		Stephen is a first year UofT student in Economics who attends St.Michaels college. Due to Stephen's
 	involvement in the Uoft Dragon boating team, he spends most of his free time before and after class
 	training himself and other team recruits at the UofT Athletic Centre. Because of this Stephen needs
 	a specific time-table that prevents conflicts between his duties with the dragon boating team and
@@ -133,7 +134,7 @@ Frustrations:
 
 Bio:
 
-	Bruce is a fifth year part time UofT engineering student. At the same time Bruce also works as an unpaid
+		Bruce is a fifth year part time UofT engineering student. At the same time Bruce also works as an unpaid
 	intern at a start up tech company full time, providing techinical support towards to clients about
 	defective company products. With such little time on his hands Bruce has trouble constructing a workable
 	time-table without conflicts nor can he sacrifice the time to sit down and make a schedule. Bruce spends
