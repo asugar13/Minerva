@@ -32,7 +32,7 @@ https://discordapp.com
  
 #### Planned changes
 
-We decided to opt out of the mobile application option from our front-end possibilites as users preferred using a desktop for scheduling courses.
+We decided to opt out of the mobile application option from our front-end possibilities as users preferred using a desktop for scheduling courses.
 
 ## Product - Review
 
