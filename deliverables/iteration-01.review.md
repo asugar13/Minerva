@@ -1,26 +1,13 @@
-﻿# YOUR PRODUCT/TEAM NAME
+# Timetable Generator/Team 22
 
-> _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
->      
-> _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
+## Iteration 01 - Review & Retrospect
 
-
-## Iteration XX - Review & Retrospect
-
-* When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
-Thursday, February 9, 2017
-* Where: PHYSICAL LOCATION AND/OR ONLINE
-Bahen 2185
+When: Thursday, February 9, 2017. 1-2 pm.
+Where: Bahen Center. 40 St. George St, Toronto ON, M5S 2E4. Room 2185.
 
 ## Process - Reflection
 
-(Optional) Short introduction
-
 #### Decisions that turned out well
-
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
-* 2 - 4 decisions.
 
 1. Decision to use trello. This decision was successful because it provided us with a fast and easy platform to organize and coordinate
 our efforts. Specifically, it allowed us to know which tasks are unfinished, who is working on any given task and notifies the rest of
@@ -36,40 +23,13 @@ https://2017csc301.slack.com (group is invite only)
 channels.
 https://discordapp.com
 
-* Ordered from most to least important.
-* Explain why (i.e. give a supporting argument) you consider a decision to be successful.
-* Feel free to refer/link to process artifact(s).
-
 #### Decisions that did not turn out as well as we hoped
+         
+1. Unable to decide on which front end to implement for our application. We are not sure which interface suits our application the most.At present, We are debating a choice between a desktop application and a web application. 
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
-* 2 - 4 decisions.
-* Ordered from most to least important.
-* Feel free to refer/link to process artifact(s).
-
-sonny.kim [1:28 PM] Is anyone speaking or am I having some trouble with my video call
-
-justchew [1:28 PM] i was speaking
-
-[1:28]  but it seems like it crashed
-
-sonny.kim [1:28 PM] I only heard a word from you
-
-justchew [1:28 PM] yeah i think it crashed
-
-[1:28]  maybe skype would be easier
-
-[1:28]  or discord if everybody has it
-
-[1:29]  can you guys hear me
-
-justchew [2:00 PM] hullo?
-
-sonny.kim [2:01 PM] I think its cutting out
-
-justchew [2:01 PM] yeah this thing sucks
-
+2. Another decision that did not work out as planned was our choice to use video conferencing to conduct our first planning meeting. All of us were not able to connect to the call, and for those of us who did connect to the call, got disconnected within the first minute. Here is a screenshot of our conversation that happened concurrently.
+![alt tag] (http://imgur.com/a/J8EgW)
+ 
 #### Planned changes
 
 List any process-related changes you are planning to make (if there are any)
