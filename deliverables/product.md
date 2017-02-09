@@ -18,23 +18,19 @@ YOUR ANSWER GOES HERE ...
   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
 * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
 
-We are planning to build a mobile app to allow (UofT) students to choose their academic schedules more efficiently.
+We are planning to build a desktop app to allow (UofT) students to choose their academic schedules more efficiently.
 The student inputs the courses that he wishes to be enrolled in and an algorithm generates all the possible timetable combinations.
 Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time in between lectures.
 
 
 #### Q2: Who are your target users?
 
-YOUR ANSWER GOES HERE ...
-
-* Short (1 - 2 min' read max)
-
 Our scheduling app is for those that are in need of a fast, efficient and easy-to-use tool for scheduling courses.  This includes
 students that are heavily involved with extracurriculars, daily commuters, full/part-time workers and more types of people that require
 a specialized time-table that won't conflict with their outside schedules.  It is targeted at users that, for the first time, are creating
 their own course schedules at UofT and are overwhlemed by the amount of choice in courses.  This app will serve as a smooth and easy
 transition from secondary school to University by providing automatic choices of yearly time-tables for them.
-* Be specific (e.g. )
+
 User Personas:
 
 Adam (Commuter)
@@ -59,6 +55,8 @@ Frustration:
 
 	-Delays on the TTC
 	
+	-Waking up too early in the morning/getting home late at night because of class hours
+	
 	-Computer assignments pile up
 
 Bio:
@@ -70,7 +68,7 @@ Bio:
 	time studying, taking the occasional break for coffee or meeting with friends to unwind. His hobbies include
 	puzzles, video games, socializing and jogging during warm weather.
 
-_______________________________________________________________________________________________
+__________________________________________________________________________________________________________________
 
 Stephen (Extracurriculars)
 
