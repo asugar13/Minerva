@@ -21,6 +21,21 @@ Bahen 2185
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
 * 2 - 4 decisions.
+
+1. Decision to use trello. This decision was successful because it provided us with a fast and easy platform to organize and coordinate
+our efforts. Specifically, it allowed us to know which tasks are unfinished, who is working on any given task and notifies the rest of
+the group when a certain task is finished. 
+https://trello.com (Currently invite only)
+
+2. Decision to use slack. This decision was successful because it provided real time updates on the trello page, quick updates on team
+members, focus boards for certain aspects of the project. Slack, being a desktop, browser and mobile makes it immensely convenient for
+portability.
+https://2017csc301.slack.com (group is invite only)
+
+3.Decision to use Discord. This decision was successful because it provided a platform to organize an online meeting by using voice
+channels.
+https://discordapp.com
+
 * Ordered from most to least important.
 * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
 * Feel free to refer/link to process artifact(s).
