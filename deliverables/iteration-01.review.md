@@ -28,7 +28,7 @@ https://discordapp.com
 1. Unable to decide on which front end to implement for our application. We are not sure which interface suits our application the most.At present, We are debating a choice between a desktop application and a web application. 
 
 2. Another decision that did not work out as planned was our choice to use video conferencing to conduct our first planning meeting. All of us were not able to connect to the call, and for those of us who did connect to the call, got disconnected within the first minute. Here is a screenshot of our conversation that happened concurrently.
-![alt tag] (http://imgur.com/a/J8EgW)
+![alt text] (http://imgur.com/a/J8EgW) 
  
 #### Planned changes
 
