@@ -1,22 +1,6 @@
-﻿# YOUR PRODUCT/TEAM NAME
-
-> _Note:_ This document is meant to evolve throughout the planning phase of your project.    
-> That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section).
+﻿# Timetable Generator/ Team 22
 
 #### Q1: What are you planning to build?
-
-YOUR ANSWER GOES HERE ...
-
-* Short (1 - 2 min' read)
-* Start with a single sentence, high-level description of the product.
-* Be clear - Describe the problem you are solving in simple terms.
-* Be concrete. For example:
-   * What are you planning to build? Is it a website, mobile app,
-  browser extension, command-line app, etc.?      
-   * When describing the problem/need, give concrete examples of common use cases.
-* Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-  For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
-* **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
 
 We are planning to build a desktop app to allow (UofT) students to choose their academic schedules more efficiently.
 The student inputs the courses that he wishes to be enrolled in and an algorithm generates all the possible timetable combinations.
@@ -31,7 +15,7 @@ a specialized time-table that won't conflict with their outside schedules.  It i
 their own course schedules at UofT and are overwhlemed by the amount of choice in courses.  This app will serve as a smooth and easy
 transition from secondary school to University by providing automatic choices of yearly time-tables for them.
 
-User Personas:
+##User Personas:
 
 **Adam (Commuter)**
 
@@ -154,18 +138,6 @@ Bio:
 ----
 
 ### Highlights
-
-YOUR ANSWER GOES HERE ...
-
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
-
-* Short (5 min' read max)
-* Decisions can be related to the product and/or the team process.
-   * Mention which alternatives you were considering.
-   * Present the arguments for each alternative.
-   * Explain why the option you decided on makes the most sense for your team/product/users.
-* Essentially, we want to understand how (and why) you ended up with your current product plan.
 
 * We were not clear on exactly what we were building. There was some confusion as to whether we woud be doing a mobile app, desktop app or website. It was determined that a mobile app was not the correct platform as screen real estate was too small. We finalized on a desktop app as that would be what we are most comfortable with.
 * A few team members brought up similar scheduling websites, mainly semester.ly. It is very similar to our idea. We now know that we need to include more specific filtering option than semester.ly.
