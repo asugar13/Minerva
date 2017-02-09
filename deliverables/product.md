@@ -166,3 +166,7 @@ and/or collaborative process.
    * Present the arguments for each alternative.
    * Explain why the option you decided on makes the most sense for your team/product/users.
 * Essentially, we want to understand how (and why) you ended up with your current product plan.
+
+* We were not clear on exactly what we were building. There was some confusion as to whether we woud be doing a mobile app, desktop app or website. It was determined that a mobile app was not the correct platform as screen real estate was too small. We finalized on a desktop app as that would be what we are most comfortable with.
+* A few team members brought up similar scheduling websites, mainly semester.ly. It is very similar to our idea. We now know that we need to include more specific filtering option than semester.ly.
+* For project boards we considered Jira, Kyber and Trello. We settled on Trello as it was lightweight, free and easy to use.
