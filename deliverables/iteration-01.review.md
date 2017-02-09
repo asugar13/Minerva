@@ -32,11 +32,7 @@ https://discordapp.com
  
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
-
-* Ordered from most to least important.
-* Explain why you are making a change.
-
+We decided to opt out of the mobile application option from our front-end possibilites as users preferred using a desktop for scheduling courses.
 
 ## Product - Review
 
