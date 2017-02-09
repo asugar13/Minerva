@@ -48,6 +48,27 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 * Ordered from most to least important.
 * Feel free to refer/link to process artifact(s).
 
+sonny.kim [1:28 PM] Is anyone speaking or am I having some trouble with my video call
+
+justchew [1:28 PM] i was speaking
+
+[1:28]  but it seems like it crashed
+
+sonny.kim [1:28 PM] I only heard a word from you
+
+justchew [1:28 PM] yeah i think it crashed
+
+[1:28]  maybe skype would be easier
+
+[1:28]  or discord if everybody has it
+
+[1:29]  can you guys hear me
+
+justchew [2:00 PM] hullo?
+
+sonny.kim [2:01 PM] I think its cutting out
+
+justchew [2:01 PM] yeah this thing sucks
 
 #### Planned changes
 
