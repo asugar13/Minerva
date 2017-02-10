@@ -9,7 +9,7 @@ in between lectures.
 
 A few mock-ups of our UI:
 
-***Link to Moqup version** : https://app.moqups.com/dev.sonnyk@gmail.com/QJ6b8ZtlPo/view/page/ac325e397?ui=0
+**Link to Moqup version** : https://app.moqups.com/dev.sonnyk@gmail.com/QJ6b8ZtlPo/view/page/ac325e397?ui=0
 
 ![alt text]  (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Login:Signup%20Page.jpg)
 ![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Main%20Page.jpg)
