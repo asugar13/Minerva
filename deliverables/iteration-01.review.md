@@ -1,4 +1,4 @@
- # Timetable Generator/Team 22
+# Timetable Generator/Team 22
 
 ## Iteration 01 - Review & Retrospect
 
@@ -48,11 +48,7 @@ We decided to opt out of the mobile application option from our front-end possib
 
 #### Goals and/or tasks that were planned but not met/completed:
 
-* From most to least important.
-* For each goal/task, explain why it was not met/completed.      
-  e.g. Did you change your mind, or did you just not get to it yet?
-  
-* none?
+* none
 
 ## Meeting Highlights
 
