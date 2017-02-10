@@ -2,10 +2,9 @@
 
 #### Q1: What are you planning to build?
 
-We are planning to build a desktop app to allow UofT students to choose their academic schedules more efficiently and to their preferences.
+We are planning to build a desktop app to allow UofT students to choose their academic schedules more efficiently and according to their preferences.
 The program will allow students to input the courses that they wish to be enrolled in and an algorithm generates all the possible timetable
-combinations. Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time
-in between lectures.
+combinations. Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time in between lectures.
 
 A few mock-ups of our UI:
 
@@ -23,7 +22,7 @@ Our scheduling app is for those that are in need of a fast, efficient and easy-t
 students that are heavily involved with extracurriculars, daily commuters, full/part-time workers and other types of people that require
 a specialized time-table that won't conflict with their outside schedules. It is also targeted towards any student that has certain
 preferences for their timetables and wants to create the best timetable given their courses.  New users that, for the first time, are
-creating their own course schedules at UofT and are overwhelmed by the amount of choice in courses can also find some use from this app. 
+creating their own course schedules at UofT and are overwhelmed by the amount of choice in courses can also find some use from this app.
 This app will serve as a smooth and easy transition from secondary school to university by providing automatic choices of yearly time-tables
 for them.
 
