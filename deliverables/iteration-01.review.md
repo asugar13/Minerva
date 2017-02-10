@@ -1,4 +1,4 @@
-# Timetable Generator/Team 22
+ # Timetable Generator/Team 22
 
 ## Iteration 01 - Review & Retrospect
 
@@ -19,7 +19,7 @@ members, focus boards for certain aspects of the project. Slack, being a desktop
 portability.
 https://2017csc301.slack.com (group is invite only)
 
-3.Decision to use Discord. This decision was successful because it provided a platform to organize an online meeting by using voice
+3. Decision to use Discord. This decision was successful because it provided a platform to organize an online meeting by using voice
 channels.
 https://discordapp.com
 
@@ -38,15 +38,21 @@ We decided to opt out of the mobile application option from our front-end possib
 
 #### Goals and/or tasks that were met/completed:
 
-* From most to least important.
-* Refer/link to artifact(s) that show that a goal/task was met/completed.
-* If a goal/task was not part of the original iteration plan, please mention it.
+* Iteration-01.plan.md
+* Fill in Trello board with tasks.
+* product.md
+* Conduct review meeting(During lab time, every group member attended).
+* Finish at least 1 story and commit.
+* Rough visual mock-up of UI(This is one of the artifacts that we decided to produce in order to present our product idea). 
+         Refer to ...
 
 #### Goals and/or tasks that were planned but not met/completed:
 
 * From most to least important.
 * For each goal/task, explain why it was not met/completed.      
   e.g. Did you change your mind, or did you just not get to it yet?
+  
+* none?
 
 ## Meeting Highlights
 
