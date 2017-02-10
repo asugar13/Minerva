@@ -32,19 +32,21 @@ https://discordapp.com
  
 #### Planned changes
 
-We decided to opt out of the mobile application option from our front-end possibilities as users preferred using a desktop for scheduling courses.
+* We decided to opt out of the mobile application option from our front-end possibilities as users preferred using a desktop for scheduling courses.
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
+* Get everybody on Slack and Trello - was not part of original plan but was essential in organizing our team
+![alt text] (http://i.imgur.com/Iti1hGM.png)
+* Conduct review meeting(During lab time, every group member attended).
+* product.md (In repository)
 * Iteration-01.plan.md (In repository)
+* Rough visual mock-up of UI(In repository /mock-ups/). 
 * Fill in Trello board with tasks. 
 ![alt text] (http://i.imgur.com/r4RfsHn.png)
-* product.md (In repository)
-* Conduct review meeting(During lab time, every group member attended).
-* Finish at least 1 story and commit. (refer to image in 2nd point)
-* Rough visual mock-up of UI(In repository /mock-ups/). 
+* Finish at least 1 story and commit. (refer to above image)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
@@ -54,8 +56,8 @@ We decided to opt out of the mobile application option from our front-end possib
 
 Going into the next iteration, our main insights are:
 
-* 2 - 4 items
-* Short (no more than one short paragraph per item)
-* High-level concepts that should guide your work for the next iteration.
-* These concepts should help you decide on where to focus your efforts.
-* Can be related to product and/or process.
+1. We figured we need to concretely define an API so that the backend and the frontend can be worked on simultaneously however it should be defined in a way that is agnostic to the front end interface.
+
+2. Need to decide on tools, frameworks, and languages to be used. Need to find what is comfortable with the team and works with our needs.
+
+3. Plan and Design the architecture of the product and decide how to delegate the tasks. If everybody turns out to be confortable with the whole system then tasks can be delegated at will otherwise higher level parts and roles should be defined and assigned.
