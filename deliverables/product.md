@@ -4,6 +4,12 @@
 
 We are planning to build a desktop app to allow UofT students to choose their academic schedules more efficiently and to their preferences. The program will allow students to input the courses that they wish to be enrolled in and an algorithm generates all the possible timetable combinations. Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time in between lectures.
 
+A few mock-ups of our UI:
+![alt text]  (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Login:Signup%20Page.jpg)
+![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Main%20Page.jpg)
+![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Profile%20Page.jpg)
+![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Timetables%20Page.jpg)
+
 
 #### Q2: Who are your target users?
 
