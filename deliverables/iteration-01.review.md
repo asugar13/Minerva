@@ -38,13 +38,12 @@ We decided to opt out of the mobile application option from our front-end possib
 
 #### Goals and/or tasks that were met/completed:
 
-* Iteration-01.plan.md
-* Fill in Trello board with tasks.
-* product.md
+* Iteration-01.plan.md (In repository)
+* Fill in Trello board with tasks. ![alt text]http://i.imgur.com/r4RfsHn.png
+* product.md (In repository)
 * Conduct review meeting(During lab time, every group member attended).
-* Finish at least 1 story and commit.
-* Rough visual mock-up of UI(This is one of the artifacts that we decided to produce in order to present our product idea). 
-         Refer to ...
+* Finish at least 1 story and commit. (refer to image in 2nd point)
+* Rough visual mock-up of UI(In repository /mock-ups/). 
 
 #### Goals and/or tasks that were planned but not met/completed:
 
