@@ -2,7 +2,7 @@
 
 #### Q1: What are you planning to build?
 
-We are planning to build a desktop app to allow (UofT) students to choose their academic schedules more efficiently and to their preferences. The program will allow students to input the courses that they wish to be enrolled in and an algorithm generates all the possible timetable combinations. Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time in between lectures.
+We are planning to build a desktop app to allow UofT students to choose their academic schedules more efficiently and to their preferences. The program will allow students to input the courses that they wish to be enrolled in and an algorithm generates all the possible timetable combinations. Then, the student can find his most suitable schedule by filtering based on some criteria such as number of days off or time in between lectures.
 
 
 #### Q2: Who are your target users?
@@ -31,12 +31,12 @@ Goals:
 
 	-Get home as soon as possible after finishing classes
 
-Frustration: 
+Frustration:
 
 	-Delays on the TTC
-	
+
 	-Waking up too early in the morning/getting home late at night because of class hours
-	
+
 	-Computer assignments pile up
 
 Bio:
@@ -62,16 +62,16 @@ Location: Markham
 
 Archetype: Gym User
 
-Goals:	
+Goals:
 
 	-Find time to train at the gym
-	
+
 	-Win at the dragon boating competition
 
-Frustrations:	
+Frustrations:
 
 	-Poor commuting conditions
-	
+
 	-Difficult courses
 
 Bio:
@@ -98,16 +98,16 @@ Location: Toronto
 
 Archetype: Full Timer
 
-Goals:	
+Goals:
 
 	-Impress tech company
 
 	-Complete degree during work term
 
-Frustrations:	
+Frustrations:
 
 	-Conflicting work and school schedules
-	
+
 	-Too much work and not enough free time with family
 
 Bio:
