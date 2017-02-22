@@ -1,65 +1,83 @@
-# YOUR PRODUCT/TEAM NAME
+# Timetable Generator/Team 22
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
+## Iteration 02
 
-
-## Iteration XX
-
- * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
+ * Start date: Feb 16, 2017
+ * End date: March 9, 2017
 
 ## Process
 
-(Optional:) Quick introduction
-
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+Front End Developer and Back End Developer roles are identical to the roles from iteration-01.plan.md.
+
+  * Front End Developer:
+    * Responsibilities:
+      * UI for picking courses and picking restrictions (e.g. Which semester)
+      * Display generated timetables
+      * Allow Course Picking / Adding restrictions
+      * Sort timetables by criteria
+
+  * Back End Developer:
+    * Responsibilities:
+      * Create class to retrieve course offering data
+      * Create business objects to represent course and timetable data
+      * Design API
+      * Create methods to compare timetables to each other
+      * Generate all possible feasible timetables
+
+  * Project Manager:
+    * Responsibilities:
+      * Track what has been done/needs to be done and assign tasks if necessary.
+      * Control overall design of system and resolve any issues in regards to how different classes fit together.
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
+This is identical to iteration-01.plan.md.
 
- * When and where? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+* We will have weekly sync meetings during tutorials 
+* We will discuss:
+ * What we’ve done
+ * What we’re going to do/What needs to be done
+ * Any problems or issues we’re facing
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
+This is identical to iteration-01.plan.md.
 
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+* We will set up a task board on Trello to keep track of what needs to be done and any issues that come up.
+* Tasks will be prioritized based on the order they listed in. High priority goes to the top of the list and team members can rearrange tasks as they see fit.
+* Team members take whatever tasks they are most comfortable with and move them to the assigned/working on list.
+* Trello is integrated with Slack to provide notifications for updates to the board
+* We will use Slack to communicate throughout the week when we run into issues
+* If issues come up then process can vary slightly, for example if one feature is blocking somebody’s, then they can for somebody to pick up that ticket or to pick it up themselves and finish it asap
 
 #### Git / GitHub workflow
+ 
+* Every team member will fork the master repo.
+* After someone finishes a feature, they can make a pull request from their fork to the master repo.
+ * If the team member is confident they can merge the request themselves. They may also request a code review and have another team member
+ merge the request.
+* Conflicts should be resolved by whoever is making the merge.
 
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts.
-
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
-
-
+We hope that this workflow will minimize conflicts while allowing for code reviews if necessary. We trust team members to be able make good
+decisions about what code gets merged into the master repo and whether or not they need help.
 
 ## Product
 
 #### Goals and tasks
 
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
+ * Define API for making requests to the back end
+ * Define API for sending data to front end
+ * Write Data Access Object (DAO) class
+ * Write Business Object classes
+ * Write Generator class
+ * Write HTTP request class
+ * Convert mocks-ups to HTML/Javascript.
+ * Link front end HTML/Javascript to backend Java API
 
 #### Artifacts
-
-List/describe the artifacts you will produce in order to present your project idea.
-
- * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
- * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
- * Be concise, yet precise.         
-   For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
+  
+ * All classes in TimetableGen folder. That is the folder that contains all the classes for the backend.
+ * HTML/Javascript pages that roughly match the mock-ups. This is the UI that user will use to actually make timetables.
+ * A video demoing the website.
