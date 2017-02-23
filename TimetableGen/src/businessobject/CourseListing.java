@@ -1,5 +1,7 @@
 package businessobject;
 
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +16,27 @@ public class CourseListing{
 	Set<CourseOffering> offerings; 
 	CampusType campus;
 	SemesterType semester;
-
+	
+	public CourseListing(String name, String courseCode, String descrption, String prerequisite, String exclusions, int year, CampusType campus, SemesterType semester){
+		/*Instance variables we know upon instantiation*/
+		this.name = name;
+		this.courseCode = courseCode;
+		this.description = descrption;
+		this.prerequisite = prerequisite;
+		this.exclusions = exclusions;
+		this.year = year;
+		this.campus = campus;
+		this.semester = semester;
+		
+		/*Data Structures
+		 * NOTE: I don't know if these will be populated at the point of instantiation. If not, use adders below to populate
+		 * You may also change it from hashSet/linkedList to something else if it's more convenient*/
+		
+		this.offerings = new HashSet<CourseOffering>();
+		this.breadths= new LinkedList<Integer>();
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
