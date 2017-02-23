@@ -13,12 +13,14 @@ public class CourseListing{
 	List<Integer> breadths;
 	String prerequisite;
 	String exclusions;
-	Set<CourseOffering> offerings; 
+	Set<LecTimeSlots> lecSlots;
+	Set<TutTimeSlots> tutSlots;
 	CampusType campus;
 	SemesterType semester;
 	
 	public CourseListing(String name, String courseCode, String descrption, String prerequisite, String exclusions, int year, CampusType campus, SemesterType semester){
-		/*Instance variables we know upon instantiation*/
+		
+		/**Instance variables we know upon instantiation*/
 		this.name = name;
 		this.courseCode = courseCode;
 		this.description = descrption;
@@ -28,21 +30,32 @@ public class CourseListing{
 		this.campus = campus;
 		this.semester = semester;
 		
-		/*Data Structures
-		 * NOTE: I don't know if these will be populated at the point of instantiation. If not, use adders below to populate
-		 * You may also change it from hashSet/linkedList to something else if it's more convenient*/
+		/**Data Structures:
+		 * NOTE: I don't know if these will be populated at the point of instantiation. If not, use adders below to populate.
+		 * You may also change it from hashSet/linkedList to something else if it's more convenient for you.*/
 		
-		this.offerings = new HashSet<CourseOffering>();
-		this.breadths= new LinkedList<Integer>();
+		this.lecSlots = new HashSet<LecTimeSlots>();
+		this.tutSlots = new HashSet<TutTimeSlots>();
+		this.breadths = new LinkedList<Integer>();
 	}
 	
-	/*--------------Getters, Setters, Adders--------------*/
-	public void addOffering(CourseOffering newOffering){
-		this.offerings.add(newOffering);
+	//--------------Getters, Setters, Adders--------------//
+	/**Getters and adders for set and linked list*/
+	
+	public void addLec (LecTimeSlots lec){
+		this.lecSlots.add(lec);
 	}
 	
-	public Set<CourseOffering> getOfferings(){
-		return this.offerings;
+	public Set<LecTimeSlots> getLecSlots (){
+		return this.lecSlots;
+	}
+	
+	public void addTut (TutTimeSlots tut){
+		this.tutSlots.add(tut); 
+	}
+	
+	public Set<TutTimeSlots> getTutSlots (){
+		return this.tutSlots;
 	}
 	
 	public void addBreadth (Integer breadth){
@@ -53,6 +66,8 @@ public class CourseListing{
 		return this.breadths;
 	}
 	
+	/**Getters*/
+
 	public String getCourseCode() {
 		return courseCode;
 	}
@@ -84,7 +99,8 @@ public class CourseListing{
 	public SemesterType getSemester() {
 		return semester;
 	}
-	/*----------------------------------------------------*/
+	//----------------------------------------------------//
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
