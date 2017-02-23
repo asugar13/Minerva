@@ -53,6 +53,38 @@ public class CourseListing{
 		return this.breadths;
 	}
 	
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public String getPrerequisite() {
+		return prerequisite;
+	}
+
+	public String getExclusions() {
+		return exclusions;
+	}
+
+	public CampusType getCampus() {
+		return campus;
+	}
+
+	public SemesterType getSemester() {
+		return semester;
+	}
+	/*----------------------------------------------------*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
