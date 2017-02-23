@@ -36,6 +36,22 @@ public class CourseListing{
 		this.breadths= new LinkedList<Integer>();
 	}
 	
+	/*--------------Getters, Setters, Adders--------------*/
+	public void addOffering(CourseOffering newOffering){
+		this.offerings.add(newOffering);
+	}
+	
+	public Set<CourseOffering> getOfferings(){
+		return this.offerings;
+	}
+	
+	public void addBreadth (Integer breadth){
+		this.breadths.add(breadth);
+	}
+	
+	public List<Integer> getBreadths(){
+		return this.breadths;
+	}
 	
 	@Override
 	public int hashCode() {
