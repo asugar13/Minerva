@@ -13,6 +13,7 @@ public class CourseListing{
 	List<Integer> breadths;
 	String prerequisite;
 	String exclusions;
+	Set<LabTimeSlots> labSlots;
 	Set<LecTimeSlots> lecSlots;
 	Set<TutTimeSlots> tutSlots;
 	CampusType campus;
@@ -34,6 +35,7 @@ public class CourseListing{
 		 * NOTE: I don't know if these will be populated at the point of instantiation. If not, use adders below to populate.
 		 * You may also change it from hashSet/linkedList to something else if it's more convenient for you.*/
 		
+		this.labSlots = new HashSet<LabTimeSlots>();
 		this.lecSlots = new HashSet<LecTimeSlots>();
 		this.tutSlots = new HashSet<TutTimeSlots>();
 		this.breadths = new LinkedList<Integer>();
@@ -42,6 +44,13 @@ public class CourseListing{
 	//--------------Getters, Setters, Adders--------------//
 	/**Getters and adders for set and linked list*/
 	
+	public void addLab (LabTimeSlots lab){
+		this.labSlots.add(lab);
+	}
+	
+	public Set<LabTimeSlots> getLabSlots (){
+		return this.labSlots;
+	}
 	public void addLec (LecTimeSlots lec){
 		this.lecSlots.add(lec);
 	}
