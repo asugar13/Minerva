@@ -5,11 +5,11 @@ import java.util.Map;
 import enums.ClassType;
 
 public class CourseOffering {
-	private CourseListing listing;
+	private Course course;
 	private Map<ClassType, ClassTime> classTime;
 	
-	public CourseOffering(CourseListing listing, Map<ClassType, ClassTime> classTime){
-		this.listing = listing;
+	public CourseOffering(Course course, Map<ClassType, ClassTime> classTime){
+		this.course = course;
 		this.classTime = classTime;
 	}
 
@@ -25,8 +25,8 @@ public class CourseOffering {
 		return false;
 	}
 	
-	public CourseListing getListing(){
-		return listing;
+	public Course getListing(){
+		return course;
 	}
 	
 	public Map<ClassType, ClassTime> getClassTime(){
