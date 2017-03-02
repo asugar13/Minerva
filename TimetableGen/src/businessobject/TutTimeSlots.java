@@ -1,5 +1,5 @@
 package businessobject;
 
-public class TutTimeSlots {
+public class TutTimeSlots extends TimeSlot {
 
 }
