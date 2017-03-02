@@ -1,11 +1,14 @@
 package businessobject;
 
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
-public class CourseListing{
+import enums.CampusType;
+import enums.ClassType;
+import enums.SemesterType;
+
+public class CourseListing {
 	String courseCode;
 	String name;
 	String description;
@@ -13,15 +16,17 @@ public class CourseListing{
 	List<Integer> breadths;
 	String prerequisite;
 	String exclusions;
-	Set<LabTimeSlots> labSlots;
-	Set<LecTimeSlots> lecSlots;
-	Set<TutTimeSlots> tutSlots;
+	Map<ClassType, List<TimeSlot>> timeSlots;
 	CampusType campus;
 	SemesterType semester;
 	
-	public CourseListing(String name, String courseCode, String descrption, String prerequisite, String exclusions, int year, CampusType campus, SemesterType semester){
-		
-		/**Instance variables we know upon instantiation*/
+	Map<ClassType, Iterator<TimeSlot>> timeSlotIterators;
+
+	public CourseListing(String name, String courseCode, String descrption, String prerequisite, String exclusions,
+			int year, CampusType campus, SemesterType semester, Map<ClassType, List<TimeSlot>> timeSlots,
+			List<Integer> breadths) {
+
+		/** Instance variables we know upon instantiation */
 		this.name = name;
 		this.courseCode = courseCode;
 		this.description = descrption;
@@ -30,52 +35,19 @@ public class CourseListing{
 		this.year = year;
 		this.campus = campus;
 		this.semester = semester;
-		
-		/**Data Structures:
-		 * NOTE: I don't know if these will be populated at the point of instantiation. If not, use adders below to populate.
-		 * You may also change it from hashSet/linkedList to something else if it's more convenient for you.*/
-		
-		this.labSlots = new HashSet<LabTimeSlots>();
-		this.lecSlots = new HashSet<LecTimeSlots>();
-		this.tutSlots = new HashSet<TutTimeSlots>();
-		this.breadths = new LinkedList<Integer>();
+		this.timeSlots = timeSlots;
+		this.breadths = breadths;
 	}
-	
-	//--------------Getters, Setters, Adders--------------//
-	/**Getters and adders for set and linked list*/
-	
-	public void addLab (LabTimeSlots lab){
-		this.labSlots.add(lab);
+
+	/** Getters */
+
+	public Map<ClassType, List<TimeSlot>> getTimeSlots() {
+		return this.timeSlots;
 	}
-	
-	public Set<LabTimeSlots> getLabSlots (){
-		return this.labSlots;
-	}
-	public void addLec (LecTimeSlots lec){
-		this.lecSlots.add(lec);
-	}
-	
-	public Set<LecTimeSlots> getLecSlots (){
-		return this.lecSlots;
-	}
-	
-	public void addTut (TutTimeSlots tut){
-		this.tutSlots.add(tut); 
-	}
-	
-	public Set<TutTimeSlots> getTutSlots (){
-		return this.tutSlots;
-	}
-	
-	public void addBreadth (Integer breadth){
-		this.breadths.add(breadth);
-	}
-	
-	public List<Integer> getBreadths(){
+
+	public List<Integer> getBreadths() {
 		return this.breadths;
 	}
-	
-	/**Getters*/
 
 	public String getCourseCode() {
 		return courseCode;
@@ -108,8 +80,8 @@ public class CourseListing{
 	public SemesterType getSemester() {
 		return semester;
 	}
-	//----------------------------------------------------//
-	
+	// ----------------------------------------------------//
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -137,5 +109,5 @@ public class CourseListing{
 			return false;
 		return true;
 	}
-	
+
 }

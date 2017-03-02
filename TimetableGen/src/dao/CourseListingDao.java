@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import businessobject.CourseListing;
-import businessobject.SemesterType;
+import enums.SemesterType;
 
 public interface CourseListingDao {
 	

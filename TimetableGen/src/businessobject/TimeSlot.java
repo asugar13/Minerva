@@ -21,6 +21,10 @@ public class TimeSlot {
         }
         this.alternative = alternative;
     }
+    
+    public boolean conflictsWith(TimeSlot timeslots){
+        return true;
+    }
     //TODO: Getters and Setters
 
 }

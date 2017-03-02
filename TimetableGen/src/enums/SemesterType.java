@@ -1,4 +1,4 @@
-package businessobject;
+package enums;
 
 public enum SemesterType {
 	FALL("H1F"), WINTER("H1S"), YEAR("Y1Y");
