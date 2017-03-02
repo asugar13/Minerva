@@ -1,6 +1,5 @@
 package businessobject;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -16,33 +15,31 @@ public class CourseListing {
 	List<Integer> breadths;
 	String prerequisite;
 	String exclusions;
-	Map<ClassType, List<TimeSlot>> timeSlots;
+	Map<ClassType, List<ClassTime>> classTimes;
 	CampusType campus;
 	SemesterType semester;
-	
-	Map<ClassType, Iterator<TimeSlot>> timeSlotIterators;
 
-	public CourseListing(String name, String courseCode, String descrption, String prerequisite, String exclusions,
-			int year, CampusType campus, SemesterType semester, Map<ClassType, List<TimeSlot>> timeSlots,
+	public CourseListing(String name, String courseCode, String description, String prerequisite, String exclusions,
+			int year, CampusType campus, SemesterType semester, Map<ClassType, List<ClassTime>> classTimes,
 			List<Integer> breadths) {
 
 		/** Instance variables we know upon instantiation */
 		this.name = name;
 		this.courseCode = courseCode;
-		this.description = descrption;
+		this.description = description;
 		this.prerequisite = prerequisite;
 		this.exclusions = exclusions;
 		this.year = year;
 		this.campus = campus;
 		this.semester = semester;
-		this.timeSlots = timeSlots;
+		this.classTimes = classTimes;
 		this.breadths = breadths;
 	}
 
 	/** Getters */
 
-	public Map<ClassType, List<TimeSlot>> getTimeSlots() {
-		return this.timeSlots;
+	public Map<ClassType, List<ClassTime>> getClassTimes() {
+		return this.classTimes;
 	}
 
 	public List<Integer> getBreadths() {

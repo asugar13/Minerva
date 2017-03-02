@@ -6,17 +6,17 @@ import enums.ClassType;
 
 public class CourseOffering {
 	private CourseListing listing;
-	private Map<ClassType, TimeSlot> timeSlots;
+	private Map<ClassType, ClassTime> classTime;
 	
-	public CourseOffering(CourseListing listing, Map<ClassType, TimeSlot> timeSlots){
+	public CourseOffering(CourseListing listing, Map<ClassType, ClassTime> classTime){
 		this.listing = listing;
-		this.timeSlots = timeSlots;
+		this.classTime = classTime;
 	}
 
-	public boolean conflictsWith(CourseOffering course){
-		for(TimeSlot thisTimeSlot : timeSlots.values()){
-			for(TimeSlot otherTimeSlot : course.getTimeSlots().values()){
-				if(thisTimeSlot.conflictsWith(otherTimeSlot)){
+	public boolean conflictsWith(CourseOffering otherCourse){
+		for(ClassTime classTime : classTime.values()){
+			for(ClassTime otherClassTime : otherCourse.getClassTime().values()){
+				if(classTime.conflictsWith(otherClassTime)){
 					return true;
 				}
 			}
@@ -29,7 +29,7 @@ public class CourseOffering {
 		return listing;
 	}
 	
-	public Map<ClassType, TimeSlot> getTimeSlots(){
-		return timeSlots;
+	public Map<ClassType, ClassTime> getClassTime(){
+		return classTime;
 	}
 }

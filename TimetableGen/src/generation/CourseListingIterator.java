@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import businessobject.ClassTime;
 import businessobject.CourseListing;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
@@ -18,7 +19,7 @@ public class CourseListingIterator{
 	
 	public CourseListingIterator(CourseListing listing){
 		coursePositions = new HashMap<>();
-		Set<ClassType> listingTypes = listing.getTimeSlots().keySet();
+		Set<ClassType> listingTypes = listing.getClassTimes().keySet();
 		classTypes = new ArrayList<>(listingTypes.size());
 		for(ClassType classType : listingTypes){
 			coursePositions.put(classType, 0);
@@ -27,11 +28,11 @@ public class CourseListingIterator{
 	}
 	
 	public CourseOffering getCurrentOffering(){
-		Map<ClassType, TimeSlot> offeringTimeSlots = new HashMap<>();
-		Map<ClassType, List<TimeSlot>> timeSlots = listing.getTimeSlots();
+		Map<ClassType, ClassTime> offeringTimeSlots = new HashMap<>();
+		Map<ClassType, List<ClassTime>> classTimes = listing.getClassTimes();
 		for (ClassType classType : classTypes){
 			int typeIndex = coursePositions.get(classType);
-			offeringTimeSlots.put(classType, timeSlots.get(classType).get(typeIndex));
+			offeringTimeSlots.put(classType, classTimes.get(classType).get(typeIndex));
 		}
 		return new CourseOffering(this.listing, offeringTimeSlots);
 	}
@@ -51,6 +52,25 @@ public class CourseListingIterator{
 		
 		return incrementClassType(classType, classTypeIndex);
 	}
+	
+	//Doesn't increment and reset if out of bounds
+	public boolean nextOfferingByType(ClassType classType){
+		int classTypeIndex = classTypes.indexOf(classType);
+		
+		//No more possible offerings
+		if(classTypeIndex < 0){
+			return false;
+		}
+		
+		List<ClassTime> typeTimeSlots = listing.getClassTimes().get(classType);
+		int classTypePosition = coursePositions.get(classType) + 1;
+		coursePositions.put(classType, classTypePosition);
+		if(classTypePosition >= typeTimeSlots.size()){
+			return false;
+		} else{
+			return true;
+		}
+	}
 
 	public void resetIterators() {
 		for (ClassType classType : coursePositions.keySet()) {
@@ -63,7 +83,7 @@ public class CourseListingIterator{
 	}
 	
 	private boolean incrementClassType(ClassType classType, int classTypeIndex){
-		List<TimeSlot> typeTimeSlots = listing.getTimeSlots().get(classType);
+		List<ClassTime> typeTimeSlots = listing.getClassTimes().get(classType);
 		int classTypePosition = coursePositions.get(classType) + 1;
 		if(classTypePosition >= typeTimeSlots.size()){
 			coursePositions.put(classType, 0);
