@@ -9,7 +9,6 @@ import java.util.Set;
 import businessobject.ClassTime;
 import businessobject.CourseListing;
 import businessobject.CourseOffering;
-import businessobject.TimeSlot;
 import enums.ClassType;
 
 public class CourseListingIterator{
