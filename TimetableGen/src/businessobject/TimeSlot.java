@@ -1,4 +1,4 @@
-package businessobject
+package businessobject;
 
 public class TimeSlot {
     String day;
@@ -16,7 +16,7 @@ public class TimeSlot {
         } else {
             String[] split = time.split("-");
             this.start = Integer.parseInt(split[0]);
-            this.end = Integer.parseInt(split.[1]);
+            this.end = Integer.parseInt(split[1]);
             this.duration = (this.end - this.start + 12) % 12;
         }
         this.alternative = alternative;
