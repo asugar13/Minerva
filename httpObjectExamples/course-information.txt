@@ -1,0 +1,34 @@
+GET "/course-information:
+
+    Response
+    {
+        courses: [
+            {
+                courseCode: "CSC302H1",
+                name: "Intro to qwer",
+                description: "cool course",
+                breadths: [5, 1],
+                prerequisites: "CSC301H1 or cGPA of 3.0+",
+                exclusions: "",
+                semesters: [F, S]
+            },
+            {
+                courseCode: "CSC373H1",
+                name: "Intro to asdf",
+                description: "coolish course",
+                breadths: [3],
+                prerequisites: "CSC369H1 or cGPA of 3.0+",
+                exclusions: "CSC374H1",
+                semesters: [S]
+            },
+            {
+                courseCode: "CSC300Y1",
+                name: "Intro to zxcv",
+                description: "course",
+                breadths: [],
+                prerequisites: "",
+                exclusions: "",
+                semesters: [Y]
+            }
+        ]
+    }
