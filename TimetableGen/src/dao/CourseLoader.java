@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.AbstractMap.SimpleEntry;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -78,6 +79,11 @@ public class CourseLoader implements CourseListingDao {
 				semester,
 				loadClassTimes((JSONArray) o.get("meeting_sections")),
 				loadBreadths((JSONArray) o.get("breadths")));
+		
+		Map<SemesterType, Course> semesterToCourse = new HashMap<>();
+		semesterToCourse.put(semester, newCourse);
+		CourseListing cl = new CourseListing(courseCode, semesterToCourse);
+		courseDB.put(courseCode, cl);
 	}
 	
 	private Map<ClassType, List<ClassTime>> loadClassTimes(JSONArray a) {
