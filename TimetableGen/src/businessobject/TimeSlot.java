@@ -1,30 +1,39 @@
 package businessobject;
 
-public class TimeSlot {
-    String day;
-    Integer start;
-    Integer end;
-    Integer duration;
-    boolean alternative;
-    
-    public TimeSlot(String day, String time, boolean alternative) {
-        this.day = day;
-        if (time.contains("-")) {
-            this.start = Integer.parseInt(time);
-            this.end = (this.start + 1) % 12;
-            this.duration = 1;
-        } else {
-            String[] split = time.split("-");
-            this.start = Integer.parseInt(split[0]);
-            this.end = Integer.parseInt(split[1]);
-            this.duration = (this.end - this.start + 12) % 12;
-        }
-        this.alternative = alternative;
-    }
-    
-    public boolean conflictsWith(TimeSlot timeslots){
-        return true;
-    }
-    //TODO: Getters and Setters
+import enums.Day;
 
+public class TimeSlot {
+    Day day;
+    Integer start;
+    Integer duration;
+    
+    public TimeSlot(Day day, int start, int duration) {
+        this.day = day;
+        this.start = start;
+        this.duration = duration;
+    }
+    
+    public boolean conflictsWith(TimeSlot timeSlot){
+        if(this.day == timeSlot.getDay()){
+        	Integer end = start + duration;
+        	Integer otherStart = timeSlot.getStart();
+        	Integer otherEnd = timeSlot.getStart() + timeSlot.getDuration();
+        	return ((start > otherStart && start < otherEnd) || (otherStart > start && otherStart < end));
+        } else {
+        	return false;
+        }
+    }
+    
+    //TODO: Getters and Setters
+    public Day getDay(){
+    	return day;
+    }
+    
+    public Integer getStart(){
+    	return start;
+    }
+    
+    public Integer getDuration(){
+    	return duration;
+    }
 }
