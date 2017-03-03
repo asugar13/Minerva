@@ -1,0 +1,726 @@
+GET "/generate-timetable:
+    Request
+    {
+        courses: [
+            {
+                courseCode: "CSC301H1",
+                semesters: ["F"]
+            },
+            {
+                courseCode: "CSC302H1",
+                semesters: ["S"]
+            },
+            {
+                courseCode: "CSC373H1",
+                semesters: ["F", "S"]
+            },
+            {
+                courseCode: "PSY100Y1",
+                semesters: ["Y"]
+            }
+        ]
+    }
+    
+    Return
+    {
+        configurations: [
+            {
+                configurationNumber: 0
+                timetables: [ //possible timetables
+                    {
+                        semesters: {
+                            Fall: {
+                                courses: [
+                                    {
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC301H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            Winter: {
+                                courses: [
+                                    {   
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC302H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "11",
+                                                            end: "13"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC373H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        semesters: {
+                            Fall: {
+                                courses: [
+                                    {
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0102"
+                                                    times: [
+                                                        {
+                                                            day: "TUESDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "THURSDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        },
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC301H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            Winter: {
+                                courses: [
+                                    {   
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC302H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "11",
+                                                            end: "13"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC373H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                configurationNumber: 1
+                timetables: [ //possible timetables
+                    {
+                        semesters: {
+                            Fall: {
+                                courses: [
+                                    {
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC301H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC373H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            Winter: {
+                                courses: [
+                                    {   
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC302H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "11",
+                                                            end: "13"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        semesters: {
+                            Fall: {
+                                courses: [
+                                    {
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0102"
+                                                    times: [
+                                                        {
+                                                            day: "TUESDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "THURSDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC301H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC373H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "15",
+                                                            end: "16"
+                                                        }
+                                                    ]
+                                                },
+                                                PRA: {
+                                                    classCode: "P0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "14",
+                                                            end: "15"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, 
+                            Winter: {
+                                courses: [
+                                    {   
+                                        courseCode: "PSY100Y1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "13",
+                                                            end: "15"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "13",
+                                                            end: "14"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        courseCode: "CSC302H1",
+                                        classes: [
+                                            {
+                                                LEC: {
+                                                    classCode: "L0101"
+                                                    times: [
+                                                        {
+                                                            day: "MONDAY,
+                                                            start: "11",
+                                                            end: "13"
+                                                        },
+                                                        {
+                                                            day: "WEDNESDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                },
+                                                TUT: {
+                                                    classCode: "T0101"
+                                                    times: [
+                                                        {
+                                                            day: "FRIDAY,
+                                                            start: "12",
+                                                            end: "13"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
