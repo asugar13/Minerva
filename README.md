@@ -1,4 +1,4 @@
-##**Welcome! This is *team 22
+## **Welcome!** This is *team 22
 
 ###Feedback from TA / Things we need to consider improving
 
@@ -10,5 +10,6 @@
 * Use better API for timetable **result page**
 
 2. General
-* narrow down the target user to update filters`
+
+* narrow down the target user to update filters
 
