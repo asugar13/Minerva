@@ -1,4 +1,4 @@
-## **Welcome!** This is team 22
+## **Welcome!** This is *team 22*
 
 ###Feedback from TA / Things we need to consider improving
 
