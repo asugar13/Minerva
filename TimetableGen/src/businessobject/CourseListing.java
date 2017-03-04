@@ -13,6 +13,10 @@ public class CourseListing {
 		this.courseCode = courseCode;
 	}
 	
+	public void addCourse(SemesterType semester, Course course) {
+		this.semesterToCourse.put(semester, course);
+	}
+	
 	public String getCourseCode(){
 		return courseCode;
 	}
