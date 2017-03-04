@@ -10,7 +10,7 @@ public class ClassTime {
 		this.timeSlots = timeSlots;
 	}
 	
-	public boolean conflictsWith(ClassTime otherClass){
+	public boolean conflictsWith(ClassTime otherClass) {
 		for (TimeSlot timeSlot : timeSlots) {
 			for (TimeSlot otherTimeSlot : otherClass.getTimeSlots()) {
 				if (timeSlot.conflictsWith(otherTimeSlot)) {
