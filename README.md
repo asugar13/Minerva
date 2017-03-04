@@ -1,18 +1,18 @@
-## **Welcome!** This is *team 22
+## **Welcome!** This is team 22
 
 ###Feedback from TA / Things we need to consider improving
 
 1. UI
 
-* **Color** to emphasize conflicts
+  * **Color** to emphasize conflicts
 
-* Use **icons** for survey page to make things interesting
+  * Use **icons** for survey page to make things interesting
 
-* Buttons may need to be **rearranged in survey page**
+  * Buttons may need to be **rearranged in survey page**
 
-* Use better API for timetable **result page**
+  * Use better API for timetable **result page**
 
 
 2. General
 
-* Narrow down the target user to update filters
+  * Narrow down the target user to update filters
