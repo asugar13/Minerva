@@ -11,9 +11,9 @@ public class ClassTime {
 	}
 	
 	public boolean conflictsWith(ClassTime otherClass){
-		for(TimeSlot timeSlot : timeSlots){
-			for(TimeSlot otherTimeSlot : otherClass.getTimeSlots()){
-				if(timeSlot.conflictsWith(otherTimeSlot)){
+		for (TimeSlot timeSlot : timeSlots) {
+			for (TimeSlot otherTimeSlot : otherClass.getTimeSlots()) {
+				if (timeSlot.conflictsWith(otherTimeSlot)) {
 					return true;
 				}
 			}
