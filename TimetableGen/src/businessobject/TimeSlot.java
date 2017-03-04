@@ -14,7 +14,7 @@ public class TimeSlot {
     }
     
     public boolean conflictsWith(TimeSlot timeSlot){
-        if(this.day == timeSlot.getDay()){
+        if (this.day == timeSlot.getDay()) {
         	Integer end = start + duration;
         	Integer otherStart = timeSlot.getStart();
         	Integer otherEnd = timeSlot.getStart() + timeSlot.getDuration();

@@ -25,5 +25,9 @@ $(document).ready(function(){
       
     numCourses++;
   });
+  
+  $("#submit").click(function(){
+    location.href='/restrictions'
+  });
 	
 })
