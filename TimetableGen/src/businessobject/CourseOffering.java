@@ -5,18 +5,18 @@ import java.util.Map;
 import enums.ClassType;
 
 public class CourseOffering {
-	private CourseListing listing;
-	private Map<ClassType, TimeSlot> timeSlots;
+	private Course course;
+	private Map<ClassType, ClassTime> classTimes;
 	
-	public CourseOffering(CourseListing listing, Map<ClassType, TimeSlot> timeSlots){
-		this.listing = listing;
-		this.timeSlots = timeSlots;
+	public CourseOffering(Course course, Map<ClassType, ClassTime> classTimes){
+		this.course = course;
+		this.classTimes = classTimes;
 	}
 
-	public boolean conflictsWith(CourseOffering course){
-		for(TimeSlot thisTimeSlot : timeSlots.values()){
-			for(TimeSlot otherTimeSlot : course.getTimeSlots().values()){
-				if(thisTimeSlot.conflictsWith(otherTimeSlot)){
+	public boolean conflictsWith(CourseOffering otherCourse){
+		for (ClassTime classTime : classTimes.values()) {
+			for (ClassTime otherClassTime : otherCourse.getClassTime().values()) {
+				if( classTime.conflictsWith(otherClassTime)) {
 					return true;
 				}
 			}
@@ -25,11 +25,11 @@ public class CourseOffering {
 		return false;
 	}
 	
-	public CourseListing getListing(){
-		return listing;
+	public Course getListing(){
+		return course;
 	}
 	
-	public Map<ClassType, TimeSlot> getTimeSlots(){
-		return timeSlots;
+	public Map<ClassType, ClassTime> getClassTime(){
+		return classTimes;
 	}
 }
