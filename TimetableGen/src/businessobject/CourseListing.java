@@ -25,4 +25,25 @@ public class CourseListing {
 		return semesterToCourse.get(semesterType);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		if (semesterToCourse.containsKey(SemesterType.FALL)) {
+			Course c = semesterToCourse.get(SemesterType.FALL);
+			sb.append(c.toString() + "\n");
+		}
+		
+		if (semesterToCourse.containsKey(SemesterType.WINTER)) {
+			Course c = semesterToCourse.get(SemesterType.WINTER);
+			sb.append(c.toString() + "\n");
+		}
+		
+		if (semesterToCourse.containsKey(SemesterType.YEAR)) {
+			Course c = semesterToCourse.get(SemesterType.YEAR);
+			sb.append(c.toString() + "\n");
+		}
+		
+		return sb.toString();
+	}
 }
