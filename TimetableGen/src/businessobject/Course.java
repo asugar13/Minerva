@@ -1,7 +1,9 @@
 package businessobject;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import enums.CampusType;
 import enums.ClassType;
@@ -112,5 +114,79 @@ public class Course {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("course code: " + courseCode + "\n");
+		sb.append("course name: " + name + "\n");
+		sb.append("description: " + description + "\n");
+		sb.append("year: " + year + "\n");
+		
+		sb.append("breadths:");
+		for (int i = 0; i < breadths.size(); i++) {
+			sb.append(" " + breadths.get(i));
+		}
+		sb.append("\n");
+		
+		sb.append("prerequisites: " + prerequisite + "\n");
+		sb.append("exclusions: " + exclusions + "\n");
+		
+		sb.append("Classes: \n");
+		Set<ClassType> s = classTimes.keySet();
+		Iterator<ClassType> tor = s.iterator();
+		while (tor.hasNext()) {
+			ClassType cl = tor.next();
+			switch (cl) {
+			case LEC:
+				sb.append("lecture: \n");
+				break;
+			case TUT:
+				sb.append("tutorial: \n");
+				break;
+			case PRA:
+				sb.append("practical: \n");
+				break;
+			default:
+				break;
+			}
+			List<ClassTime> l = classTimes.get(cl);
+			for (int i = 0; i < l.size(); i++) {
+				sb.append(l.get(i).toString());
+			}
+		}
+		
+		sb.append("campus: ");
+		switch (campus) {
+		case UTSG:
+			sb.append("UTSG\n");
+			break;
+		case UTM:
+			sb.append("UTM\n");
+			break;
+		case UTSC:
+			sb.append("UTSC\n");
+			break;
+		default:
+			break;
+		}
 
+		sb.append("semester: ");
+		switch (semester) {
+		case FALL:
+			sb.append("fall\n");
+			break;
+		case WINTER:
+			sb.append("winter\n");
+			break;
+		case YEAR:
+			sb.append("year\n");
+			break;
+		default:
+			break;
+		}
+		
+		return sb.toString();
+	}
 }
