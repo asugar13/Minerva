@@ -78,7 +78,7 @@ public class TimeSlotTest {
 	@Test 
 	public void timeSlotSymmetryTest(){
 		TimeSlot t1 = TestUtil.createTimeSlot(Day.FRIDAY, 10800, 10000);
-		TimeSlot t2 = TestUtil.createTimeSlot(Day.FRIDAY, 10800, 10000);
+		TimeSlot t2 = TestUtil.createTimeSlot(Day.FRIDAY, 10344, 12535);
 		assertEquals(t2.conflictsWith(t1),t1.conflictsWith(t2));
 	}
 }
