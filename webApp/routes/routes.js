@@ -11,7 +11,7 @@
  * @param {object} res response object
  */
 exports.getIndex = function(req, res){
-  res.render('./addCourses');
+  res.render('../public/addCourses');
 }
 
 /**
@@ -21,7 +21,7 @@ exports.getIndex = function(req, res){
  * @param {object} res response object
  */
 exports.getRestrictions = function(req, res){
-  res.render('./restrictions');
+  res.render('../public/restrictions');
 }
 
 /**
@@ -31,5 +31,5 @@ exports.getRestrictions = function(req, res){
  * @param {object} res response object
  */
 exports.getResults = function(req, res){
-  res.render('./result');
+  res.render('../public/result');
 }
