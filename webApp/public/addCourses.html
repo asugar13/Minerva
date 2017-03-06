@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Timetable Generator</title>
+
+  <!-- CSS (load bootstrap from a CDN) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../css/addCourses.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <!-- Local JS -->
+  <script type="text/javascript" src="../scripts/addCourses.js"></script>
+
+</head>
+
+<body class="container">
+
+  <div class="jumbotron" id="main">
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+      <input type="text" class="form-control" placeholder="Add Class..." id="course-ID">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="go">Go!</button>
+      </span>
+    </div>
+
+    <br>
+
+    <div class="panel panel-default" >
+      <div class="panel-heading">Selected Courses</div>
+
+      <!-- Table -->
+      <table class="table" id="course-table">
+        <tr>
+          <th>Course Code</th>
+          <th>Restrictions</th>
+        </tr>
+      </table>
+    </div>
+
+    <button type="button" class="btn btn-default" id="submit">Give me the timetable</button>
+
+  </div>
+
+</body>
+
+</html>

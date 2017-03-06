@@ -1,6 +1,4 @@
-I've converted the moqups to rough static HTML/CSS/jQuery. Bootstrap is used 
-for most the CSS.
-
-I will be converting this to a node.js server and most likely using EJS as well.
+node server is set up. Run npm install to set up modules. Run node server.js 
+to start server on 127.0.0.1:3000
 
 - Audrey
