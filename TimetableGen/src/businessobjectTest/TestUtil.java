@@ -10,7 +10,7 @@ import businessobject.Course;
 import businessobject.ClassTime;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
-
+import dao.CourseLoader;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
@@ -40,5 +40,7 @@ public class TestUtil {
 		return new Course(name,code,description,prerequisite,exclusions,year,campus,sem,classTimes,breadths);
 	}
 	
-	
+	public static TimeSlot createTimeSlot(){
+		return 
+	}
 }
