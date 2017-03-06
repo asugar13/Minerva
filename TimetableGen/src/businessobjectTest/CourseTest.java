@@ -17,41 +17,41 @@ public class CourseTest {
 	private static Course c = TestUtil.createCourse();
 	
 	@Test
-	public void CourseNameGetterTest(){
+	public void courseNameGetterTest(){
 	    assertEquals ("Intro to Academic Studies",c.getName());  
 	}
 	
 	@Test
-	public void CourseCodeGetterTest(){
+	public void courseCodeGetterTest(){
 		 assertEquals ("ABP100Y1Y",c.getCourseCode());
 	}
 	
 	@Test
-	public void CourseDescriptionGetterTest(){
+	public void courseDescriptionGetterTest(){
 		 assertEquals ("",c.getDescription());
 	}
 	
 	@Test
-	public void CoursePrerequisiteGetterTest(){
+	public void coursePrerequisiteGetterTest(){
 		 assertEquals ("",c.getPrerequisite());
 	}
 	
 	@Test
-	public void CourseExclusionGetterTest(){
+	public void courseExclusionGetterTest(){
 		 assertEquals ("",c.getExclusions());
 	}
 	
 	@Test
-	public void CourseYearGetterTest(){
+	public void courseYearGetterTest(){
 		 assertEquals (2016,c.getYear());
 	}
 	@Test
-	public void CourseSemesterGetterTest(){
+	public void courseSemesterGetterTest(){
 		 assertEquals (SemesterType.YEAR,c.getSemester());
 	}
 	
 	@Test
-	public void CourseCampusrGetterTest(){
+	public void courseCampusrGetterTest(){
 		 assertEquals (CampusType.UTSG,c.getCampus());
 	}
 }

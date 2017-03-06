@@ -18,6 +18,10 @@ import enums.SemesterType;
 
 public class TestUtil {
 	
+	public static TimeSlot createTimeSlot(Day day, int start, int duration){
+		return new TimeSlot(day, start, duration);
+	}
+	
 	public static Course createCourse(){
 		//first course in json
 		String code = "ABP100Y1Y";
@@ -39,8 +43,5 @@ public class TestUtil {
 		SemesterType sem = SemesterType.YEAR;
 		return new Course(name,code,description,prerequisite,exclusions,year,campus,sem,classTimes,breadths);
 	}
-	
-	public static TimeSlot createTimeSlot(){
-		return 
-	}
+
 }
