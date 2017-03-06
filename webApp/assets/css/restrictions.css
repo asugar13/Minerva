@@ -1,4 +1,4 @@
-.btn {
+#submit {
   width: 40%;
   margin-left: 30%;
   background-color: #32CD32;
@@ -6,6 +6,7 @@
 
 table {
   width: 80%;
+  background-color: red;
 }
 
 td {
