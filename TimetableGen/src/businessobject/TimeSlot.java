@@ -26,15 +26,15 @@ public class TimeSlot {
     
     //TODO: Getters and Setters
     public Day getDay(){
-    	return day;
+    	return this.day;
     }
     
     public Integer getStart(){
-    	return start;
+    	return this.start;
     }
     
     public Integer getDuration(){
-    	return duration;
+    	return this.duration;
     }
     
     @Override
