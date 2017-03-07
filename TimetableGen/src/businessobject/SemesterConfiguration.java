@@ -23,4 +23,10 @@ public class SemesterConfiguration implements TimetableConfiguration{
 		semesterConfigurations.add(semester2);
 		return semesterConfigurations;
 	}
+
+	@Override
+	public String toJsonString() {
+		// TODO
+		return null;
+	}
 }
