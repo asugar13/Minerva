@@ -173,7 +173,7 @@ public class Course {
 		}
 
 		sb.append("semester: ");
-		switch (semester) {
+		switch (this.semester) {
 		case FALL:
 			sb.append("fall\n");
 			break;
