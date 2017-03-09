@@ -1,66 +1,73 @@
-# YOUR PRODUCT/TEAM NAME
+# Timetable Generator/Team 22
 
- > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
- >      
- > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
+## Iteration 02 - Review & Retrospect
 
-
-## Iteration XX - Review & Retrospect
-
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: March 9, 2017 2:00
+ * Where: BA2185
 
 ## Process - Reflection
 
-(Optional) Short introduction
-
 #### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+* Trello
+ * The board has been really helpful in making sure that everyone knows what they are doing, what everyone else is doing and 
+  avoiding conflicts
+* Slack
+ * It's a good communication channel.
+ * We've been able to sort out issues and discuss design decisions.
+* Github Workflow
+ * There have been very few major conflicts. 
+ * This is working very well with Trello.
 
 #### Decisions that did not turn out as well as we hoped
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
+* Meeting frequency
+ * We only planned to have weekly sync meetings.
+ * We've found that we probably need to meet more often and code together in person.
+ * While Slack does work well, it would be much easier to keep everyone on the same page if we meet in person.
+* Roles
+ * We've found that we might need to have a few more roles. 
+ * It would be nice to have a front end manager or code reviewer. Having more defined roles would make decision making a bit easier.
 
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
-
- * Ordered from most to least important.
- * Explain why you are making a change.
+* Have coding meetings
+ * As seen above, it would make design decisions to 
+* Add a front end manager
+ * We want to designate a front end manager
+ * Given someone the authority to make decisions speeds up the decisions process.
 
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+* Define API for making requests to the back end and define API for sending data to front end
+ * https://github.com/csc301-winter-2017/project-team-22/tree/master/httpObjectExamples
+* Write Data Access Object (DAO) class
+ * https://github.com/csc301-winter-2017/project-team-22/tree/master/TimetableGen/src/dao 
+ * Still needs to be tested
+* Write Business Object 
+ * https://github.com/csc301-winter-2017/project-team-22/tree/master/TimetableGen/src/businessobject
+ * Still needs to me tested
+* Convert mocks-ups to HTML/Javascript.
+ * https://github.com/csc301-winter-2017/project-team-22/tree/master/webApp
 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+* Write Generator class
+ * We have not gotten to this yet. 
+* Write HTTP request class
+ * We have not gotten to this yet.
+* Link front end HTML/Javascript to backend Java API
+ * This was not a high priorty. This was important to iteration 3, but a reach goal for iteration 2. 
 
 ## Meeting Highlights
 
-Going into the next iteration, our main insights are:
-
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
+* We need more focused user personas.
+ * Based on TA feedback, we should focus our targer.
+* We need to decide on better filtering, and figure out where filtering is happening.
+ * We've found that we're actually not sure if what's filtering is a back-end or front-end responsibility.
+* We need to finish HTTP Server and the generator.
+* We should probably put some more effort in the front end design and colour palettes.
