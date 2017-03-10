@@ -12,11 +12,12 @@
 * Trello
  * The board has been really helpful in making sure that everyone knows what they are doing, what everyone else is doing and 
   avoiding conflicts.
-  ![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/slack.PNG)
+ ![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/trello.PNG)
 * Slack
  * It's a good communication channel.
  * We've been able to sort out issues and discuss design decisions.
- ![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/trello.PNG)
+ ![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/slack.PNG)
+
 * Github Workflow
  * There have been very few major conflicts. 
  * This is working very well with Trello.
