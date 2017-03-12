@@ -3,13 +3,17 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var routes = require('./routes');
+var routes = require('../routes/routes');
 var app = express();
 
-app.use(express.static(__dirname));
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname);
+app.set('views', __dirname +'/../public');
 app.set('view engine', 'html');
+
+app.use(express.static(__dirname + '/../assets'));
+app.use(express.static(__dirname + '/../public'));
+app.use(express.static(__dirname + '/'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

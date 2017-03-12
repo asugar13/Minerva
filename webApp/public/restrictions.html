@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Timetable Generator</title>
+
+  <!-- CSS (load bootstrap from a CDN) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../css/restrictions.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <!-- Local JS -->
+  <script type="text/javascript" src="../scripts/restrictions.js"></script>
+
+</head>
+
+<body class="container">
+
+
+    <div class="well">
+      <h2>Hold On!</h2>
+
+      <h4>Before we go ahead and generate your schedule, we want to know more to
+        serve you better. </h4>
+    </div>
+
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="well">
+        <h4> Do you want certain days off? </h4>
+          <input type="checkbox" name="days-off" value="Monday"> <img src="../img/004-calendar-1.png"> Monday <br>
+          <input type="checkbox" name="days-off" value="Tuesday"> Tuesday <br>
+          <input type="checkbox" name="days-off" value="Wednesday"> Wednesday <img src="../img/003-calendar-2.png"><br>
+          <input type="checkbox" name="days-off" value="Thursday"> Thursday <br>
+          <input type="checkbox" name="days-off" value="Friday"> <img src="../img/005-calendar.png"> Friday <br>
+          <input type="checkbox" name="days-off" value="none"> Don't care <br><br>
+
+
+        <h4> How do you like your courses laid out? </h4>
+          <input type="radio" name="spacing" value="tight"> <img src="../img/001-books.png"> I want it tight <br>
+          <input type="radio" name="spacing" value="some"> Some breaks in between <img src="../img/002-desk.png"> <br>
+          <input type="radio" name="spacing" value="nap"> <img src="../img/006-wake-up.png"> I need nap time in between <br>
+          <input type="radio" name="spacing" value="none"> Don't care <br><br>
+
+        <h4> What kind of bird are you? </h4>
+          <input type="radio" name="bird" value="morning"> <img src="../img/007-bird.png"> Early bird gets the A's <br>
+          <input type="radio" name="bird" value="night"> I'm a night owl <img src="../img/008-owl-night-bird-outline.png"> <br>
+          <input type="radio" name="bird" value="none"> Don't care <br><br>
+          
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="well">
+        <h4>Conflicts</h4>
+        <table class="table" id="course-table">
+          <tr>
+            <td>CSC373</td>
+            <td>CSC301</td>
+          </tr>
+          <tr>
+            <td>MAT235</td>
+            <td>CSC301</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="well">
+      <button type="button" class="btn btn-default" id="submit">Let me see my timetable</button>
+      <button type="button" class="btn btn-default" id="skip">Skip</button>
+    </div>
+
+
+</body>
+
+<footer class="container-fluid">
+  <p>Icons made by <a href="http://www.freepik.com">Freepik</a>
+  from
+  <a href="http://www.flaticon.com">www.flaticon.com</a></p>
+</footer>
+
+</html>

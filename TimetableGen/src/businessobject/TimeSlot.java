@@ -3,9 +3,9 @@ package businessobject;
 import enums.Day;
 
 public class TimeSlot {
-    Day day;
-    Integer start;
-    Integer duration;
+    private Day day;
+    private Integer start;
+    private Integer duration;
     
     public TimeSlot(Day day, int start, int duration) {
         this.day = day;
@@ -13,28 +13,28 @@ public class TimeSlot {
         this.duration = duration;
     }
     
-    public boolean conflictsWith(TimeSlot timeSlot){
+    public boolean conflictsWith(TimeSlot timeSlot) {
         if (this.day == timeSlot.getDay()) {
-        	Integer end = start + duration;
+        	Integer end = this.start + this.duration;
         	Integer otherStart = timeSlot.getStart();
         	Integer otherEnd = timeSlot.getStart() + timeSlot.getDuration();
-        	return ((start > otherStart && start < otherEnd) || (otherStart > start && otherStart < end));
+        	return ((this.start >= otherStart && this.start < otherEnd) || (otherStart >= this.start && otherStart < end));
         } else {
         	return false;
         }
     }
     
     //TODO: Getters and Setters
-    public Day getDay(){
-    	return day;
+    public Day getDay() {
+    	return this.day;
     }
     
-    public Integer getStart(){
-    	return start;
+    public Integer getStart() {
+    	return this.start;
     }
     
-    public Integer getDuration(){
-    	return duration;
+    public Integer getDuration() {
+    	return this.duration;
     }
     
     @Override
@@ -42,7 +42,7 @@ public class TimeSlot {
     	StringBuilder sb = new StringBuilder();
     	
     	sb.append("day: ");
-    	switch (day) {
+    	switch (this.day) {
 		case MONDAY:
 			sb.append("Monday\t");
 			break;
@@ -62,8 +62,8 @@ public class TimeSlot {
 			break;
 		}
 
-    	sb.append("start :" + start + "\t");
-        sb.append("duration: " + duration + "\n");
+    	sb.append("start :" + this.start + "\t");
+        sb.append("duration: " + this.duration + "\n");
         return sb.toString();
     }
 }

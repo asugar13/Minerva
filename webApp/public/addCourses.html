@@ -8,22 +8,25 @@
   <!-- CSS (load bootstrap from a CDN) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <!-- Local CSS -->
-  <link rel="stylesheet" href="addCourses.css">
+  <link rel="stylesheet" href="../css/addCourses.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  
+
+
   <!-- Local JS -->
-  <script type="text/javascript" src="addCourses.js"></script>
-  
+  <script type="text/javascript" src="../scripts/addCourses.js"></script>
+
 </head>
 
 <body class="container">
-
-  <div class="jumbotron" id="main">
+  <div class="well">
+    <h2>Choose Your Courses</h2>
+  </div>
+    
+  <div class="well" id="main">
     <div class="input-group input-group-sm">
       <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
       <input type="text" class="form-control" placeholder="Add Class..." id="course-ID">
@@ -31,7 +34,7 @@
         <button class="btn btn-default" type="button" id="go">Go!</button>
       </span>
     </div>
-    
+
     <br>
 
     <div class="panel panel-default" >
@@ -45,9 +48,8 @@
         </tr>
       </table>
     </div>
-    
-    <button type="button" class="btn btn-default" id="submit">Give me the timetable</button>
 
+    <button type="button" class="btn btn-default" id="submit">Give me the timetable</button>
   </div>
 
 </body>
