@@ -1,77 +1,105 @@
-# YOUR PRODUCT/TEAM NAME
-
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
+# Minerva/Group 22
 
 
 ## Iteration 3
 
- * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
+ * Start date: March 14, 2017
+ * End date: March 23, 2017
 
 ## Process
-
-(Optional:) Quick introduction
 
 #### Changes from previous iteration
 
 List the most significant changes you made to your process (if any).
 
- * At most 3 items
- * Start with the most significant change
- * For each change, explain why you are making it and what you are hoping to achieve from it
- * Ideally, for each change, you will define a clear success metric (i.e. something you can measure at the end of the iteration to determine whether the change you made was successful)
-
- > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
- > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
+* We will have more in person meetings.
+ * It's easier to hash out smaller details and keep eveyone on the same page if we actually talk in person and can draw diagrams 
+ or physically point out pieces of code. 
+* We will add a front end manager.
+ * Giving someone the power to make final decisions makes overall decision making easier.
+* Put due dates on Trello tickets.
+ * This will hopefully motivate people to finish tasks sooner.
+ * We will try to record when a task was actually done versus it's due date, to measure our productivity.
+ 
 
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+  * Front End Developer:
+    * Responsibilities:
+      * UI for picking courses and picking restrictions (e.g. Which semester)
+      * Display generated timetables
+      * Allow Course Picking / Adding restrictions
+
+  * Back End Developer:
+    * Responsibilities:
+      * Create class to retrieve course offering data
+      * Create business objects to represent course and timetable data
+      * Design API
+      * Create methods to compare timetables to each other
+      * Generate all possible feasible timetables
+      * Sort timetables by criteria
+
+  * Project Manager:
+    * Responsibilities:
+      * Track what has been done/needs to be done and assign tasks if necessary.
+      * Control overall design of system and resolve any issues in regards to how different classes fit together.
+      
+  * Front End Manager
+    * Responsibilities
+      * Delegate website tasks if necessary.
+      * Make final decisions on UI design.
+
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
-
- * When and where? In-person or online?
- * What's the **purpose** of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
+* We will have weekly sync meetings during tutorials 
+ * We will discuss:
+  * What we’ve done
+  * What we’re going to do/What needs to be done
+  * Any problems or issues we’re facing
+ 
+* We will have weekly coding meetings.
+ * Will code together in person and clear up any questions that have come up.  
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be to-do lists, task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+* We will set up a task board on Trello to keep track of what needs to be done and any issues that come up.
+ * The Trello tasks will have due dates associated with them.
+* Tasks will be prioritized based on the order they listed in. High priority goes to the top of the list and team members can rearrange tasks as they see fit.
+* Team members take whatever tasks they are most comfortable with and move them to the assigned/working on list.
+* Trello is integrated with Slack to provide notifications for updates to the board
+* We will use Slack to communicate throughout the week when we run into issues
+* If issues come up then process can vary slightly, for example if one feature is blocking somebody’s, then they can for somebody to pick up that ticket or to pick it up themselves and finish it asap
 
 #### Git / GitHub workflow
 
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts.
+This is identical to iteration-02.plan.md.
 
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
+* Every team member will fork the master repo.
+* After someone finishes a feature, they can make a pull request from their fork to the master repo.
+ * If the team member is confident they can merge the request themselves. They may also request a code review and have another team member
+ merge the request.
+* Conflicts should be resolved by whoever is making the merge.
 
+We hope that this workflow will minimize conflicts while allowing for code reviews if necessary. We trust team members to be able make good
+decisions about what code gets merged into the master repo and whether or not they need help.
 
 
 ## Product
 
 #### Goals and tasks
 
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
+ * Finish generator classes so that we can actually generate timetables.
+ * Finish timetable comparators for filtering timetables.
+ * Set up HTTP server
+ * Fully implement the Javascript for the front end so that user data is carried through the site.
+ * UI enhancements for the front end.
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to present your project idea.
-
- * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
- * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
- * Be concise, yet precise.         
-   For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
+ * All classes in TimetableGen folder (https://github.com/csc301-winter-2017/project-team-22/tree/master/TimetableGen/). That is the 
+ folder that contains all the classes for the backend.
+  * SemesterConfigurationGenerator.java, TimetableConfigurationGenerator.java specifically.
+ * Javascript for the website, so that we actually carry all user input through the pages.
+  * Specifically everything in https://github.com/csc301-winter-2017/project-team-22/tree/master/webApp/assets/scripts
+ * A video demoing the website.
