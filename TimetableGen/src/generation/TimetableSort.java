@@ -24,6 +24,7 @@ public class TimetableSort implements Comparator<Timetable>{
 
 	@Override
 	public int compare(Timetable t1, Timetable t2) {
+		int compareResult = 0;
 		switch (this.currentComparator){
 			case MORE_DAYS_OFF:
 				break;
@@ -34,7 +35,7 @@ public class TimetableSort implements Comparator<Timetable>{
 			case EVENINGS_OFF:
 				break;
 		}
-		return 0;
+		return compareResult;
 	}
 
 }
