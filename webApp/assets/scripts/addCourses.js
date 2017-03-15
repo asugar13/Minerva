@@ -34,7 +34,34 @@ function formatCourseDescription(course){
          '<br><b>Exclusions: </b>' + course.exclusions 
 }
 
+function redesign(){
+  $.each(sessionStorage, function(key, value){
+    if (sessionStorage.hasOwnProperty(key)){
+      var course = searchCourses(key);
+      addCourseEntry(course);
+    }
+  });
+}
+
+function addCourseEntry(course){
+
+  $('#course-table').append(
+    '<tr> \
+      <td>' + formatCourseDescription(course) + '</td> \
+      <td> \
+        <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
+        <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
+        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+      </td> \
+    </tr>');
+  
+  $('input[name="' + course.courseCode + '"][value="' + sessionStorage.getItem(course.courseCode) + '"]').prop("checked", true);;
+    
+  numCourses++;
+}
+
 $(document).ready(function(){
+  redesign();
   
   $("#go").click(function () {
     
@@ -57,19 +84,7 @@ $(document).ready(function(){
       
       $("#alert").addClass("hidden");
       sessionStorage.setItem(course.courseCode, '');
-
-      var name = "restrictions" + numCourses;
-      $('#course-table').append(
-        '<tr> \
-          <td>' + formatCourseDescription(course) + '</td> \
-          <td> \
-            <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
-            <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
-            <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
-          </td> \
-        </tr>');
-        
-      numCourses++;
+      addCourseEntry(course);
     }
   });
   
