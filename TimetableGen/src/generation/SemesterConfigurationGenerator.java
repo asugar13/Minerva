@@ -5,6 +5,8 @@ import java.util.Set;
 import businessobject.CourseSelection;
 import businessobject.TimetableConfiguration;
 import dao.CourseListingDao;
+import enums.ClassType;
+import enums.SemesterType;
 
 public class SemesterConfigurationGenerator implements TimetableConfigurationGenerator {
 	private CourseListingDao listingDao;
@@ -19,6 +21,13 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		// all possible TimetableConfigurations for 2 semesters given the
 		// restrictions in CourseSelection and a maximum of 6 courses per
 		// semester
+		
+		for (CourseSelection course : courses){
+			for (SemesterType classtype : course.getRestrictions()){
+				
+			}
+		}
+		
 		return null;
 	}
 }
