@@ -326,5 +326,8 @@ public class CourseLoader implements CourseListingDao {
 		
 		CourseListing c2 = acl.get("ECO105Y1Y");
 		System.out.println(c2.toString());
+		
+		CourseListing c3 = acl.get("CSC207H1S");
+		System.out.println(c3.toString());
 	}
 }
