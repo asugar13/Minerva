@@ -34,6 +34,13 @@ function formatCourseDescription(course){
          '<br><b>Exclusions: </b>' + course.exclusions 
 }
 
+/**
+ * Display any courses already selected by the user in this session.
+ *
+ * For when the user refreshes the page or clicks the Let's redesign button 
+ * on the results page.
+ *
+ */
 function redesign(){
   $.each(sessionStorage, function(key, value){
     if (sessionStorage.hasOwnProperty(key)){
@@ -43,6 +50,12 @@ function redesign(){
   });
 }
 
+/**
+ * Add a new entry to the selected courses table. Includes course description
+ * in the first column and semester restrictions in the second column.
+ *
+ * @param {object} course
+ */
 function addCourseEntry(course){
 
   $('#course-table').append(
@@ -83,7 +96,7 @@ $(document).ready(function(){
     } else {
       
       $("#alert").addClass("hidden");
-      sessionStorage.setItem(course.courseCode, '');
+      sessionStorage.setItem(course.courseCode, 'None');
       addCourseEntry(course);
     }
   });
