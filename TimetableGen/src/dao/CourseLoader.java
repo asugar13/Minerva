@@ -74,14 +74,15 @@ public class CourseLoader implements CourseListingDao {
 				loadClassTimes((JSONArray) o.get("meeting_sections")),
 				loadBreadths((JSONArray) o.get("breadths")));
 
+		//the next two lines create the semesterToCourse field of a CourseListing object
 		Map<SemesterType, Course> semesterToCourse = new HashMap<>();
 		semesterToCourse.put(semester, newCourse);
 
-		if (courseDB.containsKey(fullCourseCode)) {
-			courseDB.get(fullCourseCode).addCourse(semester, newCourse);
+		if (courseDB.containsKey(courseCode)) {
+			courseDB.get(courseCode).addCourse(semester, newCourse);
 		} else {
-			CourseListing cl = new CourseListing(courseCode, semesterToCourse);
-			courseDB.put(fullCourseCode, cl);
+			CourseListing courseListing = new CourseListing(courseCode, semesterToCourse);
+			courseDB.put(courseCode, courseListing);
 		}
 	}
 	
@@ -212,36 +213,36 @@ public class CourseLoader implements CourseListingDao {
 	 * @param a - JSON array that represents class times.
 	 * @return
 	 */
-	private Map<ClassType, List<ClassTime>> loadClassTimes(JSONArray a) {
+	private Map<ClassType, List<ClassTime>> loadClassTimes(JSONArray meetingSections) {
 		Map<ClassType, List<ClassTime>> result = new HashMap<>();
 		
-		for (int i1 = 0; i1 < a.size(); i1++) {
-			JSONObject o = (JSONObject) a.get(i1);
+		for (int i1 = 0; i1 < meetingSections.size(); i1++) {
+			JSONObject meetingSection = (JSONObject) meetingSections.get(i1);
 			
-			String classCode = (String) o.get("code");
+			String classCode = (String) meetingSection.get("code");
 			ClassType classType = figureClassType(classCode);			
 			
-			List<TimeSlot> times = new ArrayList<>();
+			List<TimeSlot> meetingTimeSlots = new ArrayList<>();
 			
-			JSONArray array = (JSONArray) o.get("times");
-			for (int i2 = 0; i2 < array.size(); i2++) {
-				JSONObject ob = (JSONObject) array.get(i2);
+			JSONArray times = (JSONArray) meetingSection.get("times");
+			for (int i2 = 0; i2 < times.size(); i2++) {
+				JSONObject time = (JSONObject) times.get(i2);
 				
-				Day day = figureDay((String) ob.get("day"));
+				Day day = figureDay((String) time.get("day"));
 				
-				int start = Math.toIntExact((long) ob.get("start"));
-				int duration = Math.toIntExact((long) ob.get("duration"));
+				int start = Math.toIntExact((long) time.get("start"));
+				int duration = Math.toIntExact((long) time.get("duration"));
 				
-				times.add(new TimeSlot(day, start, duration));
+				meetingTimeSlots.add(new TimeSlot(day, start, duration));
 			}
 
-			ClassTime ct = new ClassTime(classCode, times);
+			ClassTime classTime = new ClassTime(classCode, meetingTimeSlots);
 			
 			if (result.containsKey(classType)) {
-				result.get(classType).add(ct);
+				result.get(classType).add(classTime);
 			} else {
 				List<ClassTime> classTimeList = new ArrayList<>();
-				classTimeList.add(ct);
+				classTimeList.add(classTime);
 				result.put(classType, classTimeList);
 			}
 		}
