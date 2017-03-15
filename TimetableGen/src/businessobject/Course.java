@@ -16,16 +16,16 @@ import enums.SemesterType;
  *
  */
 public class Course {
-	String courseCode;
-	String name;
-	String description;
-	int year;
-	List<Integer> breadths;
-	String prerequisite;
-	String exclusions;
-	Map<ClassType, List<ClassTime>> classTimes;
-	CampusType campus;
-	SemesterType semester;
+	private String courseCode;
+	private String name;
+	private String description;
+	private String prerequisite;
+	private String exclusions;
+	private int year;
+	private CampusType campus;
+	private List<Integer> breadths;
+	private Map<ClassType, List<ClassTime>> classTimes;
+	private SemesterType semester;
 
 	public Course(String name, String courseCode, String description, String prerequisite, String exclusions,
 			int year, CampusType campus, SemesterType semester, Map<ClassType, List<ClassTime>> classTimes,
@@ -55,11 +55,11 @@ public class Course {
 	}
 
 	public String getCourseCode() {
-		return courseCode;
+		return this.courseCode;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String getDescription() {
@@ -91,8 +91,9 @@ public class Course {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((courseCode == null) ? 0 : courseCode.hashCode());
-		result = prime * result + ((semester == null) ? 0 : semester.hashCode());
+		//if condition is true then 0, else courseCode.hasCode()
+		result = prime * result + ((this.courseCode == null) ? 0 : courseCode.hashCode());
+		result = prime * result + ((this.semester == null) ? 0 : semester.hashCode());
 		return result;
 	}
 
@@ -105,12 +106,12 @@ public class Course {
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
-		if (courseCode == null) {
+		if (this.courseCode == null) {
 			if (other.courseCode != null)
 				return false;
-		} else if (!courseCode.equals(other.courseCode))
+		} else if (!this.courseCode.equals(other.courseCode))
 			return false;
-		if (semester != other.semester)
+		if (this.semester != other.semester)
 			return false;
 		return true;
 	}
@@ -119,22 +120,22 @@ public class Course {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("course code: " + courseCode + "\n");
-		sb.append("course name: " + name + "\n");
-		sb.append("description: " + description + "\n");
-		sb.append("year: " + year + "\n");
+		sb.append("course code: " + this.courseCode + "\n");
+		sb.append("course name: " + this.name + "\n");
+		sb.append("description: " + this.description + "\n");
+		sb.append("year: " + this.year + "\n");
 		
 		sb.append("breadths:");
-		for (int i = 0; i < breadths.size(); i++) {
-			sb.append(" " + breadths.get(i));
+		for (int i = 0; i < this.breadths.size(); i++) {
+			sb.append(" " + this.breadths.get(i));
 		}
 		sb.append("\n");
 		
-		sb.append("prerequisites: " + prerequisite + "\n");
-		sb.append("exclusions: " + exclusions + "\n");
+		sb.append("prerequisites: " + this.prerequisite + "\n");
+		sb.append("exclusions: " + this.exclusions + "\n");
 		
 		sb.append("Classes: \n");
-		Set<ClassType> s = classTimes.keySet();
+		Set<ClassType> s = this.classTimes.keySet();
 		Iterator<ClassType> tor = s.iterator();
 		while (tor.hasNext()) {
 			ClassType cl = tor.next();
@@ -151,14 +152,14 @@ public class Course {
 			default:
 				break;
 			}
-			List<ClassTime> l = classTimes.get(cl);
+			List<ClassTime> l = this.classTimes.get(cl);
 			for (int i = 0; i < l.size(); i++) {
 				sb.append(l.get(i).toString());
 			}
 		}
 		
 		sb.append("campus: ");
-		switch (campus) {
+		switch (this.campus) {
 		case UTSG:
 			sb.append("UTSG\n");
 			break;
@@ -173,7 +174,7 @@ public class Course {
 		}
 
 		sb.append("semester: ");
-		switch (semester) {
+		switch (this.semester) {
 		case FALL:
 			sb.append("fall\n");
 			break;
