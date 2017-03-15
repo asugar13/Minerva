@@ -57,26 +57,36 @@ function redesign(){
  * @param {object} course
  */
 function addCourseEntry(course){
+  var removeButton =   
+  '<td><button type="button" class="btn btn-default" id="' + course.courseCode + '-remove"> \
+    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> \
+  </button></td></tr>';
+  
+  var description = '<tr id="' + course.courseCode + '"> \
+        <td>' + formatCourseDescription(course) + '</td>';
 
   if (course.semesters[0] == "Y"){
     $('#course-table').append(
-      '<tr> \
-        <td>' + formatCourseDescription(course) + '</td> \
-        <td> \
-          <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
-        </td> \
-      </tr>');
+      description + 
+      '<td> \
+        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+      </td>' + 
+      removeButton);
   } else {
     $('#course-table').append(
-      '<tr> \
-        <td>' + formatCourseDescription(course) + '</td> \
-        <td> \
-          <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
-          <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
-          <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
-        </td> \
-      </tr>');
+      description + 
+      '<td> \
+        <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
+        <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
+        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+      </td>' + 
+      removeButton);
   }
+  
+  $("#" + course.courseCode + "-remove").click(function () {
+    $("#" + course.courseCode).remove();
+    sessionStorage.removeItem(course.courseCode);
+  });
   
   $('input[name="' + course.courseCode + '"][value="' + sessionStorage.getItem(course.courseCode) + '"]').prop("checked", true);;
     
