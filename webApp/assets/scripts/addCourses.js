@@ -58,15 +58,25 @@ function redesign(){
  */
 function addCourseEntry(course){
 
-  $('#course-table').append(
-    '<tr> \
-      <td>' + formatCourseDescription(course) + '</td> \
-      <td> \
-        <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
-        <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
-        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
-      </td> \
-    </tr>');
+  if (course.semesters[0] == "Y"){
+    $('#course-table').append(
+      '<tr> \
+        <td>' + formatCourseDescription(course) + '</td> \
+        <td> \
+          <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+        </td> \
+      </tr>');
+  } else {
+    $('#course-table').append(
+      '<tr> \
+        <td>' + formatCourseDescription(course) + '</td> \
+        <td> \
+          <input type="radio" name="' + course.courseCode + '" value="F"> Fall <br> \
+          <input type="radio" name="' + course.courseCode + '" value="S"> Winter <br> \
+          <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+        </td> \
+      </tr>');
+  }
   
   $('input[name="' + course.courseCode + '"][value="' + sessionStorage.getItem(course.courseCode) + '"]').prop("checked", true);;
     
