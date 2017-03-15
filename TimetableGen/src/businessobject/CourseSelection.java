@@ -3,6 +3,7 @@ package businessobject;
 import java.util.Set;
 
 import enums.ClassType;
+import enums.SemesterType;
 
 public class CourseSelection {
 	public String courseCode;
@@ -11,9 +12,9 @@ public class CourseSelection {
 	 * If FALL and WINTER then can be in either, if only one then can only be in
 	 * one, if YEAR then must be in both
 	 **/
-	public Set<ClassType> semesterRestrictions;
+	public Set<SemesterType> semesterRestrictions;
 
-	public CourseSelection(String courseCode, Set<ClassType> semesterRestrictions) {
+	public CourseSelection(String courseCode, Set<SemesterType> semesterRestrictions) {
 		this.courseCode = courseCode;
 		this.semesterRestrictions = semesterRestrictions;
 	}
@@ -22,7 +23,7 @@ public class CourseSelection {
 		return courseCode;
 	}
 
-	public Set<ClassType> getRestrictions() {
+	public Set<SemesterType> getRestrictions() {
 		return semesterRestrictions;
 	}
 }
