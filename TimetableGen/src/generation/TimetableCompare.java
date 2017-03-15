@@ -4,10 +4,10 @@ import java.util.Comparator;
 import businessobject.Timetable;
 import enums.TimetableComparators;
 
-public class TimetableSort implements Comparator<Timetable>{
+public class TimetableCompare implements Comparator<Timetable>{
 	private TimetableComparators currentComparator;
 	
-	public TimetableSort (TimetableComparators currentComparator){
+	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
 	}
 	
@@ -34,6 +34,8 @@ public class TimetableSort implements Comparator<Timetable>{
 				break;
 			case EVENINGS_OFF:
 				break;
+			default:
+				return 0;
 		}
 		return compareResult;
 	}
