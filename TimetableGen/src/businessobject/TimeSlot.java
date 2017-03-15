@@ -66,4 +66,5 @@ public class TimeSlot {
         sb.append("duration: " + this.duration + "\n");
         return sb.toString();
     }
+ 
 }

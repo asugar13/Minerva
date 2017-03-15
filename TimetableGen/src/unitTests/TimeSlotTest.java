@@ -1,4 +1,4 @@
-package businessobjectTest;
+package unitTests;
 
 import static org.junit.Assert.assertEquals;
 import businessobject.TimeSlot;
