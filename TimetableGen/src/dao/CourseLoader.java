@@ -6,8 +6,10 @@ import java.io.InputStreamReader;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,11 +18,13 @@ import org.json.simple.parser.JSONParser;
 import businessobject.ClassTime;
 import businessobject.Course;
 import businessobject.CourseListing;
+import businessobject.CourseSelection;
 import businessobject.TimeSlot;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
+import generation.SemesterConfigurationGenerator;
 
 public class CourseLoader implements CourseListingDao {
 
@@ -329,5 +333,18 @@ public class CourseLoader implements CourseListingDao {
 		
 		CourseListing c3 = acl.get("CSC207H1S");
 		System.out.println(c3.toString());
+		
+		//testing the SemesterConfigurationGenerator
+		SemesterType restriction = SemesterType.FALL;
+		String courseCode ="CSC207H1S";
+		Set restrictions = new HashSet<SemesterType>();
+		restrictions.add(restriction);
+		CourseSelection CSC207 = new CourseSelection(courseCode,restrictions);
+		
+		SemesterConfigurationGenerator generator = new SemesterConfigurationGenerator(cl);
+		Set CourseSelections = new HashSet<CourseSelection>();
+		CourseSelections.add(CSC207);
+		generator.generateConfigurations(CourseSelections);
+		
 	}
 }

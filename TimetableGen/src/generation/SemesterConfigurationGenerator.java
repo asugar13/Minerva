@@ -22,9 +22,10 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		// restrictions in CourseSelection and a maximum of 6 courses per
 		// semester
 		
+		
 		for (CourseSelection course : courses){
 			for (SemesterType classtype : course.getRestrictions()){
-				
+				System.out.println("executing");
 			}
 		}
 		
