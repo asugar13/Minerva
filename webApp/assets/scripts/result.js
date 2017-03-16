@@ -1,30 +1,61 @@
 "use strict";
 
-
-/*
- * Fills in the given timetable on the results page. 
- * Courses is a list of courses from the API. Section is one of "LEC", "TUT",
- * "PRA".
+/**
+ * Adds the buttons for scrolling through the different timetables for aLinkcolor
+ * given configNum.
+ *
+ * @param {int} configNum
+ *
  */
-function fillTable(courses, section, timetable){
-  for (var i = 0; i < courses.length; i++){
-
-    var course = courses[i]
-    var classes = courses[i].classes[0];
+function changeTimetables(configNum){
+  $("#timetables").empty();
+  
+  for (var i = 1; i <= timetables.configurations[configNum].timetables.length; i++){
+    let j = i;
     
-    if (classes.hasOwnProperty(section)){
-      var times = classes[section].times;
-      
-      for (var j = 0; j < times.length; j++){
-        timetable.addEvent(course.courseCode + ", " + classes[section].classCode, 
-                            times[j].day, 
-                            new Date(2015, 7, 17, parseInt(times[j].start), 0), 
-                            new Date(2015, 7, 17, parseInt(times[j].end), 0));
-      }
-    }
+    $("#timetables").append(
+      '<button type="button" class="btn btn-default" id="timetable' + i + '">' + i + '</button>'
+    );
+    
+    $("#timetable" + j).click(function () {
+      drawTimetable(configNum, j - 1);
+    });
   }
 }
 
+/**
+ * Draws a fall and winter timetable on the page. Specific timetable is given 
+ * the comnination of the configNum and timetableNum.
+ *
+ * @param {int} configNum
+ * @param {int} timetableNum
+ *
+ */
+function drawTimetable(configNum, timetableNum){
+  
+  var fall = createEmptyTimetable();
+  var winter = createEmptyTimetable();
+  
+  var fallCourses = timetables.configurations[configNum].timetables[timetableNum].semesters.Fall.courses;
+  var winterCourses = timetables.configurations[configNum].timetables[timetableNum].semesters.Winter.courses;
+
+  fillTable(fallCourses, fall);
+  fillTable(winterCourses, winter);
+
+  $("#fall-div").empty();
+  $("#winter-div").empty();
+  
+  var renderer = new Timetable.Renderer(fall);
+  renderer.draw('#fall-div'); 
+
+  var renderer = new Timetable.Renderer(winter);
+  renderer.draw('#winter-div'); 
+}
+
+/**
+ * Sets up an empty timtable with the Timetable.js plugin.
+ *
+ */
 function createEmptyTimetable(){
   var timetable = new Timetable();
   timetable.setScope(9, 21);
@@ -34,61 +65,56 @@ function createEmptyTimetable(){
   return timetable;
 }
 
+/**
+ * Fills the given timetable with the given courses.
+ *
+ * @param {object} courses: Formatted as defined in return of 
+ *                          httpObjectExamples/generate-timetable.txt
+ * @param {Timetable} timetable: Timetable.js Timetable object
+ *
+ */
+function fillTable(courses, timetable){
+  for (var i = 0; i < courses.length; i++){
+
+    var course = courses[i]
+    var classes = courses[i].classes[0];
+    var section = ["LEC", "TUT", "PRA"];
+    
+    for (var k = 0; k < 3; k++){
+      if (classes.hasOwnProperty(section[k])){
+        var times = classes[section[k]].times;
+        
+        for (var j = 0; j < times.length; j++){
+          
+          timetable.addEvent(course.courseCode + ", " + classes[section[k]].classCode, 
+                              times[j].day, 
+                              new Date(2015, 7, 17, parseInt(times[j].start), 0), 
+                              new Date(2015, 7, 17, parseInt(times[j].end), 0));
+        }
+      }
+    }
+  }
+}
+
 $(document).ready(function(){
   
-  var fall = createEmptyTimetable();
-  var winter = createEmptyTimetable();
-  
-  var fall1 = timetables.configurations[0].timetables[0].semesters.Fall.courses;
-  var winter1 = timetables.configurations[0].timetables[0].semesters.Winter.courses;
-  
-  var fall2 = timetables.configurations[1].timetables[0].semesters.Fall.courses;
-  var winter2 = timetables.configurations[1].timetables[0].semesters.Winter.courses;
-  
-  fillTable(fall1, "LEC", fall);
-  fillTable(fall1, "TUT", fall);
-  fillTable(fall1, "PRA", fall);
-  fillTable(winter1, "LEC", winter);
-  fillTable(winter1, "TUT", winter);
-  fillTable(winter1, "PRA", winter);
-  
-  var renderer = new Timetable.Renderer(fall);
-  renderer.draw('#fall-div'); 
-
-  var renderer = new Timetable.Renderer(winter);
-  renderer.draw('#winter-div'); 
-  
-  $("#config1").click(function() {
-		addFallTable();
-    addWinterTable();
+  // Add the buttons for scrolling through different configurations.
+  for (var i = 1; i <= timetables.configurations.length; i++){
+    let j = i;
     
-    fillTable(fall1, "LEC", fall);
-    fillTable(fall1, "TUT", fall);
-    fillTable(winter1, "LEC", winter);
-    fillTable(winter1, "TUT", winter);
+    $("#configurations").append(
+      '<button type="button" class="btn btn-default" id="config' + i + '">' + i + '</button>'
+    );
     
-    var renderer = new Timetable.Renderer(fall);
-    renderer.draw('#fall-div'); 
-
-    var renderer = new Timetable.Renderer(winter);
-    renderer.draw('#winter-div'); 
-	});
+    changeTimetables(0);
+    
+    $("#config" + j).click(function () {
+      changeTimetables(j - 1);
+      drawTimetable(j - 1, 0);
+    });
+  }
   
-  $("#config2").click(function() {
-		addFallTable();
-    addWinterTable();
-    
-    fillTable(fall2, "LEC", fall);
-    fillTable(fall2, "TUT", fall);
-    fillTable(winter2, "LEC", winter);
-    fillTable(winter2, "TUT", winter);
-    
-    var renderer = new Timetable.Renderer(fall);
-    renderer.draw('#fall-div'); 
-
-    var renderer = new Timetable.Renderer(winter);
-    renderer.draw('#winter-div'); 
-	});
+  drawTimetable(0, 0);
   
   $("#back").click(function(){
     location.href='/'
