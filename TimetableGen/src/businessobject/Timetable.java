@@ -2,6 +2,8 @@ package businessobject;
 
 import java.util.List;
 
+
+
 public class Timetable {
 	List<TimetableConfiguration> timetableConfigurations;
 	
@@ -14,7 +16,6 @@ public class Timetable {
 	}
 	
 	public String toJsonString(){
-		//TODO
 		return null;
 	}
 }

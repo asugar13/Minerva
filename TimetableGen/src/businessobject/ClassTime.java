@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ClassTime {
 
-	String classCode;
+	private String classCode;
 	private List<TimeSlot> timeSlots;
 
 	public ClassTime(String classCode, List<TimeSlot> timeSlots){
@@ -13,7 +13,8 @@ public class ClassTime {
 	}
 	
 	public boolean conflictsWith(ClassTime otherClass) {
-		for (TimeSlot timeSlot : timeSlots) {
+		for (TimeSlot timeSlot : this.timeSlots) {
+			
 			for (TimeSlot otherTimeSlot : otherClass.getTimeSlots()) {
 				if (timeSlot.conflictsWith(otherTimeSlot)) {
 					return true;

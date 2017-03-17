@@ -13,27 +13,27 @@ public class TimeSlot {
         this.duration = duration;
     }
     
-    public boolean conflictsWith(TimeSlot timeSlot){
+    public boolean conflictsWith(TimeSlot timeSlot) {
         if (this.day == timeSlot.getDay()) {
         	Integer end = this.start + this.duration;
         	Integer otherStart = timeSlot.getStart();
         	Integer otherEnd = timeSlot.getStart() + timeSlot.getDuration();
-        	return ((this.start > otherStart && this.start < otherEnd) || (otherStart > this.start && otherStart < end));
+        	return ((this.start >= otherStart && this.start < otherEnd) || (otherStart >= this.start && otherStart < end));
         } else {
         	return false;
         }
     }
     
     //TODO: Getters and Setters
-    public Day getDay(){
+    public Day getDay() {
     	return this.day;
     }
     
-    public Integer getStart(){
+    public Integer getStart() {
     	return this.start;
     }
     
-    public Integer getDuration(){
+    public Integer getDuration() {
     	return this.duration;
     }
     
@@ -66,4 +66,5 @@ public class TimeSlot {
         sb.append("duration: " + this.duration + "\n");
         return sb.toString();
     }
+ 
 }
