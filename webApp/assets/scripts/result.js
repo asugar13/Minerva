@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Adds the buttons for scrolling through the different timetables for aLinkcolor
+ * Adds the buttons for scrolling through the different timetables for a
  * given configNum.
  *
  * @param {int} configNum
