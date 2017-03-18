@@ -1,7 +1,16 @@
 package dao;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+//import static spark.Spark.*;
+
+
+import com.sun.net.httpserver.*;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -78,11 +87,12 @@ public class CourseLoader implements CourseListingDao {
 		Map<SemesterType, Course> semesterToCourse = new HashMap<>();
 		semesterToCourse.put(semester, newCourse);
 
-		if (courseDB.containsKey(courseCode)) {
-			courseDB.get(courseCode).addCourse(semester, newCourse);
+		if (courseDB.containsKey(fullCourseCode)) {
+			System.out.println("never happens");
+			courseDB.get(fullCourseCode).addCourse(semester, newCourse);
 		} else {
-			CourseListing courseListing = new CourseListing(courseCode, semesterToCourse);
-			courseDB.put(courseCode, courseListing);
+			CourseListing courseListing = new CourseListing(fullCourseCode, semesterToCourse);
+			courseDB.put(fullCourseCode, courseListing);
 		}
 	}
 	
@@ -321,6 +331,7 @@ public class CourseLoader implements CourseListingDao {
 	
 	/* ======================================================================================================================= */
 
+	
 	/* For testing purposes */
 	public static void main(String[] args) {
 		CourseLoader cl = new CourseLoader(FILE_PATH);
@@ -347,5 +358,20 @@ public class CourseLoader implements CourseListingDao {
 		CourseSelections.add(CSC207);
 		generator.generateConfigurations(CourseSelections);
 		
+		   //HttpServer server;
+		try {
+			HttpServer server = HttpServer.create(new InetSocketAddress(8800),0);
+			server.createContext("/main", new MyHandler());
+			server.setExecutor(null); // creates a default executor
+			server.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 }
+        
+
+
