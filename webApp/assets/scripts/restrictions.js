@@ -3,9 +3,9 @@
 $(document).ready(function(){
   $("#submit").click(function(){
     $.ajax({
-      url: '/admin',
-      type: 'POST',
-      data: {username: "HEY"},
+      url: 'http://127.0.0.1:8800/main',
+      type: 'GET',
+      //data: {"yo": "HEY"},
       success: function(result) {
         location.href='/result'
 
@@ -15,4 +15,5 @@ $(document).ready(function(){
   $("#skip").click(function(){
     location.href='/result'
   });
+})
 })
