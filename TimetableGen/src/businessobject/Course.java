@@ -55,11 +55,11 @@ public class Course {
 	}
 
 	public String getCourseCode() {
-		return courseCode;
+		return this.courseCode;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String getDescription() {
@@ -91,6 +91,7 @@ public class Course {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		//if condition is true then 0, else courseCode.hasCode()
 		result = prime * result + ((this.courseCode == null) ? 0 : courseCode.hashCode());
 		result = prime * result + ((this.semester == null) ? 0 : semester.hashCode());
 		return result;

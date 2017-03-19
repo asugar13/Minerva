@@ -1,13 +1,24 @@
 package dao;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+//import static spark.Spark.*;
+
+
+import com.sun.net.httpserver.*;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,11 +27,13 @@ import org.json.simple.parser.JSONParser;
 import businessobject.ClassTime;
 import businessobject.Course;
 import businessobject.CourseListing;
+import businessobject.CourseSelection;
 import businessobject.TimeSlot;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
+import generation.SemesterConfigurationGenerator;
 
 public class CourseLoader implements CourseListingDao {
 
@@ -70,14 +83,16 @@ public class CourseLoader implements CourseListingDao {
 				loadClassTimes((JSONArray) o.get("meeting_sections")),
 				loadBreadths((JSONArray) o.get("breadths")));
 
+		//the next two lines create the semesterToCourse field of a CourseListing object
 		Map<SemesterType, Course> semesterToCourse = new HashMap<>();
 		semesterToCourse.put(semester, newCourse);
 
 		if (courseDB.containsKey(fullCourseCode)) {
+			System.out.println("never happens");
 			courseDB.get(fullCourseCode).addCourse(semester, newCourse);
 		} else {
-			CourseListing cl = new CourseListing(courseCode, semesterToCourse);
-			courseDB.put(fullCourseCode, cl);
+			CourseListing courseListing = new CourseListing(fullCourseCode, semesterToCourse);
+			courseDB.put(fullCourseCode, courseListing);
 		}
 	}
 	
@@ -208,36 +223,36 @@ public class CourseLoader implements CourseListingDao {
 	 * @param a - JSON array that represents class times.
 	 * @return
 	 */
-	private Map<ClassType, List<ClassTime>> loadClassTimes(JSONArray a) {
+	private Map<ClassType, List<ClassTime>> loadClassTimes(JSONArray meetingSections) {
 		Map<ClassType, List<ClassTime>> result = new HashMap<>();
 		
-		for (int i1 = 0; i1 < a.size(); i1++) {
-			JSONObject o = (JSONObject) a.get(i1);
+		for (int i1 = 0; i1 < meetingSections.size(); i1++) {
+			JSONObject meetingSection = (JSONObject) meetingSections.get(i1);
 			
-			String classCode = (String) o.get("code");
+			String classCode = (String) meetingSection.get("code");
 			ClassType classType = figureClassType(classCode);			
 			
-			List<TimeSlot> times = new ArrayList<>();
+			List<TimeSlot> meetingTimeSlots = new ArrayList<>();
 			
-			JSONArray array = (JSONArray) o.get("times");
-			for (int i2 = 0; i2 < array.size(); i2++) {
-				JSONObject ob = (JSONObject) array.get(i2);
+			JSONArray times = (JSONArray) meetingSection.get("times");
+			for (int i2 = 0; i2 < times.size(); i2++) {
+				JSONObject time = (JSONObject) times.get(i2);
 				
-				Day day = figureDay((String) ob.get("day"));
+				Day day = figureDay((String) time.get("day"));
 				
-				int start = Math.toIntExact((long) ob.get("start"));
-				int duration = Math.toIntExact((long) ob.get("duration"));
+				int start = Math.toIntExact((long) time.get("start"));
+				int duration = Math.toIntExact((long) time.get("duration"));
 				
-				times.add(new TimeSlot(day, start, duration));
+				meetingTimeSlots.add(new TimeSlot(day, start, duration));
 			}
 
-			ClassTime ct = new ClassTime(classCode, times);
+			ClassTime classTime = new ClassTime(classCode, meetingTimeSlots);
 			
 			if (result.containsKey(classType)) {
-				result.get(classType).add(ct);
+				result.get(classType).add(classTime);
 			} else {
 				List<ClassTime> classTimeList = new ArrayList<>();
-				classTimeList.add(ct);
+				classTimeList.add(classTime);
 				result.put(classType, classTimeList);
 			}
 		}
@@ -316,6 +331,7 @@ public class CourseLoader implements CourseListingDao {
 	
 	/* ======================================================================================================================= */
 
+	
 	/* For testing purposes */
 	public static void main(String[] args) {
 		CourseLoader cl = new CourseLoader(FILE_PATH);
@@ -326,5 +342,36 @@ public class CourseLoader implements CourseListingDao {
 		
 		CourseListing c2 = acl.get("ECO105Y1Y");
 		System.out.println(c2.toString());
+		
+		CourseListing c3 = acl.get("CSC207H1S");
+		System.out.println(c3.toString());
+		
+		//testing the SemesterConfigurationGenerator
+		SemesterType restriction = SemesterType.FALL;
+		String courseCode ="CSC207H1S";
+		Set restrictions = new HashSet<SemesterType>();
+		restrictions.add(restriction);
+		CourseSelection CSC207 = new CourseSelection(courseCode,restrictions);
+		
+		SemesterConfigurationGenerator generator = new SemesterConfigurationGenerator(cl);
+		Set CourseSelections = new HashSet<CourseSelection>();
+		CourseSelections.add(CSC207);
+		generator.generateConfigurations(CourseSelections);
+		
+		   //HttpServer server;
+		try {
+			HttpServer server = HttpServer.create(new InetSocketAddress(8800),1000000);
+			server.createContext("/main", new MyHandler());
+			server.setExecutor(null); // creates a default executor
+			server.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 }
+        
+
+
