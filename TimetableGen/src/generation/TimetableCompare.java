@@ -2,15 +2,18 @@ package generation;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
+import businessobject.CourseOffering;
+import businessobject.SemesterConfiguration;
 import businessobject.Timetable;
 import businessobject.TimetableConfiguration;
 import enums.TimetableComparators;
 
-public class TimetableCompare implements Comparator<Timetable>{
+public class TimetableCompare implements Comparator<SemesterConfiguration>{
 	private TimetableComparators currentComparator;
-	private List <TimetableConfiguration> t1Config;
-	private List <TimetableConfiguration> t2Config;
+	private List <Set<CourseOffering>> t1Config;
+	private List <Set<CourseOffering>> t2Config;
 	
 	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
@@ -30,11 +33,11 @@ public class TimetableCompare implements Comparator<Timetable>{
 
 
 	@Override
-	public int compare(Timetable t1, Timetable t2) {
+	public int compare(SemesterConfiguration t1, SemesterConfiguration t2) {
 		int compareResult = 0;
 		switch (this.currentComparator){
 			case MORE_DAYS_OFF:
-				break;
+				return numberOfDaysComparisons(t1,t2);
 			case LESS_DAYS_OFF:
 				break;
 			case MORNINGS_OFF:
@@ -49,9 +52,18 @@ public class TimetableCompare implements Comparator<Timetable>{
 	
 	//Helper functions
 	
-	public int numberOfDaysComparisons(Timetable t1, Timetable t2){
-		this.t1Config =  t1.getTimetableConfigurations();
-		this.t2Config =  t2.getTimetableConfigurations();
+	public int numberOfDaysComparisons(SemesterConfiguration t1, SemesterConfiguration t2){
+		this.t1Config =  t1.getSemesterConfigurations();
+		this.t2Config =  t2.getSemesterConfigurations();
+		int t1Count = 0;
+		int t2Count = 0;
+		
+		
+		for (Set<CourseOffering> s : this.t1Config){
+			for (CourseOffering c : s){
+				c.getClassTime().values();
+			}
+		}
 		
 		return 0;
 	}
@@ -69,4 +81,5 @@ public class TimetableCompare implements Comparator<Timetable>{
 		return 0;
 		
 	}
+
 }
