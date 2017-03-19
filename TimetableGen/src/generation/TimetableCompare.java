@@ -1,24 +1,29 @@
 package generation;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import businessobject.TimeSlot;
+import businessobject.Course;
 import businessobject.CourseOffering;
+import businessobject.ClassTime;
 import businessobject.SemesterConfiguration;
 import businessobject.Timetable;
 import businessobject.TimetableConfiguration;
 import enums.TimetableComparators;
 
-public class TimetableCompare implements Comparator<SemesterConfiguration>{
+public class TimetableCompare implements Comparator<Timetable>{
 	private TimetableComparators currentComparator;
-	private List <Set<CourseOffering>> t1Config;
-	private List <Set<CourseOffering>> t2Config;
+	private List <TimetableConfiguration> t1Config;
+	private List <TimetableConfiguration> t2Config;
 	
 	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
-		this.t1Config = new LinkedList<>();
-		this.t2Config = new LinkedList<>();
+		this.t1Config = new ArrayList<>();
+		this.t2Config = new ArrayList<>();
 	}
 	
 	
@@ -33,7 +38,7 @@ public class TimetableCompare implements Comparator<SemesterConfiguration>{
 
 
 	@Override
-	public int compare(SemesterConfiguration t1, SemesterConfiguration t2) {
+	public int compare(Timetable t1, Timetable t2) {
 		int compareResult = 0;
 		switch (this.currentComparator){
 			case MORE_DAYS_OFF:
@@ -41,9 +46,9 @@ public class TimetableCompare implements Comparator<SemesterConfiguration>{
 			case LESS_DAYS_OFF:
 				break;
 			case MORNINGS_OFF:
-				break;
+				return timeOffComparisons (t1,t2,TimetableComparators.MORNINGS_OFF);
 			case EVENINGS_OFF:
-				break;
+				return timeOffComparisons (t1,t2,TimetableComparators.EVENINGS_OFF);
 			default:
 				return 0;
 		}
@@ -52,18 +57,11 @@ public class TimetableCompare implements Comparator<SemesterConfiguration>{
 	
 	//Helper functions
 	
-	public int numberOfDaysComparisons(SemesterConfiguration t1, SemesterConfiguration t2){
-		this.t1Config =  t1.getSemesterConfigurations();
-		this.t2Config =  t2.getSemesterConfigurations();
-		int t1Count = 0;
-		int t2Count = 0;
-		
-		
-		for (Set<CourseOffering> s : this.t1Config){
-			for (CourseOffering c : s){
-				c.getClassTime().values();
-			}
-		}
+	public int numberOfDaysComparisons(Timetable t1, Timetable t2){
+			this.t1Config = t1.getTimetableConfigurations();
+			this.t2Config = t2.getTimetableConfigurations();
+			
+			
 		
 		return 0;
 	}
