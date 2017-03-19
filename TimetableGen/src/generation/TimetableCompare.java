@@ -55,5 +55,18 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 		return 0;
 	}
-
+	
+	public int timeOffComparisons (Timetable t1, Timetable t2, TimetableComparators compare){
+		switch (compare){
+		case MORNINGS_OFF:
+			break;
+		case EVENINGS_OFF:
+			break;
+		default:
+			return 0;
+		}
+		
+		return 0;
+		
+	}
 }
