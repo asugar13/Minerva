@@ -24,6 +24,11 @@ public class CourseListing {
 	public Course getCourseBySemester(SemesterType semesterType){
 		return semesterToCourse.get(semesterType);
 	}
+	
+	public Map<SemesterType, Course> getSemesterToCourse() {
+		return semesterToCourse;
+	}
+
 
 	@Override
 	public String toString() {
