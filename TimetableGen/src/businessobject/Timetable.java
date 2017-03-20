@@ -5,14 +5,14 @@ import java.util.List;
 
 
 public class Timetable {
-	List<TimetableConfiguration> timetableConfigurations;
+	List<CourseOffering> courseOfferings;
 	
-	public Timetable(List<TimetableConfiguration> timetableConfigurations){
-		this.timetableConfigurations = timetableConfigurations;
+	public Timetable(List<CourseOffering> courseOfferings){
+		this.courseOfferings = courseOfferings;
 	}
 
-	public List<TimetableConfiguration> getTimetableConfigurations(){
-		return timetableConfigurations;
+	public List<CourseOffering> getTimetableConfigurations(){
+		return courseOfferings;
 	}
 	
 	public String toJsonString(){
