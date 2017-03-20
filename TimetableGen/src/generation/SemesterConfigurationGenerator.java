@@ -32,23 +32,8 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 
 		
 		for (CourseSelection course : courses){
-			CourseSelection currentCourse = course;
-//			boolean flagFall = false;
-//			boolean flagWinter = false;
-//			Set<SemesterType> restrictions = course.getRestrictions();
-//			for (SemesterType semestertype : restrictions){
-//				if (semestertype == SemesterType.FALL) {
-//					flagFall = true;
-//				}
-//				else if (semestertype == SemesterType.WINTER){
-//					flagWinter = true;
-//				}
-//				else if (semestertype == SemesterType.YEAR) {
-//					
-//				}
-//			}
-			if (allCourseListings.containsKey(currentCourse.getCourseCode())){
-				CourseListing courseListing = allCourseListings.get(currentCourse.getCourseCode());
+			if (allCourseListings.containsKey(course.getCourseCode())){
+				CourseListing courseListing = allCourseListings.get(course.getCourseCode());
 				Iterator<SemesterType> offeredIn = courseListing.getSemesterToCourse().keySet().iterator();
 				while (offeredIn.hasNext()){
 					SemesterType term = offeredIn.next();
@@ -64,9 +49,12 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 					}
 				}
 			}
+		}	
+		for (CourseListing courseListing : semester1){
 			
 		}
 		
 		return null;
+	
 	}
 }
