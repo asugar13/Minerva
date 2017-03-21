@@ -26,7 +26,31 @@ public class SemesterConfiguration implements TimetableConfiguration{
 		semesterConfigurations.add(semester2);
 		return semesterConfigurations;
 	}
+	
+	public Set<CourseListing> getSemester1() {
+		return semester1;
+	}
 
+	public Set<CourseListing> getSemester2() {
+		return semester2;
+	}
+	
+	public void addPossibleTimetables1(List<Timetable> timetables) {
+		possibleTimetables1.addAll(timetables);
+	}
+
+	public void addPossibleTimetables2(List<Timetable> timetables) {
+		possibleTimetables2.addAll(timetables);
+	}
+	
+	public List<Timetable> getPossibleTimetables1() {
+		return possibleTimetables1;
+	}
+	
+	public List<Timetable> getPossibleTimetables2() {
+		return possibleTimetables2;
+	}
+	
 	@Override
 	public String toJsonString() {
 		// TODO
