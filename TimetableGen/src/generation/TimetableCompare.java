@@ -76,7 +76,8 @@ public class TimetableCompare implements Comparator<Timetable>{
 				while (ct.hasNext()){
 					for (TimeSlot t: ct.next().getTimeSlots()){
 						Day d = t.getDay();
-						daysNotOff.add(d);
+						if (!daysNotOff.contains(Day2String(d)))
+							daysNotOff.add(Day2String(d));
 					}
 				}
 			}
@@ -102,6 +103,24 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 		return 0;
 		
+	}
+	
+	//changes enums to strings to store in set
+	public String Day2String (Day d){
+		switch (d){
+		case MONDAY:
+			return "Monday";
+		case TUESDAY:
+			return "Tuesday";
+		case WEDNESDAY:
+			return "Wednesday";
+		case THURSDAY:
+			return "Thursday";
+		case FRIDAY:
+			return "Friday";
+		default:
+			return "Monday";
+		}
 	}
 
 }
