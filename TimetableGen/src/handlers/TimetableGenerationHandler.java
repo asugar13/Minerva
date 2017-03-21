@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import businessobject.CourseSelection;
-import businessobject.Timetable;
 import businessobject.TimetableConfiguration;
 
 public interface TimetableGenerationHandler {
