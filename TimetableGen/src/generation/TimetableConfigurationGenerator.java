@@ -9,7 +9,7 @@ public interface TimetableConfigurationGenerator {
 
 	/**
 	 * Generate all possible TimetableConfigurations given a set of courses and
-	 * restrictions.
+	 * restrictions. Max 6 courses per semester
 	 * 
 	 * @param courses
 	 *            Set of desired courses and restrictions
