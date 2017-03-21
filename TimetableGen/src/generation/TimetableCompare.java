@@ -1,5 +1,5 @@
 package generation;
-import java.util.ArrayList;
+
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -9,12 +9,9 @@ import java.util.Map;
 import java.util.Set;
 
 import businessobject.TimeSlot;
-import businessobject.Course;
 import businessobject.CourseOffering;
 import businessobject.ClassTime;
-import businessobject.SemesterConfiguration;
 import businessobject.Timetable;
-import businessobject.TimetableConfiguration;
 import enums.ClassType;
 import enums.TimetableComparators;
 import enums.Day;
@@ -27,8 +24,8 @@ public class TimetableCompare implements Comparator<Timetable>{
 	
 	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
-		this.t1Config = new ArrayList<>();
-		this.t2Config = new ArrayList<>();
+		this.t1Config = new LinkedList<>();
+		this.t2Config = new LinkedList<>();
 	}
 	
 	
@@ -66,10 +63,10 @@ public class TimetableCompare implements Comparator<Timetable>{
 	//Helper functions
 	
 	public int numberOfDaysComparisons(){
-			int numDaysOfft1Sem1 = daysOn("F", this.t1Config);
-			int numDaysOfft1Sem2 = daysOn("S", this.t1Config);
-			int numDaysOfft2Sem1 = daysOn("F", this.t2Config);
-			int numDaysOfft2Sem2 = daysOn("FS", this.t2Config);
+			int numDaysOfft1Sem1 = daysOff("F", this.t1Config);
+			int numDaysOfft1Sem2 = daysOff("S", this.t1Config);
+			int numDaysOfft2Sem1 = daysOff("F", this.t2Config);
+			int numDaysOfft2Sem2 = daysOff("S", this.t2Config);
 			
 		
 		return (numDaysOfft1Sem1 + numDaysOfft1Sem2) - (numDaysOfft2Sem1 + numDaysOfft2Sem2);
@@ -90,24 +87,8 @@ public class TimetableCompare implements Comparator<Timetable>{
 	}
 	
 	//helpers for helpers
-	//changes enums to strings to store in set
-	public String Day2String (Day d){
-		switch (d){
-		case MONDAY:
-			return "Monday";
-		case TUESDAY:
-			return "Tuesday";
-		case WEDNESDAY:
-			return "Wednesday";
-		case THURSDAY:
-			return "Thursday";
-		case FRIDAY:
-			return "Friday";
-		default:
-			return "Monday";
-		}
-	}
-	public int daysOn (String FS, List <CourseOffering> Config){
+	//counts the number of days off in one week of one semester of one timetable
+	public int daysOff (String FS, List <CourseOffering> Config){
 		Set <String> daysNotOff = new HashSet <>();
 		
 		for (CourseOffering co : Config){
@@ -128,5 +109,24 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 		return 5 - daysNotOff.size();
 	}
+	
+	//changes enums to strings to store in set
+	public String Day2String (Day d){
+		switch (d){
+		case MONDAY:
+			return "Monday";
+		case TUESDAY:
+			return "Tuesday";
+		case WEDNESDAY:
+			return "Wednesday";
+		case THURSDAY:
+			return "Thursday";
+		case FRIDAY:
+			return "Friday";
+		default:
+			return "Monday";
+		}
+	}
 
+	
 }
