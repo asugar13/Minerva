@@ -22,6 +22,9 @@ public class TimetableCompare implements Comparator<Timetable>{
 	private List <CourseOffering> t1Config;
 	private List <CourseOffering> t2Config;
 	
+	private final int noonInSeconds = 43200;  //seconds from midnight to 12pm
+	private final int eveningInSeconds = 64800; //seconds from midnight to 6pm
+	
 	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
 		this.t1Config = new LinkedList<>();
@@ -71,15 +74,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 		return (numDaysOfft1Sem1 + numDaysOfft1Sem2) - (numDaysOfft2Sem1 + numDaysOfft2Sem2);
 	}
 	
-	public int timeOffComparisons (TimetableComparators compare){
-		switch (compare){
-		case MORNINGS_OFF:
-			break;
-		case EVENINGS_OFF:
-			break;
-		default:
-			return 0;
-		}
+	public int timeOffComparisons (TimetableComparators compare){ 
 		
 		return 0;
 		
