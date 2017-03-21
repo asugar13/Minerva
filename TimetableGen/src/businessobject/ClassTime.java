@@ -24,6 +24,10 @@ public class ClassTime {
 		return false;
 	}
 	
+	public String getclassCode (){
+		return this.classCode;
+	}
+	
 	public List<TimeSlot> getTimeSlots(){
 		return timeSlots;
 	}
