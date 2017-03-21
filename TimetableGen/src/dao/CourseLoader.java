@@ -1,17 +1,11 @@
 package dao;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-//import static spark.Spark.*;
-
-
-import com.sun.net.httpserver.*;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
+//import static spark.Spark.*;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +23,9 @@ import businessobject.Course;
 import businessobject.CourseListing;
 import businessobject.CourseSelection;
 import businessobject.TimeSlot;
+
+import com.sun.net.httpserver.HttpServer;
+
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
