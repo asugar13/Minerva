@@ -66,26 +66,10 @@ public class TimetableCompare implements Comparator<Timetable>{
 	//Helper functions
 	
 	public int numberOfDaysComparisons(){
-			int numDaysOfft1Sem1 = 0;
-			int numDaysOfft1Sem2 = 0;
-			Set <String> daysNotOff = new HashSet <>();
-			
-			for (CourseOffering co : this.t1Config){
-				Map<ClassType, ClassTime> times = co.getClassTime();
-				Iterator <ClassTime> ct = times.values().iterator();
-				while (ct.hasNext()){
-					for (TimeSlot t: ct.next().getTimeSlots()){
-						Day d = t.getDay();
-						if (!daysNotOff.contains(Day2String(d)))
-							daysNotOff.add(Day2String(d));
-					}
-				}
-			}
-			
-			
-			
-			int numDaysOfft2Sem1 = 0;
-			int numDaysOfft2Sem2 = 0;
+			int numDaysOfft1Sem1 = daysOn("F", this.t1Config);
+			int numDaysOfft1Sem2 = daysOn("S", this.t1Config);
+			int numDaysOfft2Sem1 = daysOn("F", this.t2Config);
+			int numDaysOfft2Sem2 = daysOn("FS", this.t2Config);
 			
 		
 		return (numDaysOfft1Sem1 + numDaysOfft1Sem2) - (numDaysOfft2Sem1 + numDaysOfft2Sem2);
@@ -105,6 +89,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 	}
 	
+	//helpers for helpers
 	//changes enums to strings to store in set
 	public String Day2String (Day d){
 		switch (d){
@@ -121,6 +106,27 @@ public class TimetableCompare implements Comparator<Timetable>{
 		default:
 			return "Monday";
 		}
+	}
+	public int daysOn (String FS, List <CourseOffering> Config){
+		Set <String> daysNotOff = new HashSet <>();
+		
+		for (CourseOffering co : Config){
+			Map<ClassType, ClassTime> times = co.getClassTime();
+			Iterator <ClassTime> ct = times.values().iterator();
+			while (ct.hasNext()){
+				ClassTime classTimeSlot = ct.next();
+				String semTime = classTimeSlot.getclassCode().substring(classTimeSlot.getclassCode().length()-1);
+				if (semTime.equalsIgnoreCase("Y") || semTime.equalsIgnoreCase(FS)){
+					for (TimeSlot t: classTimeSlot.getTimeSlots()){
+						Day d = t.getDay();
+						if (!daysNotOff.contains(Day2String(d)))
+							daysNotOff.add(Day2String(d));
+					}
+				}
+			}
+		}
+		
+		return 5 - daysNotOff.size();
 	}
 
 }
