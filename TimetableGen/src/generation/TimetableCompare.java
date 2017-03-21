@@ -87,6 +87,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 	}
 	
 	//helpers for helpers
+	
 	//counts the number of days off in one week of one semester of one timetable
 	public int daysOff (String ForS, List <CourseOffering> Config){
 		Set <String> daysNotOff = new HashSet <>();
