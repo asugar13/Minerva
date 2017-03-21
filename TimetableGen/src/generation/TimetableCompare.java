@@ -41,7 +41,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 
 	@Override
 	public int compare(Timetable t1, Timetable t2) {
-		int compareResult = 0;
+
 		this.t1Config = t1.getTimetableConfigurations();
 		this.t2Config = t2.getTimetableConfigurations();
 		
@@ -49,7 +49,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 			case MORE_DAYS_OFF:
 				return numberOfDaysComparisons();
 			case LESS_DAYS_OFF:
-				break;
+				return -numberOfDaysComparisons();
 			case MORNINGS_OFF:
 				return timeOffComparisons (TimetableComparators.MORNINGS_OFF);
 			case EVENINGS_OFF:
@@ -57,7 +57,6 @@ public class TimetableCompare implements Comparator<Timetable>{
 			default:
 				return 0;
 		}
-		return compareResult;
 	}
 	
 	//Helper functions
@@ -92,17 +91,14 @@ public class TimetableCompare implements Comparator<Timetable>{
 	public int daysOff (String ForS, List <CourseOffering> Config){
 		Set <String> daysNotOff = new HashSet <>();
 		
-		for (CourseOffering co : Config){
-			Map<ClassType, ClassTime> times = co.getClassTime();
-			Iterator <ClassTime> ct = times.values().iterator();
-			while (ct.hasNext()){
-				ClassTime classTimeSlot = ct.next();
-				String semTime = classTimeSlot.getclassCode().substring(classTimeSlot.getclassCode().length()-1);
-				if (semTime.equalsIgnoreCase("Y") || semTime.equalsIgnoreCase(ForS)){
+		for (CourseOffering courseOff : Config){
+			Map<ClassType, ClassTime> times = courseOff.getClassTime();
+			for (ClassTime classTimeSlot :times.values()){
+				String semTime = classTimeSlot.getclassCode();
+				if (semTime.endsWith("Y") || semTime.endsWith(ForS)){
 					for (TimeSlot t: classTimeSlot.getTimeSlots()){
 						Day d = t.getDay();
-						if (!daysNotOff.contains(Day2String(d)))
-							daysNotOff.add(Day2String(d));
+						daysNotOff.add(Day2String(d));
 					}
 				}
 			}
