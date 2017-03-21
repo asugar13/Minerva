@@ -3,14 +3,25 @@ package businessobject;
 import java.util.List;
 
 public class Timetable {
-	List<TimetableConfiguration> timetableConfigurations;
 
-	public Timetable(List<TimetableConfiguration> timetableConfigurations) {
-		this.timetableConfigurations = timetableConfigurations;
+	List<CourseOffering> courseOfferings;
+	private boolean hasConflicts;
+	
+	public Timetable(List<CourseOffering> courseOfferings, boolean hasConflicts){
+		this.courseOfferings = courseOfferings;
+		this.hasConflicts = hasConflicts;
 	}
 
-	public List<TimetableConfiguration> getTimetableConfigurations() {
-		return timetableConfigurations;
+	public List<CourseOffering> getTimetableConfigurations(){
+		return courseOfferings;
+	}
+	
+	public List<CourseOffering> getCourseOfferings() {
+		return courseOfferings;
+	}
+	
+	public boolean hasConflicts() {
+		return hasConflicts;
 	}
 
 	public String toJsonString() {

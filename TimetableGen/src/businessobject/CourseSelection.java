@@ -2,7 +2,6 @@ package businessobject;
 
 import java.util.Set;
 
-import enums.ClassType;
 import enums.SemesterType;
 
 public class CourseSelection {
