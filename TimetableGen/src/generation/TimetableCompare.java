@@ -88,7 +88,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 	
 	//helpers for helpers
 	//counts the number of days off in one week of one semester of one timetable
-	public int daysOff (String FS, List <CourseOffering> Config){
+	public int daysOff (String ForS, List <CourseOffering> Config){
 		Set <String> daysNotOff = new HashSet <>();
 		
 		for (CourseOffering co : Config){
@@ -97,7 +97,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 			while (ct.hasNext()){
 				ClassTime classTimeSlot = ct.next();
 				String semTime = classTimeSlot.getclassCode().substring(classTimeSlot.getclassCode().length()-1);
-				if (semTime.equalsIgnoreCase("Y") || semTime.equalsIgnoreCase(FS)){
+				if (semTime.equalsIgnoreCase("Y") || semTime.equalsIgnoreCase(ForS)){
 					for (TimeSlot t: classTimeSlot.getTimeSlots()){
 						Day d = t.getDay();
 						if (!daysNotOff.contains(Day2String(d)))
