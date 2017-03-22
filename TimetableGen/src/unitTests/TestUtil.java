@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import businessobject.ClassTime;
 import businessobject.Course;
 import businessobject.ClassTime;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
+import businessobject.Timetable;
 import dao.CourseLoader;
 import enums.CampusType;
 import enums.ClassType;
@@ -43,5 +45,32 @@ public class TestUtil {
 		SemesterType sem = SemesterType.YEAR;
 		return new Course(name,code,description,prerequisite,exclusions,year,campus,sem,classTimes,breadths);
 	}
+	
+	public static Timetable createTimetable(Set <String> TimeSlotInfo){
+		Set <TimeSlot> timeslots;
+		for (String TimeSlotInstance : TimeSlotInfo){
+			String [] temp = TimeSlotInstance.split(":"); // day:start:end
+			timeslots.add(createTimeSlot(String2Day(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2])));
+		}
+		
+	}
+	
+	public static Day String2Day (String day){
+		switch (day){
+		case "Monday":
+			return Day.MONDAY;
+		case "Tuesday":
+			return Day.TUESDAY;
+		case "Wednesday":
+			return Day.WEDNESDAY;
+		case "Thursday":
+			return Day.THURSDAY;
+		case "Friday":
+			return Day.FRIDAY;
+		default:
+			return Day.MONDAY;	
+		}
+	}
+	
 
 }
