@@ -1,6 +1,7 @@
 package unitTests;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -46,13 +47,36 @@ public class TestUtil {
 		return new Course(name,code,description,prerequisite,exclusions,year,campus,sem,classTimes,breadths);
 	}
 	
-	public static Timetable createTimetable(Set <String> TimeSlotInfo){
-		Set <TimeSlot> timeslots;
-		for (String TimeSlotInstance : TimeSlotInfo){
-			String [] temp = TimeSlotInstance.split(":"); // day:start:end
-			timeslots.add(createTimeSlot(String2Day(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2])));
+	public static Timetable createTimetable(Set <String> CourseOfferingInfo){
+		
+		List <CourseOffering> TimetableCourseOfferings = new LinkedList <>();
+		Map <String,List <TimeSlot>> temp2 = new HashMap<>();
+		
+		
+		for (String TimeSlotInstance : CourseOfferingInfo){
+			String [] temp = TimeSlotInstance.split(":"); // day:start:duration:code
+			String code = temp[3];
+			
+			TimeSlot CurrentTimeSlot = createTimeSlot(String2Day(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
+			if (temp2.containsKey(code)){
+				List <TimeSlot> SwapExistingList = temp2.get(code);
+				SwapExistingList.add(CurrentTimeSlot);
+				temp2.put(code, SwapExistingList);
+			}else{
+				List <TimeSlot> temp3 = new LinkedList<>();
+				temp3.add(CurrentTimeSlot);
+				temp2.put(code, temp3);
+			}
 		}
 		
+		for (Map.Entry<String, List <TimeSlot>> entry  : temp2.entrySet()){
+			Map <ClassType, ClassTime> Type2Time = new HashMap<>();
+			
+			Type2Time.put(ClassType.LEC,new ClassTime(entry.getKey(),entry.getValue()));
+			CourseOffering co = new CourseOffering (null,Type2Time);
+			TimetableCourseOfferings.add(co);
+		}
+		return new Timetable(TimetableCourseOfferings,false);
 	}
 	
 	public static Day String2Day (String day){
