@@ -1,8 +1,14 @@
 package businessobject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import enums.ClassType;
 
 public class SemesterConfiguration implements TimetableConfiguration {
 
@@ -55,6 +61,93 @@ public class SemesterConfiguration implements TimetableConfiguration {
 	@Override
 	public String toJsonString() {
 		// TODO
+		JSONObject obj = new JSONObject();
+		
+		//iterate through each possible timetable for semester1
+		for (Timetable timetable : this.possibleTimetables1){
+			JSONArray coursesArray = new JSONArray();
+			
+			//iterate through each course offering in current timetable
+			for (CourseOffering courseoffering : timetable.courseOfferings){
+				JSONObject course = new JSONObject();
+				JSONArray classesArray = new JSONArray();
+				course.put("courseCode", courseoffering.getListing().getCourseCode());
+				
+				//iterate through each course offering's class times
+				Iterator<ClassType> classTypes = courseoffering.getClassTime().keySet().iterator();
+				while (classTypes.hasNext()){
+					ClassType classtype = classTypes.next();
+					
+					if (classtype == ClassType.LEC){
+						JSONObject lecture = new JSONObject();
+						JSONArray lectureTimesArray = new JSONArray();
+						ClassTime lectureTime = courseoffering.getSpecificClasstime(classtype);
+						lecture.put("classCode", lectureTime.getclassCode());
+						List<TimeSlot> timeslots = lectureTime.getTimeSlots();
+						
+						for (TimeSlot timeslot: timeslots){
+							JSONObject timeslotobj = new JSONObject();
+							timeslotobj.put("day", timeslot.getDay());
+							timeslotobj.put("start", timeslot.getStart());
+							timeslotobj.put("end",timeslot.getStart() + timeslot.getDuration());
+							lectureTimesArray.add(timeslotobj);
+
+						}
+						lecture.put("times", lectureTimesArray);
+						JSONObject LEC = new JSONObject();
+						LEC.put("LEC", lecture);
+						classesArray.add(LEC);
+
+
+					}
+					else if  (classtype == ClassType.TUT){
+						JSONObject tutorial = new JSONObject();
+						JSONArray tutorialTimesArray = new JSONArray();
+						ClassTime tutorialTime = courseoffering.getSpecificClasstime(classtype);
+						tutorial.put("classCode", tutorialTime.getclassCode());
+						List<TimeSlot> timeslots = tutorialTime.getTimeSlots();
+						
+						for (TimeSlot timeslot: timeslots){
+							JSONObject timeslotobj = new JSONObject();
+							timeslotobj.put("day", timeslot.getDay());
+							timeslotobj.put("start", timeslot.getStart());
+							timeslotobj.put("end",timeslot.getStart() + timeslot.getDuration());
+							tutorialTimesArray.add(timeslotobj);
+
+						}
+						tutorial.put("times", tutorialTimesArray);
+						JSONObject TUT = new JSONObject();
+						TUT.put("TUT", tutorial);
+						classesArray.add(TUT);
+
+					}
+					else if  (classtype == ClassType.PRA){
+						JSONObject PRAobject = new JSONObject();
+						JSONArray PRATimesArray = new JSONArray();
+						ClassTime PRATime = courseoffering.getSpecificClasstime(classtype);
+						PRAobject.put("classCode", PRATime.getclassCode());
+						List<TimeSlot> timeslots = PRATime.getTimeSlots();
+						
+						for (TimeSlot timeslot: timeslots){
+							JSONObject timeslotobj = new JSONObject();
+							timeslotobj.put("day", timeslot.getDay());
+							timeslotobj.put("start", timeslot.getStart());
+							timeslotobj.put("end",timeslot.getStart() + timeslot.getDuration());
+							PRATimesArray.add(timeslotobj);
+						}
+						PRAobject.put("times", PRATimesArray);
+						JSONObject PRA = new JSONObject();
+						PRA.put("PRA", PRAobject);
+						classesArray.add(PRA);
+
+					}
+					
+				}
+				//before being done with current course offering
+				course.put("classes", classesArray);
+			}
+		}
+		
 		return null;
 	}
 }
