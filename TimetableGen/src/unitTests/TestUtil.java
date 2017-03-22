@@ -82,7 +82,7 @@ public class TestUtil {
 		return new Timetable(TimetableCourseOfferings,false);
 	}
 	
-	public static TimetableCompare createTimetableComapre(TimetableComparators c){
+	public static TimetableCompare createTimetableCompare(TimetableComparators c){
 		return new TimetableCompare(c);
 	}
 	public static Day String2Day (String day){
