@@ -29,6 +29,10 @@ public class CourseOffering {
 		return course;
 	}
 	
+	public ClassTime getSpecificClasstime(ClassType classtype){
+		return classTimes.get(classtype);
+	}
+	
 	public Map<ClassType, ClassTime> getClassTime(){
 		return classTimes;
 	}

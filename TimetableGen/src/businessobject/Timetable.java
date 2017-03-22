@@ -2,9 +2,8 @@ package businessobject;
 
 import java.util.List;
 
-
-
 public class Timetable {
+
 	List<CourseOffering> courseOfferings;
 	private boolean hasConflicts;
 	
@@ -24,8 +23,8 @@ public class Timetable {
 	public boolean hasConflicts() {
 		return hasConflicts;
 	}
-	
-	public String toJsonString(){
+
+	public String toJsonString() {
 		return null;
 	}
 }
