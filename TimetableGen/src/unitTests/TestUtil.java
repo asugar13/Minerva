@@ -13,11 +13,14 @@ import businessobject.ClassTime;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
 import businessobject.Timetable;
+import generation.TimetableCompare;
+
 import dao.CourseLoader;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
+import enums.TimetableComparators;
 
 public class TestUtil {
 	
@@ -79,6 +82,9 @@ public class TestUtil {
 		return new Timetable(TimetableCourseOfferings,false);
 	}
 	
+	public static TimetableCompare createTimetableComapre(TimetableComparators c){
+		return new TimetableCompare(c);
+	}
 	public static Day String2Day (String day){
 		switch (day){
 		case "Monday":
