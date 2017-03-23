@@ -1,6 +1,10 @@
 package dao;
 
 import java.io.IOException;
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
@@ -21,54 +25,30 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 class MyHandler implements HttpHandler {
-    public void handle(HttpExchange t) throws IOException {
-        InputStream is = t.getRequestBody();
+    public void handle(HttpExchange exchange) throws IOException {
+        InputStream requestInput = exchange.getRequestBody();      
         StringWriter writer = new StringWriter();
-        IOUtils.copy(is, writer);
+        IOUtils.copy(requestInput, writer);
         String theString = writer.toString();
         System.out.println(theString);
+
         
-        String requestMethod = t.getRequestMethod().toUpperCase();
-        System.out.println(requestMethod);
-       // read(is); // .. read the request body
+        String requestMethod = exchange.getRequestMethod().toUpperCase();
+        //System.out.println(requestMethod);
         JSONObject test = new JSONObject();
         test.put("hey","what's up");
         String toSend = test.toString();
         //System.out.println(test);
-        
-      
-        
-        
-        Headers header = t.getResponseHeaders();
+       
+        Headers header = exchange.getResponseHeaders();
 		header.add("Access-Control-Allow-Origin", "*");
-        t.sendResponseHeaders(200, toSend.length());
-        OutputStream os = t.getResponseBody();
+		header.add("Access-Control-Allow-Headers", "content-type");
+		
+        exchange.sendResponseHeaders(200, toSend.length());
+        OutputStream os = exchange.getResponseBody();
         os.write(toSend.getBytes());
         os.close();
     }
-    
-//    private static Map<String, List<String>> getRequestParameters(final URI requestUri) {
-//        final Map<String, List<String>> requestParameters = new LinkedHashMap<>();
-//        final String requestQuery = requestUri.getRawQuery();
-//        if (requestQuery != null) {
-//            final String[] rawRequestParameters = requestQuery.split("[&;]", -1);
-//            for (final String rawRequestParameter : rawRequestParameters) {
-//                final String[] requestParameter = rawRequestParameter.split("=", 2);
-//                final String requestParameterName = decodeUrlComponent(requestParameter[0]);
-//                requestParameters.putIfAbsent(requestParameterName, new ArrayList<>());
-//                final String requestParameterValue = requestParameter.length > 1 ? decodeUrlComponent(requestParameter[1]) : null;
-//                requestParameters.get(requestParameterName).add(requestParameterValue);
-//            }
-//        }
-//        return requestParameters;
-//    }
-//    
-//    private static String decodeUrlComponent(final String urlComponent) {
-//        try {
-//            return URLDecoder.decode(urlComponent, StandardCharsets.UTF_8.name());
-//        } catch (final UnsupportedEncodingException ex) {
-//            throw new InternalError(ex);
-//        }
-//    }
+
 }
 
