@@ -1,35 +1,54 @@
 package dao;
 
 import java.io.IOException;
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
+
+import spark.utils.IOUtils;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 class MyHandler implements HttpHandler {
-    public void handle(HttpExchange t) throws IOException {
-        InputStream is = t.getRequestBody();
-       // read(is); // .. read the request body
-        String response = "This is the response";
+    public void handle(HttpExchange exchange) throws IOException {
+        InputStream requestInput = exchange.getRequestBody();      
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(requestInput, writer);
+        String theString = writer.toString();
+        System.out.println(theString);
+
         
-//        JSONObject test = new JSONObject();
-//        test.put("hey","what's up");
-//        System.out.println(test);
-        
-        
-        Headers header =t.getResponseHeaders();
-        //header.set("Content-Type", String.format("application/json; charset=%s", StandardCharsets.UTF_8));
+        String requestMethod = exchange.getRequestMethod().toUpperCase();
+        //System.out.println(requestMethod);
+        JSONObject test = new JSONObject();
+        test.put("hey","what's up");
+        String toSend = test.toString();
+        //System.out.println(test);
+       
+        Headers header = exchange.getResponseHeaders();
 		header.add("Access-Control-Allow-Origin", "*");
-        //byte[] rawResponseBody = test.getBytes(StandardCharsets.UTF_8);
-        t.sendResponseHeaders(200, response.length());
-        OutputStream os = t.getResponseBody();
-        os.write(response.getBytes());
+		header.add("Access-Control-Allow-Headers", "content-type");
+		
+        exchange.sendResponseHeaders(200, toSend.length());
+        OutputStream os = exchange.getResponseBody();
+        os.write(toSend.getBytes());
         os.close();
     }
+
 }
 
