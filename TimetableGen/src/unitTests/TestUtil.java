@@ -1,7 +1,6 @@
 package unitTests;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -9,18 +8,15 @@ import java.util.Set;
 
 import businessobject.ClassTime;
 import businessobject.Course;
-import businessobject.ClassTime;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
 import businessobject.Timetable;
-import generation.TimetableCompare;
-
-import dao.CourseLoader;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
 import enums.TimetableComparators;
+import generation.TimetableCompare;
 
 public class TestUtil {
 	
@@ -79,7 +75,7 @@ public class TestUtil {
 			CourseOffering co = new CourseOffering (null,Type2Time);
 			TimetableCourseOfferings.add(co);
 		}
-		return new Timetable(TimetableCourseOfferings,false);
+		return new Timetable(TimetableCourseOfferings,0);
 	}
 	
 	public static TimetableCompare createTimetableCompare(TimetableComparators c){
