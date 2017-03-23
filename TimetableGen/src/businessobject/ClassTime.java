@@ -42,19 +42,19 @@ public class ClassTime {
 			int code = timeSlots.get(i).getIntCode();
 			switch (code >> 26) {
 			case 0b10000:
-				result[0] |= (code & ~0b10000);
+				result[0] |= (code << 6);
 				break;
 			case 0b1000:
-				result[1] |= (code & ~0b1000);
+				result[1] |= (code << 6);
 				break;
 			case 0b100:
-				result[2] |= (code & ~0b100);
+				result[2] |= (code << 6);
 				break;
 			case 0b10:
-				result[3] |= (code & ~0b10);
+				result[3] |= (code << 6);
 				break;
 			case 0b1:
-				result[4] |= (code & ~0b1);
+				result[4] |= (code << 6);
 				break;
 			default:
 				break;

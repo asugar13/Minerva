@@ -5,11 +5,11 @@ import java.util.List;
 public class Timetable {
 
 	List<CourseOffering> courseOfferings;
-	private boolean hasConflicts;
+	private int numConflicts;
 	
-	public Timetable(List<CourseOffering> courseOfferings, boolean hasConflicts){
+	public Timetable(List<CourseOffering> courseOfferings, int numConflicts){
 		this.courseOfferings = courseOfferings;
-		this.hasConflicts = hasConflicts;
+		this.numConflicts = numConflicts;
 	}
 
 	public List<CourseOffering> getTimetableConfigurations(){
@@ -21,10 +21,23 @@ public class Timetable {
 	}
 	
 	public boolean hasConflicts() {
-		return hasConflicts;
+		return numConflicts == 0;
+	}
+	
+	public int getNumConflicts() {
+		return numConflicts;
 	}
 
 	public String toJsonString() {
 		return null;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		courseOfferings.forEach((c) -> {
+			sb.append(c.toString() + "\n");
+		}); 
+		return sb.toString();
 	}
 }
