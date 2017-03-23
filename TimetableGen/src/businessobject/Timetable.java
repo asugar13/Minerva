@@ -21,7 +21,7 @@ public class Timetable {
 	}
 	
 	public boolean hasConflicts() {
-		return numConflicts == 0;
+		return !(numConflicts == 0);
 	}
 	
 	public int getNumConflicts() {
