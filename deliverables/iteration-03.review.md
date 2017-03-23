@@ -1,18 +1,11 @@
-# YOUR PRODUCT/TEAM NAME
+# Minerva/Team 22
 
- > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
- >      
- > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
+## Iteration 03 - Review & Retrospect
 
-
-## Iteration XX - Review & Retrospect
-
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: March 23, 2017 1:00 pm
+ * Where: BA2185
 
 ## Process - Reflection
-
-(Optional) Short introduction
 
 #### Decisions that turned out well
 
