@@ -48,7 +48,7 @@ public class TimeSlot {
 		}
     	
     	for (int i = 0; i < duration / 3600; i++) {
-    		result |= 1 << ((start / 3600) + i);
+    		result |= (1 << ((start / 3600) + i));
     	}
     	
     	return result;

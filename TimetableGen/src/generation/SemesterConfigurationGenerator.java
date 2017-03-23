@@ -53,18 +53,19 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		 */
 		final Set<CourseListing> baseSem1 = new HashSet<>();
 		final Set<CourseListing> baseSem2 = new HashSet<>();
-		addBaseCourses(courses, baseSem1, baseSem2);
+		courses = addBaseCourses(courses, baseSem1, baseSem2);
 		Set<TimetableConfiguration> timetableConfigurations = new HashSet<>();
-		for(int k = 0; k <= 6; k ++){
-			if(baseSem1.size() + k <= 6 && baseSem2.size() + courses.size() - k <= 6){
+		for (int k = 1; k <= 6; k++) {
+			if (k <= courses.size() && baseSem1.size() + k <= 6 && baseSem2.size() + courses.size() - k <= 6) {
 				timetableConfigurations.addAll(chooseCourses(new ArrayList<>(courses), k, baseSem1, baseSem2));
 			}
 		}
 		return timetableConfigurations;
 	}
 
-	private void addBaseCourses(Set<CourseSelection> courses, Set<CourseListing> baseSem1,
+	private Set<CourseSelection> addBaseCourses(Set<CourseSelection> courses, Set<CourseListing> baseSem1,
 			Set<CourseListing> baseSem2) {
+		Set<CourseSelection> coursesCopy = new HashSet<>(courses);
 		for (CourseSelection course : courses) {
 			Set<SemesterType> restrictions = course.getRestrictions();
 			if (restrictions.size() == 1) {
@@ -72,18 +73,19 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 				if (restrictions.contains(SemesterType.FALL)) {
 					baseSem1.add(getCourse(courseCode, SemesterType.FALL));
 				} else if (restrictions.contains(SemesterType.WINTER)) {
-					baseSem1.add(getCourse(courseCode, SemesterType.WINTER));
+					baseSem2.add(getCourse(courseCode, SemesterType.WINTER));
 				} else {
-					baseSem1.add(getCourse(courseCode, SemesterType.FALL));
-					baseSem1.add(getCourse(courseCode, SemesterType.WINTER));
+					baseSem1.add(getCourse(courseCode, SemesterType.YEAR));
+					baseSem2.add(getCourse(courseCode, SemesterType.YEAR));
 				}
-				courses.remove(course);
+				coursesCopy.remove(course);
 			}
 		}
+		return coursesCopy;
 	}
 
-	private Set<TimetableConfiguration> chooseCourses(List<CourseSelection> courses, int numChoose, Set<CourseListing> baseSem1,
-			Set<CourseListing> baseSem2) {
+	private Set<TimetableConfiguration> chooseCourses(List<CourseSelection> courses, int numChoose,
+			Set<CourseListing> baseSem1, Set<CourseListing> baseSem2) {
 		/*
 		 * Set<TimetableConfiguration> timetableConfigurations = new
 		 * HashSet<>(); int numCourses = courses.size(); int r = 0; int i = 0;
@@ -98,26 +100,35 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		Set<CourseListing> sem2 = new HashSet<>(baseSem2);
 		List<Integer> indices = new ArrayList<>();
 		int r = numChoose;
-		if (r < numCourses) {
+		if (r <= numCourses) {
 			for (int i = 0; i < numChoose; i++) { // initial input seq
 				indices.add(i);
 			}
-			timetableConfigurations.add(createTimetableConfiguration(courses, sem1, sem2, indices));
+			try {
+				timetableConfigurations.add(createTimetableConfiguration(courses, sem1, sem2, indices));
+			} catch (IllegalArgumentException e) {
+			}
 			sem1 = new HashSet<>(baseSem1);
 			sem2 = new HashSet<>(baseSem2);
-			while(true){
+			while (true) {
 				int i = numChoose - 1;
-				while(i >= 0 && indices.get(i) == numCourses - numChoose + i){
-					i --;
+				while (i >= 0 && indices.get(i) == numCourses - numChoose + i) {
+					i--;
 				}
-				if(i < 0){
+				if (i < 0) {
 					break;
-				} else{
+				} else {
 					int index = indices.get(i);
 					indices.set(i, index + 1);
-					for(++i; i < numChoose;i++){
+					for (++i; i < numChoose; i++) {
 						indices.set(i, indices.get(i - 1) + 1);
 					}
+					try {
+						timetableConfigurations.add(createTimetableConfiguration(courses, sem1, sem2, indices));
+					} catch (IllegalArgumentException e) {
+					}
+					sem1 = new HashSet<>(baseSem1);
+					sem2 = new HashSet<>(baseSem2);
 				}
 			}
 		}
@@ -138,6 +149,6 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 	}
 
 	private CourseListing getCourse(String courseCode, SemesterType semester) {
-		return listingDao.getCourseListing(courseCode + semester).get(courseCode + semester);
+		return listingDao.getCourseListing(courseCode + semester.code()).get(courseCode + semester.code());
 	}
 }
