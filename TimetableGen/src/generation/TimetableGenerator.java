@@ -20,7 +20,7 @@ public class TimetableGenerator {
 	public TimetableGenerator() {}
 
 	public SemesterConfiguration generate(SemesterConfiguration courses) {
-		//courses.addPossibleTimetables1(generateSemester(courses, courses.getSemester1(), SemesterType.FALL));
+		courses.addPossibleTimetables1(generateSemester(courses, courses.getSemester1(), SemesterType.FALL));
 		courses.addPossibleTimetables2(generateSemester(courses, courses.getSemester2(), SemesterType.WINTER));
 		return courses;
 	}
@@ -62,8 +62,6 @@ public class TimetableGenerator {
 			}
 			
 			Timetable timetable = new Timetable(co, code[5]);
-			System.out.println(timetable.toString());
-			System.out.println("======================================================");
 			result.add(timetable);
 		} while (next(iterators, 0, listings, type));
 		return result;
@@ -299,7 +297,7 @@ public class TimetableGenerator {
 		List<CourseListing> listing1 = new ArrayList<>();
 		listing1.add(acl.get("CSC301H1F"));
 		listing1.add(acl.get("CSC324H1F"));
-		listing1.add(acl.get("CSC309H1F"));
+		listing1.add(acl.get("CSC209H1F"));
 		Set<CourseListing> cl1 = new HashSet<CourseListing>(listing1);
 		
 		List<CourseListing> listing2 = new ArrayList<>();
@@ -317,6 +315,12 @@ public class TimetableGenerator {
 		
 //		sc.getSemester1().forEach((l) -> {
 //			System.out.println(l.toString());
+//			System.out.println("======================================================");
 //		});
+		
+		sc.getPossibleTimetables1().forEach((l) -> {
+			System.out.println(l.toString());
+			System.out.println("======================================================");
+		});
 	}
 }
