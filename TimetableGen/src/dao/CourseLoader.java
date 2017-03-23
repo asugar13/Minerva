@@ -1,17 +1,10 @@
 package dao;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-//import static spark.Spark.*;
-
-
-import com.sun.net.httpserver.*;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +22,9 @@ import businessobject.Course;
 import businessobject.CourseListing;
 import businessobject.CourseSelection;
 import businessobject.TimeSlot;
+
+import com.sun.net.httpserver.HttpServer;
+
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
@@ -347,27 +343,30 @@ public class CourseLoader implements CourseListingDao {
 		System.out.println(c3.toString());
 		
 		//testing the SemesterConfigurationGenerator
-		SemesterType restriction = SemesterType.FALL;
-		String courseCode ="CSC207H1S";
-		Set restrictions = new HashSet<SemesterType>();
-		restrictions.add(restriction);
-		CourseSelection CSC207 = new CourseSelection(courseCode,restrictions);
+//		SemesterType restriction = SemesterType.FALL;
+//		String courseCode ="CSC207H1S";
+//		Set restrictions = new HashSet<SemesterType>();
+//		restrictions.add(restriction);
+//		CourseSelection CSC207 = new CourseSelection(courseCode,restrictions);
+//		
+//		SemesterConfigurationGenerator generator = new SemesterConfigurationGenerator(cl);
+//		Set CourseSelections = new HashSet<CourseSelection>();
+//		CourseSelections.add(CSC207);
+//		generator.generateConfigurations(CourseSelections);
+
 		
-		SemesterConfigurationGenerator generator = new SemesterConfigurationGenerator(cl);
-		Set CourseSelections = new HashSet<CourseSelection>();
-		CourseSelections.add(CSC207);
-		generator.generateConfigurations(CourseSelections);
-		
-		   //HttpServer server;
 		try {
-			HttpServer server = HttpServer.create(new InetSocketAddress(8800),1000000);
+			HttpServer server = null;
+			server = HttpServer.create(new InetSocketAddress(8400),1000000);
 			server.createContext("/main", new MyHandler());
 			server.setExecutor(null); // creates a default executor
 			server.start();
+			//server.stop(0);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 
 		
 	}

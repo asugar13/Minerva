@@ -2,20 +2,42 @@ package businessobject;
 
 import java.util.List;
 
-
-
 public class Timetable {
-	List<TimetableConfiguration> timetableConfigurations;
+
+	List<CourseOffering> courseOfferings;
+	private int numConflicts;
 	
-	public Timetable(List<TimetableConfiguration> timetableConfigurations){
-		this.timetableConfigurations = timetableConfigurations;
+	public Timetable(List<CourseOffering> courseOfferings, int numConflicts){
+		this.courseOfferings = courseOfferings;
+		this.numConflicts = numConflicts;
 	}
 
-	public List<TimetableConfiguration> getTimetableConfigurations(){
-		return timetableConfigurations;
+	public List<CourseOffering> getTimetableConfigurations(){
+		return courseOfferings;
 	}
 	
-	public String toJsonString(){
+	public List<CourseOffering> getCourseOfferings() {
+		return courseOfferings;
+	}
+	
+	public boolean hasConflicts() {
+		return !(numConflicts == 0);
+	}
+	
+	public int getNumConflicts() {
+		return numConflicts;
+	}
+
+	public String toJsonString() {
 		return null;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		courseOfferings.forEach((c) -> {
+			sb.append(c.toString());
+		}); 
+		return sb.toString();
 	}
 }

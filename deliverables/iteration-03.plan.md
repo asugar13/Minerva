@@ -13,13 +13,13 @@
 List the most significant changes you made to your process (if any).
 
 * We will have more in person meetings.
-  * It's easier to hash out smaller details and keep eveyone on the same page if we actually talk in person and can draw diagrams 
+  * It's easier to hash out smaller details and keep everyone on the same page if we actually talk in person and can draw diagrams 
   or physically point out pieces of code. 
 * We will add a front end manager.
   * Giving someone the power to make final decisions makes overall decision making easier.
 * Put due dates on Trello tickets.
   * This will hopefully motivate people to finish tasks sooner.
-  * We will try to record when a task was actually done versus it's due date, to measure our productivity.
+  * We will try to record when a task was actually done versus its due date, to measure our productivity.
  
 
 #### Roles & responsibilities
@@ -59,7 +59,7 @@ List the most significant changes you made to your process (if any).
     * Any problems or issues we’re facing
  
 * We will have weekly coding meetings.
-  * Will code together in person and clear up any questions that have come up.  
+  * We will code together in person and clear up any questions that have come up.  
 
 #### Artifacts
 
@@ -77,7 +77,7 @@ List the most significant changes you made to your process (if any).
 
 #### Git / GitHub workflow
 
-This is identical to iteration-02.plan.md.
+This is identical to iteration-02.plan.md. (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverables/iteration-02.plan.md)
 
 * Every team member will fork the master repo.
 * After someone finishes a feature, they can make a pull request from their fork to the master repo.

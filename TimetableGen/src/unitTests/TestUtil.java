@@ -4,17 +4,19 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import businessobject.ClassTime;
 import businessobject.Course;
-import businessobject.ClassTime;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
-import dao.CourseLoader;
+import businessobject.Timetable;
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
+import enums.TimetableComparators;
+import generation.TimetableCompare;
 
 public class TestUtil {
 	
@@ -43,5 +45,58 @@ public class TestUtil {
 		SemesterType sem = SemesterType.YEAR;
 		return new Course(name,code,description,prerequisite,exclusions,year,campus,sem,classTimes,breadths);
 	}
+	
+	public static Timetable createTimetable(Set <String> CourseOfferingInfo){
+		
+		List <CourseOffering> TimetableCourseOfferings = new LinkedList <>();
+		Map <String,List <TimeSlot>> temp2 = new HashMap<>();
+		
+		
+		for (String TimeSlotInstance : CourseOfferingInfo){
+			String [] temp = TimeSlotInstance.split(":"); // day:start:duration:code
+			String code = temp[3];
+			
+			TimeSlot CurrentTimeSlot = createTimeSlot(String2Day(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
+			if (temp2.containsKey(code)){
+				List <TimeSlot> SwapExistingList = temp2.get(code);
+				SwapExistingList.add(CurrentTimeSlot);
+				temp2.put(code, SwapExistingList);
+			}else{
+				List <TimeSlot> temp3 = new LinkedList<>();
+				temp3.add(CurrentTimeSlot);
+				temp2.put(code, temp3);
+			}
+		}
+		
+		for (Map.Entry<String, List <TimeSlot>> entry  : temp2.entrySet()){
+			Map <ClassType, ClassTime> Type2Time = new HashMap<>();
+			
+			Type2Time.put(ClassType.LEC,new ClassTime(entry.getKey(),entry.getValue()));
+			CourseOffering co = new CourseOffering (null,Type2Time);
+			TimetableCourseOfferings.add(co);
+		}
+		return new Timetable(TimetableCourseOfferings,0);
+	}
+	
+	public static TimetableCompare createTimetableCompare(TimetableComparators c){
+		return new TimetableCompare(c);
+	}
+	public static Day String2Day (String day){
+		switch (day){
+		case "Monday":
+			return Day.MONDAY;
+		case "Tuesday":
+			return Day.TUESDAY;
+		case "Wednesday":
+			return Day.WEDNESDAY;
+		case "Thursday":
+			return Day.THURSDAY;
+		case "Friday":
+			return Day.FRIDAY;
+		default:
+			return Day.MONDAY;	
+		}
+	}
+	
 
 }

@@ -24,6 +24,36 @@ public class TimeSlot {
         }
     }
     
+    public int getIntCode() {
+    	int result = 0;
+    	
+    	switch (day) {
+		case MONDAY:
+			result |= 1 << 30;
+			break;
+		case TUESDAY:
+			result |= 1 << 29;
+			break;
+		case WEDNESDAY:
+			result |= 1 << 28;
+			break;
+		case THURSDAY:
+			result |= 1 << 27;
+			break;
+		case FRIDAY:
+			result |= 1 << 26;
+			break;
+		default:
+			break;
+		}
+    	
+    	for (int i = 0; i < duration / 3600; i++) {
+    		result |= (1 << ((start / 3600) + i));
+    	}
+    	
+    	return result;
+    }
+    
     //TODO: Getters and Setters
     public Day getDay() {
     	return this.day;
