@@ -36,7 +36,7 @@ public class Timetable {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		courseOfferings.forEach((c) -> {
-			sb.append(c.toString() + "\n");
+			sb.append(c.toString());
 		}); 
 		return sb.toString();
 	}
