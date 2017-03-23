@@ -2,6 +2,9 @@ package businessobject;
 
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class Timetable {
 
 	List<CourseOffering> courseOfferings;
@@ -22,6 +25,16 @@ public class Timetable {
 	
 	public boolean hasConflicts() {
 		return hasConflicts;
+	}
+	
+	public JSONObject toJsonObject(){
+		JSONArray courseOfferingsJson = new JSONArray();
+		for(CourseOffering offering : courseOfferings){
+			courseOfferingsJson.add(offering.toJsonObject());
+		}
+		JSONObject timetableJson = new JSONObject();
+		timetableJson.put("timetable", courseOfferingsJson);
+		return new JSONObject();
 	}
 
 	public String toJsonString() {

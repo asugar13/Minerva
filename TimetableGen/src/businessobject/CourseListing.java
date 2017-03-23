@@ -2,6 +2,8 @@ package businessobject;
 
 import java.util.Map;
 
+import org.json.simple.JSONObject;
+
 import enums.SemesterType;
 
 public class CourseListing {
@@ -28,7 +30,6 @@ public class CourseListing {
 	public Map<SemesterType, Course> getSemesterToCourse() {
 		return semesterToCourse;
 	}
-
 
 	@Override
 	public String toString() {
