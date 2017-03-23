@@ -3,7 +3,7 @@
 $(document).ready(function(){
   $("#submit").click(function(){
     $.ajax({
-      url: 'http://127.0.0.1:9000/main',
+      url: 'http://127.0.0.1:5000/main',
       type: 'POST',
       data: {"yo": "HEY"},
       crossDomain: true,

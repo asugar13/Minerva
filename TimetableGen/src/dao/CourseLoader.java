@@ -358,7 +358,7 @@ public class CourseLoader implements CourseListingDao {
 		
 		try {
 			HttpServer server = null;
-			server = HttpServer.create(new InetSocketAddress(8800),1000000);
+			server = HttpServer.create(new InetSocketAddress(5000),1000000);
 			server.createContext("/main", new MyHandler());
 			server.setExecutor(null); // creates a default executor
 			server.start();
