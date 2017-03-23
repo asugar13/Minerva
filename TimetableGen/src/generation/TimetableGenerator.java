@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import dao.CourseLoader;
 import businessobject.ClassTime;
 import businessobject.CourseListing;
 import businessobject.CourseOffering;
 import businessobject.SemesterConfiguration;
 import businessobject.Timetable;
+import dao.CourseLoader;
 import enums.ClassType;
 import enums.SemesterType;
 
@@ -32,7 +32,10 @@ public class TimetableGenerator {
 		List<CourseListing> listings = new ArrayList<>();
 		courseListing.forEach((l) -> {
 			listings.add(l);
-			iterators.add(new ClassIteratorHandler(l, type));
+			if (l.getCourseCode().charAt(6) == 'Y') 
+				iterators.add(new ClassIteratorHandler(l, SemesterType.YEAR));
+			else
+				iterators.add(new ClassIteratorHandler(l, type));
 		});
 		
 		int courseNum = iterators.size();
@@ -77,7 +80,10 @@ public class TimetableGenerator {
 		}
 
 		for (int i = 0; i < index; i++) {
-			l.set(i, new ClassIteratorHandler(cl.get(i), type));
+			if (cl.get(i).getCourseCode().charAt(6) == 'Y')
+				l.set(i, new ClassIteratorHandler(cl.get(i), SemesterType.YEAR));
+			else
+				l.set(i, new ClassIteratorHandler(cl.get(i), type));
 			l.get(i).next();
 		}
 		return true;
@@ -261,10 +267,17 @@ public class TimetableGenerator {
 		
 		private ClassIterator(CourseListing course, SemesterType semester, ClassType type) {
 			classes = null;
-			if (course.getCourseBySemester(semester).getClassTimes().containsKey(type)) {
-				classes = course.getCourseBySemester(semester).getClassTimes().get(type);
-				nextIndex = 0;
-				curIndex = 0;
+			if (course.getCourseBySemester(semester) != null) {
+				if (course.getCourseBySemester(semester).getClassTimes().containsKey(type)) {
+					classes = course.getCourseBySemester(semester).getClassTimes().get(type);
+					for (int i = 0; i < classes.size(); i++) {
+						if (classes.get(i).getTimeSlots().size() == 0) {
+							classes.remove(i);
+						}
+					}
+					nextIndex = 0;
+					curIndex = 0;
+				}
 			}
 		}
 		
@@ -279,7 +292,16 @@ public class TimetableGenerator {
 		}
 		
 		public boolean hasNextClass() {
-			return (isNull()) ? false : nextIndex < classes.size();
+			if (isNull()) 
+				return false;
+			
+			if (nextIndex < classes.size()) {
+				while (classes.get(nextIndex) == null) {
+					nextIndex++;
+				}
+			}
+			
+			return nextIndex < classes.size();
 		}
 		
 		public ClassTime getNextClass() {
@@ -298,6 +320,8 @@ public class TimetableGenerator {
 		listing1.add(acl.get("CSC301H1F"));
 		listing1.add(acl.get("CSC324H1F"));
 		listing1.add(acl.get("CSC209H1F"));
+		listing1.add(acl.get("ECO105Y1Y"));
+		System.out.println(acl.get("ECO105Y1Y"));
 		Set<CourseListing> cl1 = new HashSet<CourseListing>(listing1);
 		
 		List<CourseListing> listing2 = new ArrayList<>();
@@ -313,12 +337,13 @@ public class TimetableGenerator {
 		TimetableGenerator tg = new TimetableGenerator();
 		tg.generate(sc);
 		
-//		sc.getSemester1().forEach((l) -> {
-//			System.out.println(l.toString());
-//			System.out.println("======================================================");
-//		});
-		
 		sc.getPossibleTimetables1().forEach((l) -> {
+			System.out.println(l.toString());
+			System.out.println(l.hasConflicts());
+			System.out.println("======================================================");
+		});
+		
+		sc.getPossibleTimetables2().forEach((l) -> {
 			System.out.println(l.toString());
 			System.out.println(l.hasConflicts());
 			System.out.println("======================================================");
