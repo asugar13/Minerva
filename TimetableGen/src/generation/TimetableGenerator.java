@@ -320,6 +320,7 @@ public class TimetableGenerator {
 		
 		sc.getPossibleTimetables1().forEach((l) -> {
 			System.out.println(l.toString());
+			System.out.println(l.hasConflicts());
 			System.out.println("======================================================");
 		});
 	}
