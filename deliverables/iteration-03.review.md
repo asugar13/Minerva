@@ -23,15 +23,13 @@
 
   * We tried to implement the Java HTTP server using Java's built-in HTTP handling data structures but realized this is a bad idea. Instead, we have used a framework called Spark (http://sparkjava.com/) to take care of all the HTTP requests on the Java server. The extra time that this has taken us has been the main cost. The two applications are now correctly sending JSON to one another.
 
-  * We have been very focused on implementing timetable filtering features in the Java app without having connected the Java app with the Node app first (but we are confident that the logic of our implementation is correct !).
+  * We have been very focused on implementing timetable filtering features in the Java app without having connected the Java app with the Node app first (but we are confident that the logic of our implementation is correct!).
 
 
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
-
- *We don't think we should be making any process-related changes at this point. We believe by next week we will finally have a minimum viable product ready to showcase. However, some in charge of the node app are taking a look at the Java app (and viceversa) to make sure the inter-server connection works as expected.
+* We don't think we should be making any process-related changes at this point. We believe by next week we will finally have a minimum viable product ready to showcase. However, some in charge of the node app are taking a look at the Java app (and viceversa) to make sure the inter-server connection works as expected.
 
 
 ## Product - Review
