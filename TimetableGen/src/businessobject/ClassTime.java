@@ -2,6 +2,8 @@ package businessobject;
 
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 public class ClassTime {
 
 	private String classCode;
@@ -72,5 +74,10 @@ public class ClassTime {
 			sb.append("\t" + timeSlots.get(i).toString());
 		}
 		return sb.toString();
+	}
+
+	public JSONObject toJsonObject() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
