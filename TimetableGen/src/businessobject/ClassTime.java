@@ -2,6 +2,7 @@ package businessobject;
 
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class ClassTime {
@@ -77,7 +78,13 @@ public class ClassTime {
 	}
 
 	public JSONObject toJsonObject() {
-		// TODO Auto-generated method stub
-		return null;
+		JSONObject classTime = new JSONObject();
+		classTime.put("classCode", classCode);
+		JSONArray times = new JSONArray();
+		for (TimeSlot timeslot : timeSlots){
+			times.add(timeslot.toJsonObject());
+		}
+		classTime.put("times", times);
+		return classTime;
 	}
 }

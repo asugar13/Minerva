@@ -1,5 +1,7 @@
 package businessobject;
 
+import org.json.simple.JSONObject;
+
 import enums.Day;
 
 public class TimeSlot {
@@ -96,5 +98,13 @@ public class TimeSlot {
         sb.append("duration: " + this.duration + "\n");
         return sb.toString();
     }
+
+	public JSONObject toJsonObject() {
+		JSONObject timeslot = new JSONObject();
+		timeslot.put("day", day);
+		timeslot.put("start", start / 3600);
+		timeslot.put("end", (start + duration) / 3600);
+		return timeslot;
+	}
  
 }
