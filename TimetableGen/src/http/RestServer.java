@@ -2,21 +2,36 @@ package http;
 
 import static spark.Spark.*;
 
-import handlers.CourseInformationRouteHandler;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class RestServer {
-
+	
 	public static void main(String[] args) {
 		port(8800);
-		get("/hello", (req, res) -> "Hello World");
-		get("/hello", (req, res) -> {
-			return "";
+		JSONParser parser = new JSONParser();
+		
+		JSONObject obj = new JSONObject();
+		obj.put("get", "info");
+
+		get("/course-information", (req, res) -> {
+			res.header("Access-Control-Allow-Origin", "*");
+			
+			// TODO: Return actual course information
+			return obj.toJSONString();
 		});
-		// path("/generate-timetables");
-	}
 
-	private static void createDependencies() {
+		post("/generate-timetable", (req, res) -> {
+			res.header("Access-Control-Allow-Origin", "*");
+			
+			JSONObject body = (JSONObject) parser.parse(req.body());
+			System.out.println(body);
 
+			// TODO: Generate and return timetable based on body
+			return obj.toJSONString();
+		});
+
+		System.out.println("Server started");
 	}
 
 }
