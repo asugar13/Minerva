@@ -2,17 +2,9 @@ package http;
 
 import static spark.Spark.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import businessobject.CourseListing;
 import dao.CourseListingDao;
 import dao.CourseLoader;
 import handlers.CourseInformationRouteHandler;
-import spark.Route;
 
 public class RestServer {
 

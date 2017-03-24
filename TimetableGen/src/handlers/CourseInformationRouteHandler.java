@@ -9,7 +9,6 @@ import java.util.Map.Entry;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import businessobject.Course;
 import businessobject.CourseListing;
 import dao.CourseListingDao;
 import enums.SemesterType;
@@ -25,6 +24,7 @@ public class CourseInformationRouteHandler implements Route {
 		this.listingDao = listingDao;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object handle(Request arg0, Response arg1) throws Exception {
 		listingDao.getAllCourseListings();
