@@ -14,6 +14,8 @@
   * Trello has still worked well in order to allow us to work in an "agile-like" process.
 
   * Slack has provided a great form of communication for general announcements after each team member has worked on a task.
+  
+  ![Slack](https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/slack3review.PNG)
 
   * When small technicalities were too tedious to type on Slack, we used Discord (https://discordapp.com/) in order to have a voice conversations
 
@@ -25,28 +27,38 @@
 
   * We have been very focused on implementing timetable filtering features in the Java app without having connected the Java app with the Node app first (but we are confident that the logic of our implementation is correct!).
 
+* Adding deadlines to the Trello board has not worked out very well. Most tickets do not have any deadlines.
+
+ ![Trello](https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/trello3Review.PNG)
 
 
 #### Planned changes
 
-* We don't think we should be making any process-related changes at this point. We believe by next week we will finally have a minimum viable product ready to showcase. However, some in charge of the node app are taking a look at the Java app (and viceversa) to make sure the inter-server connection works as expected.
+* We don't think we should be making any process-related changes at this point. We believe by next week we will finally have a minimum viable product ready to showcase. However, some in charge of the node app are taking a look at the Java app (and vice versa) to make sure the inter-server connection works as expected.
 
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
-  * We are properly generating all the timetable permutations, given a course selection.
+  * We are properly generating all the timetable permutations, given a course selection. 
+  (https://github.com/csc301-winter-2017/project-team-22/blob/master/TimetableGen/src/generation/TimetableGenerator.java)
 
-  * We have implemented filtering algorithms (based on number of days off, time in between classes...) for displaying the timetables
+  * We have implemented filtering algorithms (based on number of days off, time in between classes...) for displaying the timetables.
+  (https://github.com/csc301-winter-2017/project-team-22/blob/master/TimetableGen/src/generation/TimetableCompare.java)
 
-  * We have implemented toJSONString() methods to serialize Timetable objects into JSON (so that we can send the JSON across the network).
+  * The Javascript on the front end now stores user data in sessionStorage so that information persists across pages.
+  (https://github.com/csc301-winter-2017/project-team-22/tree/master/webApp/assets/scripts)
+  
+  * General UI of the web application has been improved.
+  (https://github.com/csc301-winter-2017/project-team-22/tree/master/webApp/public)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
    * We thought we would have a minimum viable product by this deliverable 
    
-   * The implementation of the Java server has been a major roadblock...
+   * The implementation of the Java server has been a major roadblock. We have only just set up a skeleton HTTP server.
+   (https://github.com/csc301-winter-2017/project-team-22/blob/master/TimetableGen/src/http/RestServer.java)
 
 ## Meeting Highlights
 
@@ -56,5 +68,6 @@ Going into the next iteration, our main insights are:
 
 * Check that the filtering algorithms are working correctly.
 
-* Adding additional features such as checking that the courses the user inputs are actually in the UofT courses dataset (display an informing message if the user's input is invalid)
+* Adding additional features such as checking that the courses the user inputs are actually in the UofT courses dataset (display an 
+  informative message if the user's input is invalid)
 
