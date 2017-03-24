@@ -31,24 +31,24 @@
 
 List any process-related changes you are planning to make (if there are any)
 
- * Different framework for handling HTTP requests
+ *We don't think we should be making any process-related changes at this point. We believe by next week we will finally have a minimum viable product ready to showcase. However, some in charge of the node app are taking a look at the Java app (and viceversa) to make sure the inter-server connection works as expected.
 
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
-  * toJSONString()
+  * We are properly generating all the timetable permutations, given a course selection.
 
-  * timetable generation
+  * We have implemented filtering algorithms (based on number of days off, time in between classes...) for displaying the timetables
 
-  * filtering algorithms
+  * We have implemented toJSONString() methods to serialize Timetable objects into JSON (so that we can send the JSON across the network).
 
 #### Goals and/or tasks that were planned but not met/completed:
 
    * We thought we would have a minimum viable product by this deliverable 
    
-   * the server...
+   * The implementation of the Java server has been a major roadblock...
 
 ## Meeting Highlights
 
@@ -58,5 +58,5 @@ Going into the next iteration, our main insights are:
 
 * Check that the filtering algorithms are working correctly.
 
-* Adding additional features such as checking that the courses the user inputs are actually in the UofT courses dataset
+* Adding additional features such as checking that the courses the user inputs are actually in the UofT courses dataset (display an informing message if the user's input is invalid)
 
