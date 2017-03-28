@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
-//import static spark.Spark.*;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -354,19 +353,6 @@ public class CourseLoader implements CourseListingDao {
 //		Set CourseSelections = new HashSet<CourseSelection>();
 //		CourseSelections.add(CSC207);
 //		generator.generateConfigurations(CourseSelections);
-
-		
-		try {
-			HttpServer server = null;
-			server = HttpServer.create(new InetSocketAddress(8800),1000000);
-			server.createContext("/main", new MyHandler());
-			server.setExecutor(null); // creates a default executor
-			server.start();
-			//server.stop(0);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 
 		

@@ -1,6 +1,10 @@
 package businessobject;
 
 import java.util.Map;
+import java.util.Map.Entry;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import enums.ClassType;
 
@@ -54,4 +58,18 @@ public class CourseOffering {
 		
 		return sb.toString();
 	}
+
+	public JSONObject toJsonObject() {
+		JSONObject offeringJSON = new JSONObject();
+		offeringJSON.put("courseCode", course.getCourseCode());
+		JSONArray classes = new JSONArray();
+		JSONObject course = new JSONObject();
+		for(Entry<ClassType, ClassTime> classEntry : classTimes.entrySet()){
+			course.put(classEntry.getKey(), classEntry.getValue().toJsonObject());
+		}
+		classes.add(course);
+		offeringJSON.put("classes", classes);
+		return offeringJSON;
+	}
+
 }
