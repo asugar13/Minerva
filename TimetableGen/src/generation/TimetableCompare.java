@@ -56,6 +56,8 @@ public class TimetableCompare implements Comparator<Timetable>{
 				return timeOffComparisons (currentComparator);
 			case MORE_EVENINGS_OFF:
 				return timeOffComparisons (currentComparator);
+			case MORE_BREAKS:
+				
 			default:
 				return 0;
 		}
@@ -85,6 +87,14 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 	}
 	
+	public int breaksComparisons (){
+		int breakst1Sem1 = NumBreaks(t1Config, "F");
+		int breakst1Sem2 = NumBreaks(t1Config, "S");
+		int breakst2Sem1 = NumBreaks(t2Config, "F");
+		int breakst2Sem2 = NumBreaks(t2Config, "S");
+		
+		return (breakst1Sem1 + breakst1Sem2) - (breakst2Sem1 + breakst2Sem2);
+	}
 	
 	//helpers for helpers----------------------------------------------------//
 	
@@ -134,6 +144,13 @@ public class TimetableCompare implements Comparator<Timetable>{
 		
 		return 5 - daysNotOff.size();
 	}
+	
+	//counts the number of 1 hour breaks between classes
+	public int NumBreaks(List <CourseOffering> Config, String FirstOrSecond){
+		return 0;
+	}
+	
+	
 	
 	//changes enums to strings to store in set
 	public String Day2String (Day d){
