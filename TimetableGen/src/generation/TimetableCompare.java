@@ -2,6 +2,7 @@ package generation;
 
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -144,7 +145,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 
 	// counts the number of 1 hour breaks between classes
 	public int NumBreaks(List<CourseOffering> Config, String FirstOrSecond) {
-		Set<CourseOffering> Semesterx = new HashSet<>();
+		Set<TimeSlot> TimeSlots = new HashSet<>();
 		int total = 0;
 		Set<String> days = new HashSet<>();
 		days.add("Monday");
@@ -154,7 +155,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 		days.add("Friday");
 
 		for (String day : days) {
-			Semesterx.clear();
+			TimeSlots.clear();
 			for (CourseOffering courseOff : Config) {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
@@ -162,19 +163,28 @@ public class TimetableCompare implements Comparator<Timetable> {
 					for (TimeSlot ts : classTimeSlot.getTimeSlots()) {
 						if ((semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond))
 								&& Day2String(ts.getDay()).equals(day)) {
-							Semesterx.add(courseOff);
+							TimeSlots.add(ts);
 						}
 					}
 				}
 			}
-
+			List<TimeSlot> orderedTime = TimeSort(TimeSlots);
+			Iterator<TimeSlot> OrderTimeI = orderedTime.iterator();
+			TimeSlot current = OrderTimeI.next();
+			TimeSlot next = OrderTimeI.next();
+			//take sorted timeslots for single day and add to the total the number of breaks in between classes
+			while (next!=null){
+				total += (next.getStart() - (current.getStart()+current.getDuration()))/hour;
+				current = next;
+				next = OrderTimeI.next();
+			}
 		}
 
 		return 0;
 	}
 
 	// simple sorting of course offering by start time
-	public List<CourseOffering> CourseSort(Set<CourseOffering> Semesterx){
+	public List<TimeSlot> TimeSort(Set<TimeSlot> TimeSlots){
 		int max=0;
 		for (CourseOffering co : Semesterx){
 				if co.get
