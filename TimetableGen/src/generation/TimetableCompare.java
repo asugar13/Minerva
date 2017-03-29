@@ -23,6 +23,7 @@ public class TimetableCompare implements Comparator<Timetable>{
 	
 	private final int noonInSeconds = 43200;  //seconds from midnight to 12pm
 	private final int eveningInSeconds = 64800; //seconds from midnight to 6pm
+	private final int hour = 3600; //hour in seconds
 	
 	public TimetableCompare (TimetableComparators currentComparator){
 		this.currentComparator = currentComparator;
@@ -147,9 +148,45 @@ public class TimetableCompare implements Comparator<Timetable>{
 	
 	//counts the number of 1 hour breaks between classes
 	public int NumBreaks(List <CourseOffering> Config, String FirstOrSecond){
+		Set<CourseOffering> Semesterx = new HashSet<>();
+		int total=0;
+		Set<String> days = new HashSet<>();
+		days.add("Monday");
+		days.add("Tuesday");
+		days.add("Wednesday");
+		days.add("Thursday");
+		days.add("Friday");
+		
+		for (String day: days){
+			Semesterx.clear();
+		for (CourseOffering courseOff : Config){
+			Map<ClassType, ClassTime> times = courseOff.getClassTime();
+			for (ClassTime classTimeSlot :times.values()){
+				String semTime = classTimeSlot.getclassCode();
+				for (TimeSlot ts: classTimeSlot.getTimeSlots()){
+					if ((semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond)) && Day2String(ts.getDay()).equals(day)){
+						Semesterx.add(courseOff);
+					}
+				}
+			}
+		}
+		
+		
+		}
+		
+		
 		return 0;
 	}
 	
+	
+	//simple sorting of course offering by start time
+	public List<CourseOffering> CourseSort(Set<CourseOffering> Semesterx){
+		int max=0;
+		for (CourseOffering co : Semesterx){
+				if co.get
+			}
+		
+	}
 	
 	
 	//changes enums to strings to store in set
