@@ -55,7 +55,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 		case MORE_EVENINGS_OFF:
 			return timeOffComparisons(currentComparator);
 		case MORE_BREAKS:
-
+			return breaksComparisons();
 		default:
 			return 0;
 		}
@@ -200,6 +200,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 			}
 
 			orderedTime.add(currentMax);
+			TimeSlots.remove(currentMax);
 		}
 		return orderedTime;
 	}
