@@ -160,10 +160,11 @@ public class TimetableCompare implements Comparator<Timetable> {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
 					String semTime = classTimeSlot.getclassCode();
-					for (TimeSlot ts : classTimeSlot.getTimeSlots()) {
-						if ((semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond))
-								&& Day2String(ts.getDay()).equals(day)) {
-							TimeSlots.add(ts);
+					if ((semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond))) {
+						for (TimeSlot ts : classTimeSlot.getTimeSlots()) {
+							if (Day2String(ts.getDay()).equals(day)) {
+								TimeSlots.add(ts);
+							}
 						}
 					}
 				}
@@ -172,24 +173,35 @@ public class TimetableCompare implements Comparator<Timetable> {
 			Iterator<TimeSlot> OrderTimeI = orderedTime.iterator();
 			TimeSlot current = OrderTimeI.next();
 			TimeSlot next = OrderTimeI.next();
-			//take sorted timeslots for single day and add to the total the number of breaks in between classes
-			while (next!=null){
-				total += (next.getStart() - (current.getStart()+current.getDuration()))/hour;
+			// take sorted timeslots for single day and add to the total the
+			// number of breaks in between classes
+			while (next != null) {
+				total += (next.getStart() - (current.getStart() + current.getDuration())) / hour;
 				current = next;
 				next = OrderTimeI.next();
 			}
 		}
 
-		return 0;
+		return total;
 	}
 
-	// simple sorting of course offering by start time
-	public List<TimeSlot> TimeSort(Set<TimeSlot> TimeSlots){
-		int max=0;
-		for (CourseOffering co : Semesterx){
-				if co.get
+	// selection sorting of time slot in a single day by start time
+	public List<TimeSlot> TimeSort(Set<TimeSlot> TimeSlots) {
+		List<TimeSlot> orderedTime = new LinkedList<>();
+		int max = 0;
+		TimeSlot currentMax = null;
+		while (!TimeSlots.isEmpty()) {
+			max = 0;
+			for (TimeSlot t : TimeSlots) {
+				if (t.getStart() > max) {
+					max = t.getStart();
+					currentMax = t;
+				}
 			}
-		
+
+			orderedTime.add(currentMax);
+		}
+		return orderedTime;
 	}
 
 	// changes enums to strings to store in set
