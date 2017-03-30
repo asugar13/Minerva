@@ -14,10 +14,6 @@ public class Timetable {
 		this.courseOfferings = courseOfferings;
 		this.numConflicts = numConflicts;
 	}
-
-	public List<CourseOffering> getTimetableConfigurations(){
-		return courseOfferings;
-	}
 	
 	public List<CourseOffering> getCourseOfferings() {
 		return courseOfferings;
