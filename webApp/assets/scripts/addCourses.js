@@ -70,7 +70,7 @@ function addCourseEntry(course){
     $('#course-table').append(
       description + 
       '<td> \
-        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+        <input type="radio" name="' + course.courseCode + '" value="Y" checked="checked"> No Preference <br> \
       </td>' + 
       removeButton);
   } else {
