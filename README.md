@@ -6,8 +6,6 @@
 
   * **Color** to emphasize conflicts
 
-  * Use **icons** for survey page to make things interesting
-
   * Use better API for timetable **result page**
 
 
