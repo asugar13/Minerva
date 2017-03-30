@@ -98,6 +98,45 @@ function fillTable(courses, timetable){
 
 $(document).ready(function(){
   
+  var request = {
+    filters: [],
+    courses: []
+  }
+  
+  $.each(sessionStorage, function(key, value){
+    if (sessionStorage.hasOwnProperty(key)){
+      
+      // Get semester preferences
+      var semesters = sessionStorage.getItem(key);
+      
+      if (semesters == "Y") {
+        request.courses.push({courseCode: key, semesters: ["Y"]});
+      } else if (semesters == "F") {
+        request.courses.push({courseCode: key, semesters: ["F"]});
+      } else if (semesters == "S") {
+        request.courses.push({courseCode: key, semesters: ["S"]});
+      } else {
+        request.courses.push({courseCode: key, semesters: ["F", "S"]});
+      }
+    }
+  });
+  
+  console.log("Request:")
+  console.log(request);
+  
+  $.ajax({
+    url: 'http://127.0.0.1:8800/generate-timetable',
+    type: 'POST',
+    crossDomain: true,
+
+    data: JSON.stringify(request),
+
+    success: function(result) {
+      console.log("Response:")
+      console.log(JSON.parse(result));
+    }
+  });
+  
   // Add the buttons for scrolling through different configurations.
   for (var i = 1; i <= timetables.configurations.length; i++){
     let j = i;

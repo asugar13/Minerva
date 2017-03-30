@@ -1,6 +1,7 @@
 "use strict";
 
 var numCourses = 0;
+var courses;
 
 /**
  * Search for the given courseCode in the GET /course-information response.
@@ -63,13 +64,13 @@ function addCourseEntry(course){
   </button></td></tr>';
   
   var description = '<tr id="' + course.courseCode + '"> \
-        <td>' + formatCourseDescription(course) + '</td>';
+        <td id="desc">' + formatCourseDescription(course) + '</td>';
 
   if (course.semesters[0] == "Y"){
     $('#course-table').append(
       description + 
       '<td> \
-        <input type="radio" name="' + course.courseCode + '" value="None" checked="checked"> No Preference <br> \
+        <input type="radio" name="' + course.courseCode + '" value="Y" checked="checked"> No Preference <br> \
       </td>' + 
       removeButton);
   } else {
@@ -94,30 +95,41 @@ function addCourseEntry(course){
 }
 
 $(document).ready(function(){
-  redesign();
   
-  $("#go").click(function () {
-    
-    var courseCode = $("#course-ID").val();
-    var course = searchCourses(courseCode);
-    
-    // Error messages for trying to add a course that doesn't exist
-    if (course == null){
-    
-      $("#alert").removeClass("hidden");
-      $("#alert").html("Whoops, it looks like you didn't enter a valid course code.");
-    
-    // Error message for trying to add a course that's already been added 
-    } else if (sessionStorage.getItem(course.courseCode) != null) { 
-    
-      $("#alert").removeClass("hidden");
-      $("#alert").html("Whoops, it looks like you've already added this course.");
-    
-    } else {
+  
+  $.ajax({
+    url: 'http://127.0.0.1:8800/course-information',
+    type: 'GET',
+    crossDomain: true,
+
+    success: function(result) {
+      courses = JSON.parse(result);
+      redesign();
       
-      $("#alert").addClass("hidden");
-      sessionStorage.setItem(course.courseCode, 'None');
-      addCourseEntry(course);
+      $("#go").click(function () {
+    
+        var courseCode = $("#course-ID").val();
+        var course = searchCourses(courseCode);
+        
+        // Error messages for trying to add a course that doesn't exist
+        if (course == null){
+        
+          $("#alert").removeClass("hidden");
+          $("#alert").html("Whoops, it looks like you didn't enter a valid course code.");
+        
+        // Error message for trying to add a course that's already been added 
+        } else if (sessionStorage.getItem(course.courseCode) != null) { 
+        
+          $("#alert").removeClass("hidden");
+          $("#alert").html("Whoops, it looks like you've already added this course.");
+        
+        } else {
+          
+          $("#alert").addClass("hidden");
+          sessionStorage.setItem(course.courseCode, 'None');
+          addCourseEntry(course);
+        }
+      });
     }
   });
   
@@ -134,35 +146,3 @@ $(document).ready(function(){
 	
 })
 
-var courses =     
-{
-  courses: [
-    {
-      courseCode: "CSC302H1",
-      name: "Intro to qwer",
-      description: "cool course",
-      breadths: [5, 1],
-      prerequisites: "CSC301H1 or cGPA of 3.0+",
-      exclusions: "",
-      semesters: ["F", "S"]
-    },
-    {
-      courseCode: "CSC373H1",
-      name: "Intro to asdf",
-      description: "coolish course",
-      breadths: [3],
-      prerequisites: "CSC369H1 or cGPA of 3.0+",
-      exclusions: "CSC374H1",
-      semesters: ["S"]
-    },
-    {
-      courseCode: "CSC300Y1",
-      name: "Intro to zxcv",
-      description: "course",
-      breadths: [],
-      prerequisites: "",
-      exclusions: "",
-      semesters: ["Y"]
-    }
-  ]
-}
