@@ -55,6 +55,8 @@ public class TimetableCompare implements Comparator<Timetable> {
 				return timeOffComparisons (currentComparator);
 			case MORE_EVENINGS_OFF:
 				return timeOffComparisons (currentComparator);
+			case MORE_BREAKS:
+				return breaksComparisons();
 			default:
 				return 0;
 		}
