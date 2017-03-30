@@ -11,11 +11,8 @@ import businessobject.Course;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
 import businessobject.Timetable;
-<<<<<<< HEAD
 import generation.TimetableCompare;
 
-=======
->>>>>>> f02cf3647d435ef2aab5324e518f4bb90fb9d3c1
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
