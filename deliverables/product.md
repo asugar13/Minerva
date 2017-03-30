@@ -10,10 +10,17 @@ A few mock-ups of our UI:
 
 **Link to Moqup version** : https://app.moqups.com/dev.sonnyk@gmail.com/QJ6b8ZtlPo/view/page/ad64222d5?ui=0
 
+**Intro**
 
-![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Main%20Page.jpg)
-![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Profile%20Page.jpg)
-![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/Timetables%20Page.jpg)
+![alt text](https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/intro-page.png)
+
+**Survey**
+
+![alt text](https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/survey-page.png)
+
+**Result**
+
+![alt text](https://github.com/csc301-winter-2017/project-team-22/blob/master/mock-ups/result-page.png)
 
 
 #### Q2: Who are your target users?
@@ -26,7 +33,7 @@ creating their own course schedules at UofT and are overwhelmed by the amount of
 This app will serve as a smooth and easy transition from secondary school to university by providing automatic choices of yearly time-tables
 for them.
 
-##User Personas:
+## User Personas:
 
 **Adam (Commuter)**
 

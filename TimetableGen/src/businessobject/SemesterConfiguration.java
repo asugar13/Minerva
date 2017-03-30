@@ -58,6 +58,25 @@ public class SemesterConfiguration implements TimetableConfiguration {
 		return possibleTimetables2;
 	}
 	
+	public JSONObject toJsonObject(){
+		JSONObject semesters = new JSONObject();
+		JSONObject fallSem = new JSONObject();
+		JSONArray fallTimetables = new JSONArray();
+		JSONObject winSem = new JSONObject();
+		JSONArray winTimetables = new JSONArray();
+		for (Timetable timetable : possibleTimetables1){
+			fallTimetables.add(timetable.toJsonObject());
+		}
+		for (Timetable timetable : possibleTimetables2){
+			winTimetables.add(timetable.toJsonObject());
+		}
+		fallSem.put("timetables", fallTimetables);
+		winSem.put("timetables", winTimetables);
+		semesters.put("Fall", fallSem);
+		semesters.put("Winter", fallSem);
+		return semesters;
+	}
+	
 	@Override
 	public String toJsonString() {
 		// TODO
