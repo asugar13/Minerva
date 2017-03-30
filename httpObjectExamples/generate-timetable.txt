@@ -1,6 +1,7 @@
 GET "/generate-timetable:
     Request
     {
+        filters: ["MORE_DAYS_OFF", "LESS_MORNING_CLASSES"],
         courses: [
             {
                 courseCode: "CSC301H1",
