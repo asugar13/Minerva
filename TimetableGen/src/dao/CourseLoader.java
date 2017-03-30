@@ -2,16 +2,12 @@ package dao;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetSocketAddress;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,16 +16,11 @@ import org.json.simple.parser.JSONParser;
 import businessobject.ClassTime;
 import businessobject.Course;
 import businessobject.CourseListing;
-import businessobject.CourseSelection;
 import businessobject.TimeSlot;
-
-import com.sun.net.httpserver.HttpServer;
-
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
-import generation.SemesterConfigurationGenerator;
 
 public class CourseLoader implements CourseListingDao {
 

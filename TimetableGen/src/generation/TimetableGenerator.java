@@ -12,6 +12,7 @@ import businessobject.CourseListing;
 import businessobject.CourseOffering;
 import businessobject.SemesterConfiguration;
 import businessobject.Timetable;
+import businessobject.TimetableConfiguration;
 import dao.CourseLoader;
 import enums.ClassType;
 import enums.SemesterType;
@@ -25,7 +26,7 @@ public class TimetableGenerator {
 		return courses;
 	}
 	
-	private List<Timetable> generateSemester(SemesterConfiguration courses, Set<CourseListing> courseListing, SemesterType type) {
+	private List<Timetable> generateSemester(TimetableConfiguration courses, Set<CourseListing> courseListing, SemesterType type) {
 		List<Timetable> result = new ArrayList<>();
 		
 		List<ClassIteratorHandler> iterators = new ArrayList<>();

@@ -45,19 +45,18 @@ public class TimetableCompare implements Comparator<Timetable> {
 		t1Config = t1.getCourseOfferings();
 		t2Config = t2.getCourseOfferings();
 
-		switch (this.currentComparator) {
-		case MORE_DAYS_OFF:
-			return numberOfDaysComparisons();
-		case LESS_DAYS_OFF:
-			return -numberOfDaysComparisons();
-		case MORE_MORNINGS_OFF:
-			return timeOffComparisons(currentComparator);
-		case MORE_EVENINGS_OFF:
-			return timeOffComparisons(currentComparator);
-		case MORE_BREAKS:
-			return breaksComparisons();
-		default:
-			return 0;
+		
+		switch (this.currentComparator){
+			case MORE_DAYS_OFF:
+				return numberOfDaysComparisons();
+			case LESS_DAYS_OFF:
+				return -numberOfDaysComparisons();
+			case MORE_MORNINGS_OFF:
+				return timeOffComparisons (currentComparator);
+			case MORE_EVENINGS_OFF:
+				return timeOffComparisons (currentComparator);
+			default:
+				return 0;
 		}
 	}
 

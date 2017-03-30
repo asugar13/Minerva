@@ -25,4 +25,28 @@ public class CourseSelection {
 	public Set<SemesterType> getRestrictions() {
 		return semesterRestrictions;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Course Code: " + courseCode + "\n");
+		sb.append("Semester Rescrictions: \n");
+		semesterRestrictions.forEach((s) -> {
+			switch (s) {
+			case FALL:
+				sb.append("\tFall\n");
+				break;
+			case WINTER:
+				sb.append("\tWinter\n");
+				break;
+			case YEAR:
+				sb.append("\tYear\n");
+				break;
+			default:
+				break;
+			}
+		});
+
+		return sb.toString();
+	}
 }
