@@ -37,7 +37,7 @@ public class Timetable {
 			courseOfferingsJson.add(offering.toJsonObject());
 		}
 		JSONObject timetableJson = new JSONObject();
-		timetableJson.put("timetable", courseOfferingsJson);
+		timetableJson.put("courses", courseOfferingsJson);
 		return new JSONObject();
 	}
 

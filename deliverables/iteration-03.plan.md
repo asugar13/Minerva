@@ -49,6 +49,11 @@ List the most significant changes you made to your process (if any).
       * Delegate website tasks if necessary.
       * Make final decisions on UI design.
 
+  * Director of Marketing
+    * Responsibilities
+      * Ensures the quality of product presentation.
+      * Suggest improvements on UI based on UX.
+      * Create an awesome demo video.
 
 #### Events
 
@@ -68,25 +73,24 @@ List the most significant changes you made to your process (if any).
 * Tasks will be prioritized based on the order they listed in. High priority goes to the top of the list and team members can rearrange tasks as they see fit.
 * Team members take whatever tasks they are most comfortable with and move them to the assigned/working on list.
 
-![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/trello3.PNG)
+![Trello](https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/trello3.PNG)
 * Trello is integrated with Slack to provide notifications for updates to the board
 * We will use Slack to communicate throughout the week when we run into issues
 * If issues come up then process can vary slightly, for example if one feature is blocking somebody’s, then they can for somebody to pick up that ticket or to pick it up themselves and finish it asap.
 
-![alt text] (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/slack3.PNG)
+![Slack](https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverableImages/slack3.PNG)
 
 #### Git / GitHub workflow
 
 This is identical to iteration-02.plan.md. (https://github.com/csc301-winter-2017/project-team-22/blob/master/deliverables/iteration-02.plan.md)
 
-* Every team member will fork the master repo.
-* After someone finishes a feature, they can make a pull request from their fork to the master repo.
-  * If the team member is confident they can merge the request themselves. They may also request a code review and have another team member
+ * Every team member will fork the master repo.
+ * After someone finishes a feature, they can make a pull request from their fork to the master repo.
+   * If the team member is confident they can merge the request themselves. They may also request a code review and have another team member
  merge the request.
-* Conflicts should be resolved by whoever is making the merge.
+ * Conflicts should be resolved by whoever is making the merge.
 
-We hope that this workflow will minimize conflicts while allowing for code reviews if necessary. We trust team members to be able make good
-decisions about what code gets merged into the master repo and whether or not they need help.
+We hope that this workflow will minimize conflicts while allowing for code reviews if necessary. We trust team members to be able make good decisions about what code gets merged into the master repo and whether or not they need help.
 
 
 ## Product
