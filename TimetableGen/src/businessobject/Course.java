@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.json.simple.JSONObject;
+
 import enums.CampusType;
 import enums.ClassType;
 import enums.SemesterType;
@@ -189,5 +191,20 @@ public class Course {
 		}
 		
 		return sb.toString();
+	}
+
+	public JSONObject toJsonObject() {
+		JSONObject course = new JSONObject();
+		String code = courseCode;
+		if(courseCode.length() > 8){
+			code = courseCode.substring(0, 8);
+		}
+		course.put("courseCode", code);
+		course.put("name", name);
+		course.put("description", description);
+		course.put("breadths", breadths);
+		course.put("prerequisites", prerequisite);
+		course.put("exclusions", exclusions);
+		return course;
 	}
 }

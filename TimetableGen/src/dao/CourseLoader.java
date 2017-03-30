@@ -354,19 +354,6 @@ public class CourseLoader implements CourseListingDao {
 //		CourseSelections.add(CSC207);
 //		generator.generateConfigurations(CourseSelections);
 
-		
-		try {
-			HttpServer server = null;
-			server = HttpServer.create(new InetSocketAddress(8400),1000000);
-			server.createContext("/main", new MyHandler());
-			server.setExecutor(null); // creates a default executor
-			server.start();
-			//server.stop(0);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 
 		
 	}

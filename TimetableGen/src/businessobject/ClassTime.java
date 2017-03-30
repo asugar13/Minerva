@@ -2,6 +2,9 @@ package businessobject;
 
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class ClassTime {
 
 	private String classCode;
@@ -72,5 +75,16 @@ public class ClassTime {
 			sb.append("\t" + timeSlots.get(i).toString());
 		}
 		return sb.toString();
+	}
+
+	public JSONObject toJsonObject() {
+		JSONObject classTime = new JSONObject();
+		classTime.put("classCode", classCode);
+		JSONArray times = new JSONArray();
+		for (TimeSlot timeslot : timeSlots){
+			times.add(timeslot.toJsonObject());
+		}
+		classTime.put("times", times);
+		return classTime;
 	}
 }

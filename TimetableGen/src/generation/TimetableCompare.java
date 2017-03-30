@@ -44,8 +44,8 @@ public class TimetableCompare implements Comparator<Timetable>{
 	@Override
 	public int compare(Timetable t1, Timetable t2) {
 
-		t1Config = t1.getTimetableConfigurations();
-		t2Config = t2.getTimetableConfigurations();
+		t1Config = t1.getCourseOfferings();
+		t2Config = t2.getCourseOfferings();
 		
 		switch (this.currentComparator){
 			case MORE_DAYS_OFF:
