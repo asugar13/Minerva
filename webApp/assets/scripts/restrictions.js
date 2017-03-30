@@ -4,15 +4,7 @@ $(document).ready(function(){
 
   $("#submit").click(function(){
 
-    $.ajax({
-      url: 'http://127.0.0.1:8800/course-information',
-      type: 'GET',
-      crossDomain: true,
 
-      success: function(result) {
-        console.log(JSON.parse(result));
-      }
-    });
 
     $.ajax({
       url: 'http://127.0.0.1:8800/generate-timetable',
