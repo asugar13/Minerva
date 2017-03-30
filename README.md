@@ -6,9 +6,6 @@
 
   * **Color** to emphasize conflicts
 
-  * Use better API for timetable **result page**
-
-
 2. General
 
   * Narrow down the target user to update filters
