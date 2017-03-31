@@ -72,6 +72,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 	}
 
 	public int breaksComparisons() {
+		//Note: may behave a little odd if timetable has conflicting courses 
 		int breakst1 = t1.getNumBreaks();
 		int breakst2=  t2.getNumBreaks();
 
