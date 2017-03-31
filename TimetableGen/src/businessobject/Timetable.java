@@ -28,16 +28,12 @@ public class Timetable {
 		this.numConflicts = numConflicts;
 
 		// Compare variables
-		this.numBreaks = NumBreaks(courseOfferings, "F", 3600) + NumBreaks(courseOfferings, "S", 3600);
-		this.numOffDays = NumOfdaysOff(courseOfferings, "F") + NumOfdaysOff(courseOfferings, "S");
+		this.numBreaks = NumBreaks(courseOfferings, 3600);
+		this.numOffDays = NumOfdaysOff(courseOfferings);
 
-		this.numOfDaysWithMorningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_MORNINGS_OFF, courseOfferings,
-				"F", 43200, 64800)
-				+ NumOfDaysWithTimeOff(TimetableComparators.MORE_MORNINGS_OFF, courseOfferings, "S", 43200, 64800);
+		this.numOfDaysWithMorningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_MORNINGS_OFF, courseOfferings, 43200, 64800);
 
-		this.numOfDaysWithEveningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_EVENINGS_OFF, courseOfferings,
-				"F", 43200, 64800)
-				+ NumOfDaysWithTimeOff(TimetableComparators.MORE_EVENINGS_OFF, courseOfferings, "S", 43200, 64800);
+		this.numOfDaysWithEveningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_EVENINGS_OFF, courseOfferings, 43200, 64800);
 	}
 
 	public List<CourseOffering> getCourseOfferings() {
@@ -83,7 +79,7 @@ public class Timetable {
 	}
 
 	// counts the number of days that don't have the specified time off
-	public int NumOfDaysWithTimeOff(TimetableComparators compare, List<CourseOffering> Config, String FirstOrSecond,
+	public int NumOfDaysWithTimeOff(TimetableComparators compare, List<CourseOffering> Config,
 			int noonInSeconds, int eveningInSeconds) {
 
 		Set<String> timeNotOff = new HashSet<>();
@@ -91,8 +87,6 @@ public class Timetable {
 		for (CourseOffering courseOff : Config) {
 			Map<ClassType, ClassTime> times = courseOff.getClassTime();
 			for (ClassTime classTimeSlot : times.values()) {
-				String semTime = classTimeSlot.getclassCode();
-				if (semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond)) {
 					for (TimeSlot timeS : classTimeSlot.getTimeSlots()) {
 						int start = timeS.getStart();
 						int end = start + timeS.getDuration();
@@ -103,7 +97,7 @@ public class Timetable {
 							timeNotOff.add(Day2String(d));
 						}
 					}
-				}
+				
 			}
 		}
 
@@ -113,19 +107,17 @@ public class Timetable {
 
 	// counts the number of days off in one week of one semester of one
 	// timetable
-	public int NumOfdaysOff(List<CourseOffering> Config, String FirstOrSecond) {
+	public int NumOfdaysOff(List<CourseOffering> Config) {
 		Set<String> daysNotOff = new HashSet<>();
 
 		for (CourseOffering courseOff : Config) {
 			Map<ClassType, ClassTime> times = courseOff.getClassTime();
 			for (ClassTime classTimeSlot : times.values()) {
-				String semTime = classTimeSlot.getclassCode();
-				if (semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond)) {
 					for (TimeSlot timeS : classTimeSlot.getTimeSlots()) {
 						Day d = timeS.getDay();
 						daysNotOff.add(Day2String(d));
 					}
-				}
+				
 			}
 		}
 
@@ -133,7 +125,7 @@ public class Timetable {
 	}
 
 	// counts the number of 1 hour breaks between classes
-	public int NumBreaks(List<CourseOffering> Config, String FirstOrSecond, int hour) {
+	public int NumBreaks(List<CourseOffering> Config, int hour) {
 		Set<TimeSlot> TimeSlots = new HashSet<>();
 		int total = 0;
 		Set<String> days = new HashSet<>();
@@ -149,14 +141,12 @@ public class Timetable {
 			for (CourseOffering courseOff : Config) {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
-					String semTime = classTimeSlot.getclassCode();
-					if ((semTime.endsWith("Y") || semTime.endsWith(FirstOrSecond))) {
 						for (TimeSlot ts : classTimeSlot.getTimeSlots()) {
 							if (Day2String(ts.getDay()).equals(day)) {
 								TimeSlots.add(ts);
 							}
 						}
-					}
+					
 				}
 			}
 			// more than 1 class in a day
