@@ -27,5 +27,6 @@ public class SortingHandler {
 			sem1.sort(comparer);
 			sem2.sort(comparer);
 		}
+		
 	}
 }
