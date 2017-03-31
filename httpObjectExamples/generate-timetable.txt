@@ -22,6 +22,41 @@ GET "/generate-timetable:
         ]
     }
     
+    NEW RETURN:
+    {
+        "configurations": [{
+            "Winter": {
+                "timetables": []
+            },
+            "configurationNumber": 0,
+            "Fall": {
+                "timetables": [{
+                    "courses": [{
+                        "courseCode": "CSC301",
+                        "classes": [{
+                            "LEC": {
+                                "classCode": "CSC301",
+                                "times": [{
+                                    "start": 2,
+                                    "end": 3,
+                                    "day": "MONDAY"
+                                }, {
+                                    "start": 2,
+                                    "end": 3,
+                                    "day": "WEDNESDAY"
+                                }, {
+                                    "start": 2,
+                                    "end": 3,
+                                    "day": "FRIDAY"
+                                }]
+                            }
+                        }]
+                    }]
+                }]
+            }
+        }]
+    }
+    
     Return
     {
         configurations: [
