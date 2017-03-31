@@ -18,7 +18,7 @@ import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
 import enums.TimetableComparators;
-import generation.TimetableCompare;
+
 
 public class TestUtil {
 	
