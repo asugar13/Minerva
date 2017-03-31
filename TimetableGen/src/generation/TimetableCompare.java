@@ -57,6 +57,8 @@ public class TimetableCompare implements Comparator<Timetable> {
 				return timeOffComparisons (currentComparator);
 			case MORE_BREAKS:
 				return breaksComparisons();
+			case LESS_BREAKS:
+				return -breaksComparisons();
 			default:
 				return 0;
 		}
@@ -170,16 +172,26 @@ public class TimetableCompare implements Comparator<Timetable> {
 					}
 				}
 			}
-			List<TimeSlot> orderedTime = TimeSort(TimeSlots);
-			Iterator<TimeSlot> OrderTimeI = orderedTime.iterator();
-			TimeSlot current = OrderTimeI.next();
-			TimeSlot next = OrderTimeI.next();
-			// take sorted timeslots for single day and add to the total the
-			// number of breaks in between classes
-			while (next != null) {
-				total += (next.getStart() - (current.getStart() + current.getDuration())) / hour;
-				current = next;
-				next = OrderTimeI.next();
+			if (TimeSlots.size()>1){
+				List<TimeSlot> orderedTime = TimeSort(TimeSlots);
+				Iterator<TimeSlot> OrderTimeI = orderedTime.iterator();
+				TimeSlot current = OrderTimeI.next();
+				TimeSlot next = OrderTimeI.next();
+				// take sorted timeslots for single day and add to the total the
+				// number of breaks in between classes
+				while (next != null) {
+					total += (next.getStart() - (current.getStart() + current.getDuration())) / hour;
+					current = next;
+					if (OrderTimeI.hasNext())
+						next = OrderTimeI.next();
+					else 
+						next =null;
+				}
+			}else if (TimeSlots.size()==1){
+				for (TimeSlot t:  TimeSlots)
+					total += (12 - t.getDuration()/hour);
+			}else{
+				total+=12;
 			}
 		}
 
@@ -189,13 +201,13 @@ public class TimetableCompare implements Comparator<Timetable> {
 	// selection sorting of time slot in a single day by start time
 	public List<TimeSlot> TimeSort(Set<TimeSlot> TimeSlots) {
 		List<TimeSlot> orderedTime = new LinkedList<>();
-		int max = 0;
+		int min =100000;
 		TimeSlot currentMax = null;
 		while (!TimeSlots.isEmpty()) {
-			max = 0;
+			min = 100000;
 			for (TimeSlot t : TimeSlots) {
-				if (t.getStart() > max) {
-					max = t.getStart();
+				if (t.getStart() < min) {
+					min = t.getStart();
 					currentMax = t;
 				}
 			}
