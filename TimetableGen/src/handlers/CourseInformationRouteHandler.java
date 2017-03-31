@@ -67,7 +67,7 @@ public class CourseInformationRouteHandler implements Route {
 			courseJson.put("semesters", semestersJson);
 			courses.add(courseJson);
 		}
-		
+		arg1.header("Access-Control-Allow-Origin", "*");
 		coursesJson.put("courses", courses);
 		return coursesJson.toJSONString();
 	}

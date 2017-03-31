@@ -15,3 +15,19 @@
   * Intro too long
   
   * Music too loud
+
+### What we need for final demo
+
+1. User story
+
+2. Value of our product
+
+ - focus on problem instead of competition
+ 
+ - why our problem is difficult
+ 
+ - why each feature is important / valuable 
+
+3. Individual contribution explanation
+
+4. Technical question

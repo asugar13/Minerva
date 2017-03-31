@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import businessobject.CourseSelection;
+import businessobject.SemesterConfiguration;
 import businessobject.TimetableConfiguration;
 
 public interface TimetableGenerationHandler {
@@ -16,5 +17,5 @@ public interface TimetableGenerationHandler {
 	 * @return List of all possible TimetableConfigurations containing all
 	 *         possible timetables for each configuration
 	 */
-	public Set<TimetableConfiguration> generateTimetables(Set<CourseSelection> courseSelections);
+	public Set<SemesterConfiguration> generateTimetables(Set<CourseSelection> courseSelections);
 }
