@@ -30,9 +30,7 @@ public class Timetable {
 		// Compare variables
 		this.numBreaks = NumBreaks(courseOfferings, 3600);
 		this.numOffDays = NumOfdaysOff(courseOfferings);
-
 		this.numOfDaysWithMorningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_MORNINGS_OFF, courseOfferings, 43200, 64800);
-
 		this.numOfDaysWithEveningOff = NumOfDaysWithTimeOff(TimetableComparators.MORE_EVENINGS_OFF, courseOfferings, 43200, 64800);
 	}
 
