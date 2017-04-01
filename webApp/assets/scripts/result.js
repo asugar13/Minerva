@@ -98,6 +98,9 @@ function fillTable(courses, timetable){
 
 $(document).ready(function(){
   
+  var el = document.getElementById('items');
+  var sortable = Sortable.create(el);
+  
   var request = {
     filters: [],
     courses: []

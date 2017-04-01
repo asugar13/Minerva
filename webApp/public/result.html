@@ -20,7 +20,7 @@
   <!-- Local JS -->
   <script type="text/javascript" src="../scripts/result.js"></script>
   <script type="text/javascript" src="../scripts/timetable.js"></script>
-
+  <script type="text/javascript" src="../scripts/Sortable.min.js"></script>
 
 </head>
 
@@ -60,6 +60,26 @@
     <div class="col-sm-3">
       <div class="well">
         <h4>Sort and Filter</h4>
+        
+        <p>Drag and drop the criteria below in order of importance to you. </p>
+        
+        <ul id="items" class="list-group">
+          <li class="list-group-item" id="days-off">
+            <input type="radio" name="days-off" value="more"> <img src="../img/004-calendar-1.png"> More Days Off <br>
+            <input type="radio" name="days-off" value="less"> Less Days Off <img src="../img/003-calendar-2.png"><br>
+            <input type="radio" name="days-off" value="none" checked> Don't Care
+          </li>
+          <li class="list-group-item" id="spacing">
+            <input type="radio" name="spacing" value="tight"> <img src="../img/001-books.png"> Fewer Breaks <br>
+            <input type="radio" name="spacing" value="some"> More Breaks <img src="../img/002-desk.png"> <br>
+            <input type="radio" name="spacing" value="none" checked> Don't care
+          </li>
+          <li class="list-group-item" id="bird">
+            <input type="radio" name="bird" value="morning"> <img src="../img/007-bird.png"> More Nights Off <br>
+            <input type="radio" name="bird" value="night"> More Mornings Off <img src="../img/008-owl-night-bird-outline.png"> <br>
+            <input type="radio" name="bird" value="none" checked> Don't care
+          </li>
+        </ul>
       </div>
     </div>
   </div>
