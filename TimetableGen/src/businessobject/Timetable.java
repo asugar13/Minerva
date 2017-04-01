@@ -80,7 +80,7 @@ public class Timetable {
 	public int NumOfDaysWithTimeOff(TimetableComparators compare, List<CourseOffering> Config,
 			int noonInSeconds, int eveningInSeconds) {
 
-		Set<String> timeNotOff = new HashSet<>();
+		Set<Day> timeNotOff = new HashSet<>();
 
 		for (CourseOffering courseOff : Config) {
 			Map<ClassType, ClassTime> times = courseOff.getClassTime();
@@ -92,10 +92,9 @@ public class Timetable {
 								|| compare.equals(TimetableComparators.MORE_EVENINGS_OFF)
 										&& (start >= eveningInSeconds || end > eveningInSeconds)) {
 							Day d = timeS.getDay();
-							timeNotOff.add(Day2String(d));
+							timeNotOff.add(d);
 						}
-					}
-				
+					}	
 			}
 		}
 
@@ -106,14 +105,14 @@ public class Timetable {
 	// counts the number of days off in one week of one semester of one
 	// timetable
 	public int NumOfdaysOff(List<CourseOffering> Config) {
-		Set<String> daysNotOff = new HashSet<>();
+		Set<Day> daysNotOff = new HashSet<>();
 
 		for (CourseOffering courseOff : Config) {
 			Map<ClassType, ClassTime> times = courseOff.getClassTime();
 			for (ClassTime classTimeSlot : times.values()) {
 					for (TimeSlot timeS : classTimeSlot.getTimeSlots()) {
 						Day d = timeS.getDay();
-						daysNotOff.add(Day2String(d));
+						daysNotOff.add(d);
 					}
 				
 			}
@@ -126,21 +125,21 @@ public class Timetable {
 	public int NumBreaks(List<CourseOffering> Config, int hour) {
 		Set<TimeSlot> TimeSlots = new HashSet<>();
 		int total = 0;
-		Set<String> days = new HashSet<>();
-		days.add("Monday");
-		days.add("Tuesday");
-		days.add("Wednesday");
-		days.add("Thursday");
-		days.add("Friday");
+		Set<Day> days = new HashSet<>();
+		days.add(Day.MONDAY);
+		days.add(Day.TUESDAY);
+		days.add(Day.WEDNESDAY);
+		days.add(Day.THURSDAY);
+		days.add(Day.FRIDAY);
 
 		// add to TimeSlots set the time slots for one day of the week
-		for (String day : days) {
+		for (Day day : days) {
 			TimeSlots.clear();
 			for (CourseOffering courseOff : Config) {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
 						for (TimeSlot ts : classTimeSlot.getTimeSlots()) {
-							if (Day2String(ts.getDay()).equals(day)) {
+							if (ts.getDay().equals(day)) {
 								TimeSlots.add(ts);
 							}
 						}
