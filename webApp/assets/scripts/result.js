@@ -24,6 +24,31 @@ function changeTimetables(configNum){
 }
 
 /**
+ * Adds the buttons for scrolling through the different configurations.
+ *
+ */
+function changeConfigurations(){
+  $("#configurations").empty();
+  
+  for (var i = 1; i <= timetables.configurations.length; i++){
+    let j = i;
+    
+    $("#configurations").append(
+      '<button type="button" class="btn btn-default" id="config' + i + '">' + i + '</button>'
+    );
+    
+    changeTimetables(0);
+    
+    $("#config" + j).click(function () {
+      changeTimetables(j - 1);
+      drawTimetable(j - 1, 0);
+    });
+  }
+  
+  drawTimetable(0, 0);
+}
+
+/**
  * Draws a fall and winter timetable on the page. Specific timetable is given 
  * the comnination of the configNum and timetableNum.
  *
@@ -96,34 +121,53 @@ function fillTable(courses, timetable){
   }
 }
 
-$(document).ready(function(){
-  
-  var el = document.getElementById('items');
-  var sortable = Sortable.create(el);
-  
+/**
+ * Returns a generate-timetable request object based on sessionStorage data
+ * and data on the page.
+ *
+ */
+function getRequest(){
   var request = {
     filters: [],
     courses: []
   }
   
+  // Courses and semester preferences
   $.each(sessionStorage, function(key, value){
     if (sessionStorage.hasOwnProperty(key)){
       
       // Get semester preferences
       var semesters = sessionStorage.getItem(key);
       
-      if (semesters == "Y") {
-        request.courses.push({courseCode: key, semesters: ["Y"]});
-      } else if (semesters == "F") {
-        request.courses.push({courseCode: key, semesters: ["F"]});
-      } else if (semesters == "S") {
-        request.courses.push({courseCode: key, semesters: ["S"]});
-      } else {
+      if (semesters == "None") {
         request.courses.push({courseCode: key, semesters: ["F", "S"]});
+      } else {
+        request.courses.push({courseCode: key, semesters: [semesters]});
       }
     }
   });
   
+  // Sorting options
+  var children = document.getElementById("sort-options").children;
+  for (var i = 0; i < children.length; i++) {
+    var id = children[i].getAttribute("id");
+    var value = $('input[name="' + id + '"]:checked').val();
+    
+    if (value != "None"){
+      request.filters.push(value);
+    }
+  }
+  
+  return request;
+}
+
+$(document).ready(function(){
+  
+  var el = document.getElementById("sort-options");
+  var sortable = Sortable.create(el);
+  
+  var request = getRequest();
+    
   console.log("Request:")
   console.log(request);
   
@@ -140,23 +184,14 @@ $(document).ready(function(){
     }
   });
   
-  // Add the buttons for scrolling through different configurations.
-  for (var i = 1; i <= timetables.configurations.length; i++){
-    let j = i;
-    
-    $("#configurations").append(
-      '<button type="button" class="btn btn-default" id="config' + i + '">' + i + '</button>'
-    );
-    
-    changeTimetables(0);
-    
-    $("#config" + j).click(function () {
-      changeTimetables(j - 1);
-      drawTimetable(j - 1, 0);
-    });
-  }
+  changeConfigurations();
   
-  drawTimetable(0, 0);
+  $("#sort").click(function(){
+    var request = getRequest();
+    
+    console.log("Request:")
+    console.log(request);
+  });
   
   $("#back").click(function(){
     location.href='/'
