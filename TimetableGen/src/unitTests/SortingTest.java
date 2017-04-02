@@ -4,7 +4,6 @@ import unitTests.TestUtil;
 import businessobject.Timetable;
 import enums.Day;
 import enums.TimetableComparators;
-import generation.TimetableCompare;
 import handlers.SortingHandler;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ public class SortingTest {
 		
 		//Play around with the criteria if you want
 		chosenRanking.add(TimetableComparators.MORE_MORNINGS_OFF);
-		chosenRanking.add(TimetableComparators.MORE_DAYS_OFF);
 		
 		//One sort test
 		Set <String> testSet = new HashSet<>();
