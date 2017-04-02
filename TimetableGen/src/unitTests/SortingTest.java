@@ -26,7 +26,7 @@ public class SortingTest {
 		
 		//Play around with the criteria if you want
 		chosenRanking.add(TimetableComparators.MORE_MORNINGS_OFF);
-		
+		DesiredDaysOff.add(Day.FRIDAY);
 		//One sort test
 		Set <String> testSet = new HashSet<>();
 		String t1c1 = "Monday:43200:3600:CSC301F";
@@ -47,7 +47,7 @@ public class SortingTest {
 		
 		String t5c1 = "Monday:40000:3600:CSC301F";
 		String t5c2 = "Tuesday:40000:3600:CSC301F";
-		String t5c3 = "Wednesday:40000:3600:CSC301F";
+		String t5c3 = "Friday:40000:3600:CSC301F";
 		testSet.add(t5c1);
 		testSet.add(t5c2);
 		testSet.add(t5c3);

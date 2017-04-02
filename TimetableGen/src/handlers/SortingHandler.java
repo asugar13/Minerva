@@ -1,5 +1,6 @@
 package handlers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +31,8 @@ public class SortingHandler {
 		List<Timetable> sem2 = semConfig.getPossibleTimetables2();
 		
 		if (DesiredDaysOff.size() > 0){
-			dayFilter(DesiredDaysOff,sem1);
-			dayFilter(DesiredDaysOff,sem2);
+			sem1 = dayFilter(DesiredDaysOff,sem1);
+			sem2 = dayFilter(DesiredDaysOff,sem2);
 		}
 		
 		for (TimetableComparators SortType : chosenRanking) {
@@ -47,20 +48,23 @@ public class SortingHandler {
 		return newConfig;
 	}
 
-	public void dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {
+	public List<Timetable> dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {
 
+		List<Timetable> removeList = new ArrayList<>(timetableList);
+		
 		for (Timetable timetable : timetableList) {
 			for (CourseOffering courseOff : timetable.getCourseOfferings()) {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
 					for (TimeSlot timeS : classTimeSlot.getTimeSlots()) {
-						if (DesiredDaysOff.contains(timeS)) {
-							timetableList.remove(timetable);
+						if (DesiredDaysOff.contains(timeS.getDay())) {
+							removeList.remove(timetable);
 						}
 					}
 				}
 			}
 
 		}
+		return removeList;
 	}
 }
