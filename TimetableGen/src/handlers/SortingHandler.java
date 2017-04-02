@@ -1,5 +1,6 @@
 package handlers;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -22,20 +23,31 @@ public class SortingHandler {
 		this.comparer = new TimetableCompare(TimetableComparators.MORE_DAYS_OFF);
 	}
 
-	public void TimetableSort(List<Day> DesiredDaysOff, List<TimetableComparators> chosenRanking,
+	public SemesterConfiguration TimetableSort(List<Day> DesiredDaysOff, List<TimetableComparators> chosenRanking,
 			SemesterConfiguration semConfig) {
 
 		List<Timetable> sem1 = semConfig.getPossibleTimetables1();
 		List<Timetable> sem2 = semConfig.getPossibleTimetables2();
 		
-		dayFilter(DesiredDaysOff,sem1);
-		dayFilter(DesiredDaysOff,sem2);
+		if (DesiredDaysOff.size() > 0){
+			dayFilter(DesiredDaysOff,sem1);
+			dayFilter(DesiredDaysOff,sem2);
+		}
 		
 		for (TimetableComparators SortType : chosenRanking) {
 			comparer.setCurrentComparator(SortType);
 			sem1.sort(comparer);
 			sem2.sort(comparer);
 		}
+		
+		//make sure its in descending order i.e best option to the worst
+		Collections.reverse(sem1);
+		Collections.reverse(sem2);
+		
+		SemesterConfiguration newConfig = new SemesterConfiguration(semConfig.getSemester1(),semConfig.getSemester2());
+		newConfig.addPossibleTimetables1(sem1);
+		newConfig.addPossibleTimetables2(sem2);
+		return newConfig;
 	}
 
 	public void dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {

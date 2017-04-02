@@ -7,13 +7,9 @@ import enums.TimetableComparators;
 
 public class TimetableCompare implements Comparator<Timetable> {
 	private TimetableComparators currentComparator;
-	private Timetable t1;
-	private Timetable t2;
 
 	public TimetableCompare(TimetableComparators currentComparator) {
 		this.currentComparator = currentComparator;
-		this.t1 = null;
-		this.t2 = null;
 	}
 
 	public TimetableComparators getCurrentComparator() {
@@ -26,23 +22,19 @@ public class TimetableCompare implements Comparator<Timetable> {
 
 	@Override
 	public int compare(Timetable t1, Timetable t2) {
-
-		this.t1 = t1;
-		this.t2 = t2;
-		
 		switch (this.currentComparator){
 			case MORE_DAYS_OFF:
-				return numberOfDaysComparisons();
+				return numberOfDaysComparisons(t1,t2);
 			case LESS_DAYS_OFF:
-				return -numberOfDaysComparisons();
+				return -numberOfDaysComparisons(t1,t2);
 			case MORE_MORNINGS_OFF:
-				return timeOffComparisons (currentComparator);
+				return timeOffComparisons (currentComparator,t1,t2);
 			case MORE_EVENINGS_OFF:
-				return timeOffComparisons (currentComparator);
+				return timeOffComparisons (currentComparator,t1,t2);
 			case MORE_BREAKS:
-				return breaksComparisons();
+				return breaksComparisons(t1,t2);
 			case LESS_BREAKS:
-				return -breaksComparisons();
+				return -breaksComparisons(t1,t2);
 			default:
 				return 0;
 		}
@@ -51,14 +43,14 @@ public class TimetableCompare implements Comparator<Timetable> {
 	// Helper
 	// functions--------------------------------------------------------//
 
-	public int numberOfDaysComparisons() {
+	public int numberOfDaysComparisons(Timetable t1,Timetable t2) {
 		int numDaysOfft1 = t1.getNumOffDays();
 		int numDaysOfft2 = t2.getNumOffDays();
 
 		return numDaysOfft1 - numDaysOfft2;
 	}
 
-	public int timeOffComparisons(TimetableComparators compare) {
+	public int timeOffComparisons(TimetableComparators compare, Timetable t1,Timetable t2) {
 		int timeOfft1, timeOfft2;
 		if(compare.equals(TimetableComparators.MORE_MORNINGS_OFF)){
 			timeOfft1 = t1.getNumOfDaysWithMorningOff();
@@ -71,7 +63,7 @@ public class TimetableCompare implements Comparator<Timetable> {
 		return timeOfft1 - timeOfft2;
 	}
 
-	public int breaksComparisons() {
+	public int breaksComparisons(Timetable t1,Timetable t2) {
 		//Note: may behave a little odd if a timetable has conflicting courses 
 		int breakst1 = t1.getNumBreaks();
 		int breakst2=  t2.getNumBreaks();
