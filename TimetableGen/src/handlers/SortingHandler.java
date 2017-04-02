@@ -1,6 +1,6 @@
 package handlers;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -29,37 +29,41 @@ public class SortingHandler {
 		List<Timetable> sem1 = semConfig.getPossibleTimetables1();
 		List<Timetable> sem2 = semConfig.getPossibleTimetables2();
 		
-		sem1 = dayFilter(DesiredDaysOff,sem1);
-		sem2 = dayFilter(DesiredDaysOff,sem2);
+		if (DesiredDaysOff.size() > 0){
+			dayFilter(DesiredDaysOff,sem1);
+			dayFilter(DesiredDaysOff,sem2);
+		}
 		
 		for (TimetableComparators SortType : chosenRanking) {
 			comparer.setCurrentComparator(SortType);
 			sem1.sort(comparer);
 			sem2.sort(comparer);
 		}
-		SemesterConfiguration SortedConfig = new SemesterConfiguration(semConfig.getSemester1(),semConfig.getSemester2());
-		SortedConfig.addPossibleTimetables1(sem1);
-		SortedConfig.addPossibleTimetables2(sem2);
-		return SortedConfig;
+		
+		//make sure its in descending order i.e best option to the worst
+		Collections.reverse(sem1);
+		Collections.reverse(sem2);
+		
+		SemesterConfiguration newConfig = new SemesterConfiguration(semConfig.getSemester1(),semConfig.getSemester2());
+		newConfig.addPossibleTimetables1(sem1);
+		newConfig.addPossibleTimetables2(sem2);
+		return newConfig;
 	}
 
-	public List<Timetable> dayFilter(List<Day> DesiredDaysOff, List<Timetable> prevList) {
+	public void dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {
 
-		List<Timetable> newList = new ArrayList<>(prevList);
-
-		for (Timetable timetable : prevList) {
+		for (Timetable timetable : timetableList) {
 			for (CourseOffering courseOff : timetable.getCourseOfferings()) {
 				Map<ClassType, ClassTime> times = courseOff.getClassTime();
 				for (ClassTime classTimeSlot : times.values()) {
 					for (TimeSlot timeS : classTimeSlot.getTimeSlots()) {
 						if (DesiredDaysOff.contains(timeS)) {
-							newList.remove(timetable);
+							timetableList.remove(timetable);
 						}
 					}
 				}
 			}
 
 		}
-		return newList;
 	}
 }
