@@ -36,13 +36,10 @@ public class SortingHandler {
 		
 		for (TimetableComparators SortType : chosenRanking) {
 			comparer.setCurrentComparator(SortType);
-			sem1.sort(comparer);
-			sem2.sort(comparer);
+			sem1.sort(Collections.reverseOrder(comparer));
+			sem2.sort(Collections.reverseOrder(comparer));
 		}
 		
-		//make sure its in descending order i.e best option to the worst
-		Collections.reverse(sem1);
-		Collections.reverse(sem2);
 		
 		SemesterConfiguration newConfig = new SemesterConfiguration(semConfig.getSemester1(),semConfig.getSemester2());
 		newConfig.addPossibleTimetables1(sem1);
