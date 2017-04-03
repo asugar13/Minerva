@@ -145,9 +145,11 @@ function getRequest(){
       var semesters = sessionStorage.getItem(key);
       
       if (semesters == "None") {
-        request.courses.push({courseCode: key, semesters: ["F", "S"]});
+        request.courses.push({courseCode: key + "H1", semesters: ["F", "S"]});
+      } else if (semesters == "Y"){
+        request.courses.push({courseCode: key + "Y1", semesters: ["F", "S"]});
       } else {
-        request.courses.push({courseCode: key, semesters: [semesters]});
+        request.courses.push({courseCode: key + "H1", semesters: [semesters]});
       }
     }
   });
