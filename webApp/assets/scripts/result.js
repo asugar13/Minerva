@@ -2,39 +2,28 @@
 
 var timetables;
 
+// The current configuration and timetable indexes the user is on
+var configNum;
+var fallTimetableNum;
+var winterTimetableNum;
+
 /**
- * Adds the buttons for scrolling through the different timetables for a
- * given configNum.
- *
- * @param {int} configNum
+ * Adds the buttons for scrolling through the different timetables.
  *
  */
-function changeTimetables(configNum){
-  $("#fall-timetables").empty();
-  $("#winter-timetables").empty();
-  
-  for (var i = 1; i <= timetables.configurations[configNum].Fall.timetables.length; i++){
-    let timetableNum = i - 1;
-    
-    $("#fall-timetables").append(
-      '<button type="button" class="btn btn-default" id="fall-timetable' + i + '">' + i + '</button>'
-    );
-    
-    $("#fall-timetable" + i).click(function () {
-      drawTimetable(configNum, timetableNum, "Fall");
-    });
-  }
-  
-  for (var i = 1; i <= timetables.configurations[configNum].Winter.timetables.length; i++){
-    let timetableNum = i - 1;
-    
-    $("#winter-timetables").append(
-      '<button type="button" class="btn btn-default" id="winter-timetable' + i + '">' + i + '</button>'
-    );
-    
-    $("#winter-timetable" + i).click(function () {
-      drawTimetable(configNum, timetableNum, "Winter");
-    });
+function changeTimetables(){
+	$("#cur-config").html(configNum + 1);
+	$("#max-config").html(timetables.configurations.length);
+	
+	$("#cur-fall").html(fallTimetableNum + 1);
+	$("#cur-winter").html(winterTimetableNum + 1);
+	
+	$("#max-fall").html(timetables.configurations[configNum].Fall.timetables.length);
+	$("#max-winter").html(timetables.configurations[configNum].Winter.timetables.length);
+	
+	if (timetables.configurations.length > 0){
+    drawTimetable(configNum, fallTimetableNum, "Fall");
+    drawTimetable(configNum, winterTimetableNum, "Winter");
   }
 }
 
@@ -43,29 +32,59 @@ function changeTimetables(configNum){
  *
  */
 function changeConfigurations(){
-  $("#configurations").empty();
-  
-  for (var i = 1; i <= timetables.configurations.length; i++){
-    let configNum = i - 1;
-    
-    $("#configurations").append(
-      '<button type="button" class="btn btn-default" id="config' + i + '">' + i + '</button>'
-    );
-    
-    changeTimetables(0);
-    
-    $("#config" + i).click(function () {
-      changeTimetables(configNum);
-      drawTimetable(configNum, 0, "Fall");
-      drawTimetable(configNum, 0, "Winter");
-    });
-  }
-  
-  if (timetables.configurations.length > 0){
-    drawTimetable(0, 0, "Fall");
-    drawTimetable(0, 0, "Winter");
-  }
-  
+	configNum = 0;
+	fallTimetableNum = 0;
+	winterTimetableNum = 0;
+	
+	changeTimetables();
+	
+	$("#config-back").click(function(){
+    if (configNum > 0){
+			configNum--;
+			
+			changeTimetables();
+		}
+  });
+	
+	$("#config-next").click(function(){
+    if (configNum < timetables.configurations.length - 1){
+			configNum++;
+			
+			changeTimetables();
+		}
+  });
+	
+	$("#fall-back").click(function(){
+    if (fallTimetableNum > 0){
+			fallTimetableNum--;
+			$("#cur-fall").html(fallTimetableNum + 1);
+			drawTimetable(configNum, fallTimetableNum, "Fall");
+		}
+  });
+	
+	$("#fall-next").click(function(){
+		if (fallTimetableNum < timetables.configurations[configNum].Fall.timetables.length - 1){
+			fallTimetableNum++;
+			$("#cur-fall").html(fallTimetableNum + 1);
+			drawTimetable(configNum, fallTimetableNum, "Fall");
+		}
+  });
+	
+	$("#winter-back").click(function(){
+    if (winterTimetableNum > 0){
+			winterTimetableNum--;
+			$("#cur-winter").html(winterTimetableNum + 1);
+			drawTimetable(configNum, winterTimetableNum, "Winter");
+		}
+  });
+	
+	$("#winter-next").click(function(){
+		if (winterTimetableNum < timetables.configurations[configNum].Winter.timetables.length - 1){
+			winterTimetableNum++;
+			$("#cur-winter").html(winterTimetableNum + 1);
+			drawTimetable(configNum, winterTimetableNum, "Winter");
+		}
+  });
 }
 
 /**
@@ -152,7 +171,7 @@ function getRequest(){
       if (semesters == "None") {
         request.courses.push({courseCode: key + "H1", semesters: ["F", "S"]});
       } else if (semesters == "Y"){
-        request.courses.push({courseCode: key + "Y1", semesters: ["F", "S"]});
+        request.courses.push({courseCode: key + "Y1", semesters: [semesters]});
       } else {
         request.courses.push({courseCode: key + "H1", semesters: [semesters]});
       }
