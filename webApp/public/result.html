@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Timetable Generator</title>
+  <title>Minvera</title>
 
   <!-- CSS (load bootstrap from a CDN) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -26,8 +26,9 @@
 
 <body class="container">
 
-  <div class="well">
-    <h2><img src="../img/001-diploma.png"> Here They Are!</h2>
+  <div class="well" style="margin-top:10px;">
+    <h2>Here Are Your Timetables!</h2>
+    <h2><img src="../img/logo.png" height="137" width="100"></h2>
   </div>
 
   <div class="row" id="main">
@@ -36,7 +37,7 @@
     <!-- Table -->
     <div class="col-sm-9">
       <div class="well">
-        Semester Configurations
+        Semester Configurations (Change what courses are in each semester):
         <button type="button" class="btn btn-default" id="config-back"> < </button>
         <span id="cur-config"> 0 </span> of <span id="max-config"> 0 </span>
         <button type="button" class="btn btn-default" id="config-next"> > </button>
