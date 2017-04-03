@@ -1,7 +1,7 @@
 package enums;
 
 public enum SemesterType {
-	FALL("H1F"), WINTER("H1S"), YEAR("Y1Y");
+	FALL("F"), WINTER("S"), YEAR("Y");
 	
 	private final String code;
 	

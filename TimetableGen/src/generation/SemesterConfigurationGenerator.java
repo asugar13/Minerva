@@ -54,13 +54,17 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		final Set<CourseListing> baseSem1 = new HashSet<>();
 		final Set<CourseListing> baseSem2 = new HashSet<>();
 		courses = addBaseCourses(courses, baseSem1, baseSem2);
-		Set<SemesterConfiguration> SemesterConfigurations = new HashSet<>();
-		for (int k = 1; k <= 6; k++) {
-			if (k <= courses.size() && baseSem1.size() + k <= 6 && baseSem2.size() + courses.size() - k <= 6) {
-				SemesterConfigurations.addAll(chooseCourses(new ArrayList<>(courses), k, baseSem1, baseSem2));
+		Set<SemesterConfiguration> semesterConfigurations = new HashSet<>();
+		if (courses.size() == 0) {
+			semesterConfigurations.add(new SemesterConfiguration(baseSem1, baseSem2));
+		} else {
+			for (int k = 1; k <= 6; k++) {
+				if (k <= courses.size() && baseSem1.size() + k <= 6 && baseSem2.size() + courses.size() - k <= 6) {
+					semesterConfigurations.addAll(chooseCourses(new ArrayList<>(courses), k, baseSem1, baseSem2));
+				}
 			}
 		}
-		return SemesterConfigurations;
+		return semesterConfigurations;
 	}
 
 	private Set<CourseSelection> addBaseCourses(Set<CourseSelection> courses, Set<CourseListing> baseSem1,
@@ -87,8 +91,8 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 	private Set<SemesterConfiguration> chooseCourses(List<CourseSelection> courses, int numChoose,
 			Set<CourseListing> baseSem1, Set<CourseListing> baseSem2) {
 		/*
-		 * Set<SemesterConfiguration> SemesterConfigurations = new
-		 * HashSet<>(); int numCourses = courses.size(); int r = 0; int i = 0;
+		 * Set<SemesterConfiguration> SemesterConfigurations = new HashSet<>();
+		 * int numCourses = courses.size(); int r = 0; int i = 0;
 		 * Set<CourseListing> sem1 = new HashSet(baseSem1); Set<CourseListing>
 		 * sem2 = new HashSet(baseSem2); while(r >= 0){ if(i <= numCourses + r -
 		 * numChoose){ sem1.add(getCourse(courses.get(i).getCourseCode(),
