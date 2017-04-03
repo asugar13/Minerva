@@ -76,6 +76,9 @@ public class TimetableGenerator {
 	}
 
 	private boolean next(List<ClassIteratorHandler> l, int index, List<CourseListing> cl, SemesterType type) {
+		if (l.size() == 0){
+			return false;
+		}
 		int[] code = l.get(index).next();
 		if (code[5] == -1) {
 			if (index == l.size() - 1) {
