@@ -25,7 +25,7 @@ public class RestServer {
 		//Routes
 		get("/course-information",  new CourseInformationRouteHandler(listingDao));
 		get("/test",  new TestRoute());
-		get("/generate-timetable", new GenerateTimetablesRouteHandler(listingDao, sorter));
+		post("/generate-timetable", new GenerateTimetablesRouteHandler(listingDao, sorter));
 		System.out.println("Server started");
 		
 		/*
