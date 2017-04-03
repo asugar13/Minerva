@@ -28,66 +28,6 @@ function changeTimetables(){
 }
 
 /**
- * Adds the buttons for scrolling through the different configurations.
- *
- */
-function changeConfigurations(){
-	configNum = 0;
-	fallTimetableNum = 0;
-	winterTimetableNum = 0;
-	
-	changeTimetables();
-	
-	$("#config-back").click(function(){
-    if (configNum > 0){
-			configNum--;
-			
-			changeTimetables();
-		}
-  });
-	
-	$("#config-next").click(function(){
-    if (configNum < timetables.configurations.length - 1){
-			configNum++;
-			
-			changeTimetables();
-		}
-  });
-	
-	$("#fall-back").click(function(){
-    if (fallTimetableNum > 0){
-			fallTimetableNum--;
-			$("#cur-fall").html(fallTimetableNum + 1);
-			drawTimetable(configNum, fallTimetableNum, "Fall");
-		}
-  });
-	
-	$("#fall-next").click(function(){
-		if (fallTimetableNum < timetables.configurations[configNum].Fall.timetables.length - 1){
-			fallTimetableNum++;
-			$("#cur-fall").html(fallTimetableNum + 1);
-			drawTimetable(configNum, fallTimetableNum, "Fall");
-		}
-  });
-	
-	$("#winter-back").click(function(){
-    if (winterTimetableNum > 0){
-			winterTimetableNum--;
-			$("#cur-winter").html(winterTimetableNum + 1);
-			drawTimetable(configNum, winterTimetableNum, "Winter");
-		}
-  });
-	
-	$("#winter-next").click(function(){
-		if (winterTimetableNum < timetables.configurations[configNum].Winter.timetables.length - 1){
-			winterTimetableNum++;
-			$("#cur-winter").html(winterTimetableNum + 1);
-			drawTimetable(configNum, winterTimetableNum, "Winter");
-		}
-  });
-}
-
-/**
  * Draws a specified (Fall or Winter) timetable on the page. Specific timetable is given 
  * the combination of the configNum and timetableNum.
  *
@@ -215,7 +155,11 @@ function getRequest(){
       console.log("Response:")
       console.log(timetables);
       
-      changeConfigurations();
+			configNum = 0;
+			fallTimetableNum = 0;
+			winterTimetableNum = 0;
+			
+			changeTimetables();
     }
   });
  }
@@ -226,6 +170,58 @@ $(document).ready(function(){
   var sortable = Sortable.create(el);
 
   getTimetables();
+	
+	$("#config-back").click(function(){
+    if (configNum > 0){
+			configNum--;
+
+			fallTimetableNum = 0;
+			winterTimetableNum = 0;
+			changeTimetables();
+		}
+  });
+	
+	$("#config-next").click(function(){
+    if (configNum < timetables.configurations.length - 1){
+			configNum++;
+			
+			fallTimetableNum = 0;
+			winterTimetableNum = 0;
+			changeTimetables();
+		}
+  });
+	
+	$("#fall-back").click(function(){
+    if (fallTimetableNum > 0){
+			fallTimetableNum--;
+			$("#cur-fall").html(fallTimetableNum + 1);
+			drawTimetable(configNum, fallTimetableNum, "Fall");
+		}
+  });
+	
+	$("#fall-next").click(function(){
+		if (fallTimetableNum < timetables.configurations[configNum].Fall.timetables.length - 1){
+			fallTimetableNum++;
+			$("#cur-fall").html(fallTimetableNum + 1);
+			drawTimetable(configNum, fallTimetableNum, "Fall");
+		}
+  });
+	
+	$("#winter-back").click(function(){
+    if (winterTimetableNum > 0){
+			winterTimetableNum--;
+			$("#cur-winter").html(winterTimetableNum + 1);
+			drawTimetable(configNum, winterTimetableNum, "Winter");
+		}
+  });
+	
+	$("#winter-next").click(function(){
+		if (winterTimetableNum < timetables.configurations[configNum].Winter.timetables.length - 1){
+			winterTimetableNum++;
+			$("#cur-winter").html(winterTimetableNum + 1);
+			drawTimetable(configNum, winterTimetableNum, "Winter");
+		}
+  });
   
   $("#sort").click(function(){
     getTimetables();
