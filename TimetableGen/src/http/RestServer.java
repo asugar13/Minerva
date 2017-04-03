@@ -8,6 +8,7 @@ import org.json.simple.parser.JSONParser;
 import dao.CourseListingDao;
 import dao.CourseLoader;
 import handlers.CourseInformationRouteHandler;
+import handlers.TestRoute;
 
 public class RestServer {
 	
@@ -22,6 +23,8 @@ public class RestServer {
 		JSONObject obj = new JSONObject();
 		obj.put("get", "info");
 		get("/course-information",  new CourseInformationRouteHandler(listingDao));
+		get("/test",  new TestRoute());
+		
 
 		post("/generate-timetable", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
