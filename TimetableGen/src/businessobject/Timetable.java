@@ -69,7 +69,7 @@ public class Timetable {
 		}
 		JSONObject timetableJson = new JSONObject();
 		timetableJson.put("courses", courseOfferingsJson);
-		return new JSONObject();
+		return timetableJson;
 	}
 
 	public String toJsonString() {
