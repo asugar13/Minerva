@@ -36,17 +36,19 @@
     <!-- Table -->
     <div class="col-sm-9">
       <div class="well">
-        Semester Configurations:
-        <div class="btn-group" id="configurations" role="group" aria-label="...">
-        </div>
+        Semester Configurations
+        <button type="button" class="btn btn-default" id="config-back"> < </button>
+        <span id="cur-config"> 0 </span> of <span id="max-config"> 0 </span>
+        <button type="button" class="btn btn-default" id="config-next"> > </button>
         
       </div>
       
       <div class="well">      
         <h3>Fall</h3>
         Timetables:
-        <div class="btn-group" id="fall-timetables" role="group" aria-label="...">
-        </div>
+        <button type="button" class="btn btn-default" id="fall-back"> < </button>
+        <span id="cur-fall"> 0 </span> of <span id="max-fall"> 0 </span>
+        <button type="button" class="btn btn-default" id="fall-next"> > </button>
         <div class="timetable" id="fall-div">
         </div>
         
@@ -55,8 +57,9 @@
       <div class="well">
         <h3>Winter</h3>
         Timetables:
-        <div class="btn-group" id="winter-timetables" role="group" aria-label="...">
-        </div>
+        <button type="button" class="btn btn-default" id="winter-back"> < </button>
+        <span id="cur-winter"> 0 </span> of <span id="max-winter"> 0 </span>
+        <button type="button" class="btn btn-default" id="winter-next"> > </button>
         <div class="timetable" id="winter-div">
         </div>
       </div>
