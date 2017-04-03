@@ -11,6 +11,7 @@ import handlers.CourseInformationRouteHandler;
 import handlers.GenerateTimetablesRouteHandler;
 import handlers.SortingHandler;
 import handlers.TestRoute;
+import handlers.TimeTableGeneratorHandler;
 
 public class RestServer {
 	
@@ -22,23 +23,15 @@ public class RestServer {
 		createDependencies();
 		port(8800);
 		
+
 		//Routes
 		get("/course-information",  new CourseInformationRouteHandler(listingDao));
 		get("/test",  new TestRoute());
-		get("/generate-timetable", new GenerateTimetablesRouteHandler(listingDao, sorter));
+		post("/generate-timetable", new GenerateTimetablesRouteHandler(listingDao, sorter));
 		System.out.println("Server started");
 		
-		/*
-		post("/generate-timetable", (req, res) -> {
-			res.header("Access-Control-Allow-Origin", "*");
-			
-			JSONObject body = (JSONObject) parser.parse(req.body());
-			System.out.println(body);
 
-			// TODO: Generate and return timetable based on body
-			return obj.toJSONString();
-		});
-		*/
+		//post("/generate-timetable", new TimeTableGeneratorHandler(null));
 	}
 	
 	private static void createDependencies(){

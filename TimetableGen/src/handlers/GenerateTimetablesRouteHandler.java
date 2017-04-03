@@ -37,6 +37,7 @@ public class GenerateTimetablesRouteHandler implements Route {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Object handle(Request request, Response response) throws Exception {
+		response.header("Access-Control-Allow-Origin", "*");
 		String reqJsonString = request.body();
 		JSONParser parser = new JSONParser();
 		JSONObject reqJson = (JSONObject) parser.parse(reqJsonString);
