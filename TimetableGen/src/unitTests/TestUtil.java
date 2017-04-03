@@ -11,12 +11,14 @@ import businessobject.Course;
 import businessobject.CourseOffering;
 import businessobject.TimeSlot;
 import businessobject.Timetable;
+import generation.TimetableCompare;
+
 import enums.CampusType;
 import enums.ClassType;
 import enums.Day;
 import enums.SemesterType;
 import enums.TimetableComparators;
-import generation.TimetableCompare;
+
 
 public class TestUtil {
 	

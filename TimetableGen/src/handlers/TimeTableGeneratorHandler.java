@@ -7,6 +7,7 @@ import java.util.Set;
 import com.sun.net.httpserver.HttpServer;
 
 import businessobject.CourseSelection;
+import businessobject.SemesterConfiguration;
 import businessobject.TimetableConfiguration;
 import generation.TimetableConfigurationGenerator;
 
@@ -19,10 +20,10 @@ public class TimeTableGeneratorHandler implements TimetableGenerationHandler {
 		this.generator = generator1;
 	}
 	@Override
-	public Set<TimetableConfiguration> generateTimetables(Set<CourseSelection> courseSelections) {
+	public Set<SemesterConfiguration> generateTimetables(Set<CourseSelection> courseSelections) {
 		// TODO Auto-generated method stub
 		
-		Set<TimetableConfiguration> configurations = generator.generateConfigurations(courseSelections);
+		Set<SemesterConfiguration> configurations = generator.generateConfigurations(courseSelections);
 		
 		
 		

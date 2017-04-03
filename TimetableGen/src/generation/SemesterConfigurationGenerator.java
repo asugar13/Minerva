@@ -8,7 +8,7 @@ import java.util.Set;
 import businessobject.CourseListing;
 import businessobject.CourseSelection;
 import businessobject.SemesterConfiguration;
-import businessobject.TimetableConfiguration;
+import businessobject.SemesterConfiguration;
 import dao.CourseListingDao;
 import enums.SemesterType;
 
@@ -20,9 +20,9 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 	}
 
 	@Override
-	public Set<TimetableConfiguration> generateConfigurations(Set<CourseSelection> courses) {
+	public Set<SemesterConfiguration> generateConfigurations(Set<CourseSelection> courses) {
 		// TODO Uses listingDao to get CourseOffering for each course, creates
-		// all possible TimetableConfigurations for 2 semesters given the
+		// all possible SemesterConfigurations for 2 semesters given the
 		// restrictions in CourseSelection and a maximum of 6 courses per
 		// semester
 		/*
@@ -54,13 +54,13 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		final Set<CourseListing> baseSem1 = new HashSet<>();
 		final Set<CourseListing> baseSem2 = new HashSet<>();
 		courses = addBaseCourses(courses, baseSem1, baseSem2);
-		Set<TimetableConfiguration> timetableConfigurations = new HashSet<>();
+		Set<SemesterConfiguration> SemesterConfigurations = new HashSet<>();
 		for (int k = 1; k <= 6; k++) {
 			if (k <= courses.size() && baseSem1.size() + k <= 6 && baseSem2.size() + courses.size() - k <= 6) {
-				timetableConfigurations.addAll(chooseCourses(new ArrayList<>(courses), k, baseSem1, baseSem2));
+				SemesterConfigurations.addAll(chooseCourses(new ArrayList<>(courses), k, baseSem1, baseSem2));
 			}
 		}
-		return timetableConfigurations;
+		return SemesterConfigurations;
 	}
 
 	private Set<CourseSelection> addBaseCourses(Set<CourseSelection> courses, Set<CourseListing> baseSem1,
@@ -84,17 +84,17 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 		return coursesCopy;
 	}
 
-	private Set<TimetableConfiguration> chooseCourses(List<CourseSelection> courses, int numChoose,
+	private Set<SemesterConfiguration> chooseCourses(List<CourseSelection> courses, int numChoose,
 			Set<CourseListing> baseSem1, Set<CourseListing> baseSem2) {
 		/*
-		 * Set<TimetableConfiguration> timetableConfigurations = new
+		 * Set<SemesterConfiguration> SemesterConfigurations = new
 		 * HashSet<>(); int numCourses = courses.size(); int r = 0; int i = 0;
 		 * Set<CourseListing> sem1 = new HashSet(baseSem1); Set<CourseListing>
 		 * sem2 = new HashSet(baseSem2); while(r >= 0){ if(i <= numCourses + r -
 		 * numChoose){ sem1.add(getCourse(courses.get(i).getCourseCode(),
 		 * SemesterType.FALL)); if(r == numChoose - 1){ courses. } } }
 		 */
-		Set<TimetableConfiguration> timetableConfigurations = new HashSet<>();
+		Set<SemesterConfiguration> SemesterConfigurations = new HashSet<>();
 		int numCourses = courses.size();
 		Set<CourseListing> sem1 = new HashSet<>(baseSem1);
 		Set<CourseListing> sem2 = new HashSet<>(baseSem2);
@@ -105,7 +105,7 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 				indices.add(i);
 			}
 			try {
-				timetableConfigurations.add(createTimetableConfiguration(courses, sem1, sem2, indices));
+				SemesterConfigurations.add(createSemesterConfiguration(courses, sem1, sem2, indices));
 			} catch (IllegalArgumentException e) {
 			}
 			sem1 = new HashSet<>(baseSem1);
@@ -124,7 +124,7 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 						indices.set(i, indices.get(i - 1) + 1);
 					}
 					try {
-						timetableConfigurations.add(createTimetableConfiguration(courses, sem1, sem2, indices));
+						SemesterConfigurations.add(createSemesterConfiguration(courses, sem1, sem2, indices));
 					} catch (IllegalArgumentException e) {
 					}
 					sem1 = new HashSet<>(baseSem1);
@@ -132,10 +132,10 @@ public class SemesterConfigurationGenerator implements TimetableConfigurationGen
 				}
 			}
 		}
-		return timetableConfigurations;
+		return SemesterConfigurations;
 	}
 
-	private TimetableConfiguration createTimetableConfiguration(List<CourseSelection> courses, Set<CourseListing> sem1,
+	private SemesterConfiguration createSemesterConfiguration(List<CourseSelection> courses, Set<CourseListing> sem1,
 			Set<CourseListing> sem2, List<Integer> indices) {
 		for (int i = 0; i < courses.size(); i++) {
 			CourseSelection courseSelection = courses.get(i);
