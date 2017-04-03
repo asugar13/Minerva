@@ -141,7 +141,7 @@ $(document).ready(function(){
         sessionStorage.setItem(key, $('input[name="' + key + '"]:checked').val());
       }
     });
-    location.href='/restrictions'
+    location.href='/result'
   });
 	
 })
