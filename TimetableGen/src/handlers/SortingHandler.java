@@ -48,7 +48,7 @@ public class SortingHandler {
 		return newConfig;
 	}
 
-	public List<Timetable> dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {
+	private List<Timetable> dayFilter(List<Day> DesiredDaysOff, List<Timetable> timetableList) {
 
 		List<Timetable> removeList = new ArrayList<>(timetableList);
 		

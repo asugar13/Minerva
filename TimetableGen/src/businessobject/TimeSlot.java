@@ -101,7 +101,7 @@ public class TimeSlot {
 
 	public JSONObject toJsonObject() {
 		JSONObject timeslot = new JSONObject();
-		timeslot.put("day", day);
+		timeslot.put("day", day.name());
 		timeslot.put("start", start / 3600);
 		timeslot.put("end", (start + duration) / 3600);
 		return timeslot;
