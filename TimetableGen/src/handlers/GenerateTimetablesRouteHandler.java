@@ -119,8 +119,7 @@ public class GenerateTimetablesRouteHandler implements Route {
 					semesterRestrictions.add(SemesterType.WINTER);
 					break;
 				case "Y":
-					semesterRestrictions.add(SemesterType.FALL);
-					semesterRestrictions.add(SemesterType.WINTER);
+					semesterRestrictions.add(SemesterType.YEAR);
 					break;
 				default:
 					break;
