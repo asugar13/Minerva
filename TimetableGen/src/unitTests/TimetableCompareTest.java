@@ -34,7 +34,7 @@ public class TimetableCompareTest {
 		Timetable t2 = TestUtil.createTimetable(testSet);
 		
 		int result = comparer.compare(t1, t2);
-		assertEquals(3, result);
+		assertEquals(1, result);
 	}
 	
 	@Test
@@ -178,7 +178,7 @@ public class TimetableCompareTest {
 		Timetable t2 = TestUtil.createTimetable(testSet);
 		
 		int result = comparer.compare(t1, t2);
-		assertTrue(result == 2);
+		assertTrue(result == 1);
 	}
 	
 	
