@@ -73,7 +73,7 @@ public class SemesterConfiguration implements TimetableConfiguration {
 		fallSem.put("timetables", fallTimetables);
 		winSem.put("timetables", winTimetables);
 		semesters.put("Fall", fallSem);
-		semesters.put("Winter", fallSem);
+		semesters.put("Winter", winSem);
 		return semesters;
 	}
 	
