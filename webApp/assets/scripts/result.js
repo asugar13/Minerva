@@ -1,5 +1,7 @@
 "use strict";
 
+var timetables;
+
 /**
  * Adds the buttons for scrolling through the different timetables for a
  * given configNum.
@@ -59,8 +61,11 @@ function changeConfigurations(){
     });
   }
   
-  drawTimetable(0, 0, "Fall");
-  drawTimetable(0, 0, "Winter");
+  if (timetables.configurations.length > 0){
+    drawTimetable(0, 0, "Fall");
+    drawTimetable(0, 0, "Winter");
+  }
+  
 }
 
 /**
@@ -145,9 +150,11 @@ function getRequest(){
       var semesters = sessionStorage.getItem(key);
       
       if (semesters == "None") {
-        request.courses.push({courseCode: key, semesters: ["F", "S"]});
+        request.courses.push({courseCode: key + "H1", semesters: ["F", "S"]});
+      } else if (semesters == "Y"){
+        request.courses.push({courseCode: key + "Y1", semesters: ["F", "S"]});
       } else {
-        request.courses.push({courseCode: key, semesters: [semesters]});
+        request.courses.push({courseCode: key + "H1", semesters: [semesters]});
       }
     }
   });
@@ -166,11 +173,11 @@ function getRequest(){
   return request;
 }
 
-$(document).ready(function(){
-  
-  var el = document.getElementById("sort-options");
-  var sortable = Sortable.create(el);
-  
+/**
+ * Get timetables from generate-timetable endpoint and display them on the page.
+ *
+ */
+ function getTimetables(){
   var request = getRequest();
     
   console.log("Request:")
@@ -184,235 +191,28 @@ $(document).ready(function(){
     data: JSON.stringify(request),
 
     success: function(result) {
+      timetables = JSON.parse(result);
+      
       console.log("Response:")
-      console.log(JSON.parse(result));
+      console.log(timetables);
+      
+      changeConfigurations();
     }
   });
+ }
+
+$(document).ready(function(){
   
-  changeConfigurations();
+  var el = document.getElementById("sort-options");
+  var sortable = Sortable.create(el);
+
+  getTimetables();
   
   $("#sort").click(function(){
-    var request = getRequest();
-    
-    console.log("Request:")
-    console.log(request);
+    getTimetables();
   });
   
   $("#back").click(function(){
     location.href='/'
   });
 })
-
-var timetables = 
-{
-  "configurations": [
-    {
-      "Winter": {
-        "timetables": [
-          {
-            "courses": [
-              {
-                "courseCode": "CSC302",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          },
-          {
-            "courses": [
-              {
-                "courseCode": "CSC302",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 9,
-                          "end": 10,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 9,
-                          "end": 10,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 9,
-                          "end": 10,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "configurationNumber": 0,
-      "Fall": {
-        "timetables": [
-          {
-            "courses": [
-              {
-                "courseCode": "CSC301",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 15,
-                          "end": 16,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "Winter": {
-        "timetables": [
-          {
-            "courses": [
-              {
-                "courseCode": "CSC302",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 11,
-                          "end": 12,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 11,
-                          "end": 12,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 11,
-                          "end": 12,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      "configurationNumber": 1,
-      "Fall": {
-        "timetables": [
-          {
-            "courses": [
-              {
-                "courseCode": "CSC301",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 12,
-                          "end": 13,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 12,
-                          "end": 13,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 12,
-                          "end": 13,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          },
-          {
-            "courses": [
-              {
-                "courseCode": "CSC302",
-                "classes": [
-                  {
-                    "LEC": {
-                      "classCode": "CSC301",
-                      "times": [
-                        {
-                          "start": 10,
-                          "end": 11,
-                          "day": "MONDAY"
-                        }, 
-                        {
-                          "start": 10,
-                          "end": 11,
-                          "day": "WEDNESDAY"
-                        }, 
-                        {
-                          "start": 10,
-                          "end": 11,
-                          "day": "FRIDAY"
-                        }
-                      ]
-                    }
-                  } 
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
