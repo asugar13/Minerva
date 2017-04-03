@@ -9,6 +9,7 @@ import dao.CourseListingDao;
 import dao.CourseLoader;
 import handlers.CourseInformationRouteHandler;
 import handlers.TestRoute;
+import handlers.TimeTableGeneratorHandler;
 
 public class RestServer {
 	
@@ -20,21 +21,12 @@ public class RestServer {
 		port(8800);
 		JSONParser parser = new JSONParser();
 		
-		JSONObject obj = new JSONObject();
-		obj.put("get", "info");
+
 		get("/course-information",  new CourseInformationRouteHandler(listingDao));
 		get("/test",  new TestRoute());
 		
 
-		post("/generate-timetable", (req, res) -> {
-			res.header("Access-Control-Allow-Origin", "*");
-			
-			JSONObject body = (JSONObject) parser.parse(req.body());
-			System.out.println(body);
-
-			// TODO: Generate and return timetable based on body
-			return obj.toJSONString();
-		});
+		post("/generate-timetable", new TimeTableGeneratorHandler(null));
 
 		System.out.println("Server started");
 	}
