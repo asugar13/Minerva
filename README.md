@@ -1,33 +1,18 @@
 ## **Welcome!** This is *team 22*
 
-### Feedback from TA / Things we need to consider improving
+### Instructions on how to run the Webapp
 
-1. UI
+- Go to the git repository directory using the command line
 
-  * **Color** to emphasize conflicts
+- CD to the webApp directory: cd webApp
 
-2. General
+- To run the node code: node src/server
+ (if you haven’t installed the node modules, the app won’t run, in that case type **npm install** before running the webApp to install the dependencies)
 
-  * Narrow down the target user to update filters
+- Open your browser and search: localhost:3000
 
-3. Video
-  
-  * Intro too long
-  
-  * Music too loud
-
-### What we need for final demo
-
-1. User story
-
-2. Value of our product
-
- - focus on problem instead of competition
+ Now, we need to run the JAVA server to make sure the node app gets all the relevant data (UofT courses dataset, filtered timetables…)
  
- - why our problem is difficult
- 
- - why each feature is important / valuable 
+- Run the server in the JAVA app by running the main method in RestServer.java
 
-3. Individual contribution explanation
-
-4. Technical question
+- Input your course selection and let us show you what your schedule possibilities are!
